@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { black, inactive, tertiary, persianGreen } from '../../../settings/colors';
 import { white } from '../../../style/colors';
 
 export const ButtonComponent = styled.button`
@@ -8,16 +9,16 @@ export const ButtonComponent = styled.button`
   font-weight: 500;
   cursor: pointer;
   :disabled {
-    background-color: ${props => props.loading ? '#3B2737' : '#AAAAAA'};
+    background-color: ${props => props.loading ? black : inactive};
     cursor: ${props => props.loading ? 'wait' : 'not-allowed'};
     :hover {
-      background-color: #AAAAAA;
+      background-color: ${inactive};
     }
   }
   ${(props) => {
     if (props.type === 'primary') {
       return `
-        background-color: #3B2737;
+        background-color: ${black};
         :hover {
           background-color: #96638C;
         }
@@ -28,7 +29,7 @@ export const ButtonComponent = styled.button`
     }
     if (props.type === 'secondary') {
       return `
-        background-color: #4ACAC1;
+        background-color: ${persianGreen};
         :hover {
           background-color: #71D5CE;
         }
@@ -39,7 +40,7 @@ export const ButtonComponent = styled.button`
     }
     if (props.type === 'tertiary') {
       return `
-        background-color: #DF4545;
+        background-color: ${tertiary};
         :hover {
           background-color: #EE9B9B;
         }
