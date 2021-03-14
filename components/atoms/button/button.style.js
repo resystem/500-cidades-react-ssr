@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import { black, inactive, tertiary, persianGreen } from '../../../settings/colors';
-import { white } from '../../../style/colors';
+import { black, inactive, tertiary, persianGreen, white } from '../../../settings/colors';
 
 export const ButtonComponent = styled.button`
   padding: 9px 24px;
