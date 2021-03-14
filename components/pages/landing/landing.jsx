@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '../../atoms/button/button';
+import Input from '../../atoms/input/input'
 import { Separator } from './landing.style';
 
 /**
@@ -31,6 +32,18 @@ const Landing = () => (
       <Button handleClick={() => console.log('FOOOI')} disabled>
         disabled
       </Button>
+    </Separator>
+    <Separator>
+      <Input placeholder="Texto" />
+    </Separator>
+    <Separator>
+      <Input placeholder="Texto" filled={true} />
+    </Separator>
+    <Separator>
+      <Input placeholder="Texto" success={true} />
+    </Separator>
+    <Separator>
+      <Input placeholder="Texto" error={true} />
     </Separator>
   </Separator>
 );
