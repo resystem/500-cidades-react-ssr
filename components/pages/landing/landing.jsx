@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from '../../atoms/button/button';
 import Input from '../../atoms/input/input'
+import Dropdown from '../../molecules/dropdown/dropdown';
 import { Separator } from './landing.style';
 
 /**
@@ -44,6 +45,9 @@ const Landing = () => (
     </Separator>
     <Separator>
       <Input placeholder="Texto" error={true} />
+    </Separator>
+    <Separator>
+      <Dropdown placeholder="Texto" />
     </Separator>
   </Separator>
 );
