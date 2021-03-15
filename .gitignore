@@ -52,3 +52,5 @@ amplifytools.xcconfig
 
 # env
 .env.production
+
+.vscode
