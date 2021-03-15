@@ -14,6 +14,7 @@ export const InputComponent = styled.input `
   height: 2em;
   font-size: 16px;
   padding: 0.2em;
+  border-radius: 5px;
   color: ${primaryMedium};
   caret-color: ${primaryMedium};
   background: ${neutralColor2};
