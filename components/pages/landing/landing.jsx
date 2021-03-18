@@ -47,6 +47,12 @@ const Landing = () => (
       <Input placeholder="Texto" error={true} />
     </Separator>
     <Separator>
+      <Dropdown placeholder="Texto" filled={true} />
+    </Separator>
+    <Separator>
+      <Dropdown placeholder="Texto" error={true} />
+    </Separator>
+    <Separator>
       <Dropdown placeholder="Texto" />
     </Separator>
   </Separator>

@@ -1,34 +1,55 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types'
-import { DropdownComponent, DropdownItem } from './dropdown.style';
-
+import { DropdownContainer, DropdownHeader, DropdownListContainer, DropdownList, ListItem, DropdownArrow } from './dropdown.style';
 
 /**
  * render the Dropdown molecule.
  */
- const Dropdown = ({
-  handleChange, customStyle,
-  disabled, onFocus, onBlur,
-  placeholder, error, filled,
-  options
-}) => (
-  <DropdownComponent
-    onChange={handleChange}
-    customStyle={customStyle}
-    disabled={disabled}
-    onFocus={onFocus}
-    onBlur={onBlur}
-    error={error}
-    placeholder={placeholder}
-    filled={filled}
-    options={options}
-  >
-    {/* {options.map((option) => { */}
-      <DropdownItem label="Texto" />
-      <DropdownItem label="Texto 2" />
-    {/* })} */}
-  </DropdownComponent>
-);
+ function Dropdown(props) {
+    const [isOpen, setIsOpen] = useState(false);
+    const [selectedOption, setSelectedOption] = useState(null);
+
+    const toggling = () => setIsOpen(!isOpen);
+
+    const onOptionClicked = value => () => {
+      setSelectedOption(value);
+      setIsOpen(false);
+      console.log(selectedOption);
+    };
+
+    const options = props.options || ["Sem opções disponíveis", "Sem opções disponíveis","Sem opções disponíveis"];
+
+    return(
+      <DropdownContainer
+        onChange={props.handleChange}
+        customStyle={props.customStyle}
+        disabled={props.disabled}
+        filled={props.filled}
+        error={props.error}
+        onClick={toggling}
+      >
+        {isOpen ?
+          <DropdownArrow src="/icons/arrow_dropup.svg" />
+          :
+          <DropdownArrow src="/icons/arrow_dropdown.svg" />
+        }
+        <DropdownHeader >
+          {selectedOption || props.placeholder}
+        </DropdownHeader>
+        {isOpen && (
+          <DropdownListContainer>
+            <DropdownList>
+              {options.map(option => (
+                <ListItem onClick={onOptionClicked(option)} key={Math.random()}>
+                  {option}
+                </ListItem>
+              ))}
+            </DropdownList>
+          </DropdownListContainer>
+        )}
+      </DropdownContainer>
+    )
+    };
 
 Dropdown.propTypes = {
   handleChange: PropTypes.func.isRequired,
