@@ -2,6 +2,8 @@ import React from 'react';
 import Button from '../../atoms/button/button';
 import InputCode from '../../atoms/input-code/inputCode';
 import Input from '../../atoms/input/input'
+import Dropdown from '../../molecules/dropdown/dropdown';
+import TextArea from '../../atoms/text_area/text_area';
 import { Separator } from './landing.style';
 
 /**
@@ -57,6 +59,20 @@ const Landing = () => (
     </Separator>
     <Separator>
       <InputCode id="maninho2" length={4} error={true} />
+      <Dropdown placeholder="Texto" filled={true} />
+    </Separator>
+    <Separator>
+      <Dropdown placeholder="Texto" error={true} />
+    </Separator>
+    <Separator>
+      <Dropdown placeholder="Texto" />
+      <TextArea placeholder="Texto"  rows={6}/>
+    </Separator>
+    <Separator>
+      <TextArea placeholder="Texto" success={true} rows={6}/>
+    </Separator>
+    <Separator>
+      <TextArea placeholder="Texto" error={true} rows={6}/>
     </Separator>
   </Separator>
 );
