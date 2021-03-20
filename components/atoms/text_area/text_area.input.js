@@ -9,9 +9,8 @@ import {
   brandTertiaryLightest
 } from '../../../style/colors';
 
-export const InputComponent = styled.input `
+export const TextAreaComponent = styled.textarea `
   width: 247px;
-  height: 2em;
   font-size: 16px;
   padding: 0.2em;
   border-radius: 5px;

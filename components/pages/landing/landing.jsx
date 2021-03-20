@@ -2,6 +2,8 @@ import React from 'react';
 import Button from '../../atoms/button/button';
 import InputPassword from '../../atoms/input-password/inputPassword';
 import Input from '../../atoms/input/input'
+import Dropdown from '../../molecules/dropdown/dropdown';
+import TextArea from '../../atoms/text_area/text_area';
 import { Separator } from './landing.style';
 
 /**
@@ -50,6 +52,20 @@ const Landing = () => (
       <InputPassword customStyle="margin: 10px 0;" placeholder="Senha" error={true} />
       <InputPassword customStyle="margin: 10px 0;" placeholder="Senha" success={true} />
       <InputPassword customStyle="margin: 10px 0;" placeholder="Senha" filled={true} />
+      <Dropdown placeholder="Texto" filled={true} />
+    </Separator>
+    <Separator>
+      <Dropdown placeholder="Texto" error={true} />
+    </Separator>
+    <Separator>
+      <Dropdown placeholder="Texto" />
+      <TextArea placeholder="Texto"  rows={6}/>
+    </Separator>
+    <Separator>
+      <TextArea placeholder="Texto" success={true} rows={6}/>
+    </Separator>
+    <Separator>
+      <TextArea placeholder="Texto" error={true} rows={6}/>
     </Separator>
   </Separator>
 );
