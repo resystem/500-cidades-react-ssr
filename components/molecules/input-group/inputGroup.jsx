@@ -15,7 +15,7 @@ const InputGroup = ({
   </Wrapper>
 );
 
-InputGroup.propTypes = {
+InputGroup.propTypes = { 
   children: PropTypes.node.isRequired,
   label: PropTypes.string,
   error: PropTypes.string,
