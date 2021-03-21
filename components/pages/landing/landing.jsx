@@ -2,7 +2,7 @@ import React from 'react';
 import Button from '../../atoms/button/button';
 import Input from '../../atoms/input/input'
 import Dropdown from '../../molecules/dropdown/dropdown';
-import TextArea from '../../atoms/text_area/text_area';
+import TextArea from '../../atoms/text-area/textArea';
 import { Separator } from './landing.style';
 
 /**
