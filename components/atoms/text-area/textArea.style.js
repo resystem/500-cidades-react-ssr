@@ -24,9 +24,6 @@ export const TextAreaComponent = styled.textarea `
   :focus {
     padding: 0.2em;
   }
-  :valid {
-    backgroung: ${brandSecondaryLightest}
-  }
   ${(props) => {
     if (props.success) {
       return `
