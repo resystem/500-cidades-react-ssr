@@ -4,6 +4,7 @@ import Input from '../../atoms/input/input'
 import Dropdown from '../../molecules/dropdown/dropdown';
 import TextArea from '../../atoms/text-area/textArea';
 import { Separator } from './landing.style';
+import InputGroup from '../../molecules/input-group/inputGroup';
 
 /**
  * This render the Landing template.
@@ -62,6 +63,21 @@ const Landing = () => (
     </Separator>
     <Separator>
       <TextArea placeholder="Texto" error={true} rows={6}/>
+    </Separator>
+    <Separator>
+      <InputGroup label="teste">
+        <Input placeholder="Texto" filled={true} />
+      </InputGroup>
+    </Separator>
+    <Separator>
+      <InputGroup label="teste required" isRequired>
+        <Input placeholder="Texto" filled={true} />
+      </InputGroup>
+    </Separator>
+    <Separator>
+      <InputGroup label="teste required with error" isRequired error="Teste de erro generico">
+      <Input placeholder="Texto" error={true} />
+      </InputGroup>
     </Separator>
   </Separator>
 );
