@@ -12,3 +12,6 @@ export const brandSecondaryLightest = "#E7F8F7";
 
 export const brandTertiaryLight = "#EE9B9B";
 export const brandTertiaryLightest = "#FDF2F2";
+
+export const TagMedium = "#FFED8B";
+export const TagDark = "#FFED8B";

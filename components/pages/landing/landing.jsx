@@ -3,6 +3,7 @@ import Button from '../../atoms/button/button';
 import Input from '../../atoms/input/input'
 import Dropdown from '../../molecules/dropdown/dropdown';
 import TextArea from '../../atoms/text-area/textArea';
+import TagList from '../../molecules/taglist/taglist';
 import { Separator } from './landing.style';
 
 /**
@@ -62,6 +63,9 @@ const Landing = () => (
     </Separator>
     <Separator>
       <TextArea placeholder="Texto" error={true} rows={6}/>
+    </Separator>
+    <Separator>
+      <TagList />
     </Separator>
   </Separator>
 );
