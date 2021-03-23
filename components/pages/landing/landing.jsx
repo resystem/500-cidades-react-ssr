@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '../../atoms/button/button';
+import InputCode from '../../atoms/input-code/inputCode';
 import Input from '../../atoms/input/input'
 import Dropdown from '../../molecules/dropdown/dropdown';
 import TextArea from '../../atoms/text-area/textArea';
@@ -50,6 +51,16 @@ const Landing = () => (
       <Input placeholder="Texto" error={true} />
     </Separator>
     <Separator>
+      <InputCode id="maninho" length={4} />
+    </Separator>
+    <Separator>
+      <InputCode id="maninho0" length={4} filled={true} />
+    </Separator>
+    <Separator>
+      <InputCode id="maninho1" length={4} success={true} />
+    </Separator>
+    <Separator>
+      <InputCode id="maninho2" length={4} error={true} />
       <Dropdown placeholder="Texto" filled={true} />
     </Separator>
     <Separator>
