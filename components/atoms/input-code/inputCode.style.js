@@ -5,17 +5,19 @@ import {
   primaryMedium,
   alertSuccessLight,
   brandSecondaryLightest,
-  brandTertiaryLight,
-  brandTertiaryLightest
+  brandTertiaryLightest,
+  brandTertiaryLight
 } from '../../../style/colors';
 
-export const TextAreaComponent = styled.textarea `
-  width: 247px;
-  font-size: 16px;
+export const InputComponent = styled.input`
+  width: 40px;
+  height: 44px;
+  font-size: 1.37em;
   padding: 0.2em;
-  border-radius: 5px;
   color: ${primaryMedium};
-  caret-color: ${primaryMedium};
+  text-align: center;
+  margin: 0 4px;
+  border-radius: 4px;
   background: ${neutralColor2};
   font-weight: 500;
   ::placeholder {
@@ -23,9 +25,7 @@ export const TextAreaComponent = styled.textarea `
   }
   :focus {
     padding: 0.2em;
-  }
-  :valid {
-    backgroung: ${brandSecondaryLightest}
+    margin: 0 4px;
   }
   ${(props) => {
     if (props.success) {
@@ -47,5 +47,22 @@ export const TextAreaComponent = styled.textarea `
       `;
     }
   }}
+  ${props => props.customStyle}
+`;
+
+export const Icon = styled.img`
+  width: 25px;
+  margin-left: 5px;
+  cursor: pointer;
+`;
+
+export const InputWrapper = styled.div`
+  width: 100%;
+  border-radius: 4px;
+  padding: 5px 10px;
+  color: ${primaryMedium};
+  background-color: transparent;
+  display: flex;
+  align-items: center;
   ${props => props.customStyle}
 `;

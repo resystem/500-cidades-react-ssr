@@ -1,9 +1,12 @@
 import React from 'react';
 import Button from '../../atoms/button/button';
 import InputPassword from '../../atoms/input-password/inputPassword';
+import InputCode from '../../atoms/input-code/inputCode';
 import Input from '../../atoms/input/input'
 import Dropdown from '../../molecules/dropdown/dropdown';
-import TextArea from '../../atoms/text_area/text_area';
+import TextArea from '../../atoms/text-area/textArea';
+import Checkbox from '../../molecules/checkbox/checkbox';
+import TagList from '../../molecules/taglist/taglist';
 import { Separator } from './landing.style';
 
 /**
@@ -52,6 +55,16 @@ const Landing = () => (
       <InputPassword customStyle="margin: 10px 0;" placeholder="Senha" error={true} />
       <InputPassword customStyle="margin: 10px 0;" placeholder="Senha" success={true} />
       <InputPassword customStyle="margin: 10px 0;" placeholder="Senha" filled={true} />
+      <InputCode id="maninho" length={4} />
+    </Separator>
+    <Separator>
+      <InputCode id="maninho0" length={4} filled={true} />
+    </Separator>
+    <Separator>
+      <InputCode id="maninho1" length={4} success={true} />
+    </Separator>
+    <Separator>
+      <InputCode id="maninho2" length={4} error={true} />
       <Dropdown placeholder="Texto" filled={true} />
     </Separator>
     <Separator>
@@ -66,6 +79,14 @@ const Landing = () => (
     </Separator>
     <Separator>
       <TextArea placeholder="Texto" error={true} rows={6}/>
+    </Separator>
+    <Separator>
+      <Checkbox>Instagram</Checkbox>
+      <Checkbox>Facebook</Checkbox>
+      <Checkbox>Linkedin</Checkbox>
+    </Separator>
+    <Separator>
+      <TagList />
     </Separator>
   </Separator>
 );

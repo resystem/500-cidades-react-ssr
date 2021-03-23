@@ -4,12 +4,13 @@ import {
   primaryMedium,
   brandSecondaryLightest,
   brandTertiaryLight,
-  brandTertiaryLightest
+  brandTertiaryLightest,
+  alertSuccessLight
 } from '../../../style/colors';
 import { white } from '../../../style/colors';
 
 
-export const DropdownContainer = styled.div `
+export const DropdownContainer = styled.div`
 position: relative;
 
   width: 247px;

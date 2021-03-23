@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types'
-import { TextAreaComponent } from './text_area.input';
+import { TextAreaComponent } from './textArea.style';
 
 
 /**
