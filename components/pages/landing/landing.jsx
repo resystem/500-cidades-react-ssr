@@ -6,14 +6,16 @@ import Input from '../../atoms/input/input'
 import Dropdown from '../../molecules/dropdown/dropdown';
 import TextArea from '../../atoms/text-area/textArea';
 import Checkbox from '../../molecules/checkbox/checkbox';
-import TagList from '../../molecules/taglist/taglist';
+import InputTagList from '../../molecules/input-taglist/inputTaglist';
 import { Separator } from './landing.style';
+import ActivistModal from '../../modals/activist/activist.modal';
 
 /**
  * This render the Landing template.
  */
 const Landing = () => (
   <Separator>
+    <ActivistModal />
     <Separator>
       <Button loading customStyle="margin: 10px;" handleClick={() => console.log('FOOOI')}>
         loading
@@ -55,16 +57,16 @@ const Landing = () => (
       <InputPassword customStyle="margin: 10px 0;" placeholder="Senha" error={true} />
       <InputPassword customStyle="margin: 10px 0;" placeholder="Senha" success={true} />
       <InputPassword customStyle="margin: 10px 0;" placeholder="Senha" filled={true} />
-      <InputCode id="maninho" length={4} />
+      <InputCode handleChange={() => ''} id="maninho" length={4} />
     </Separator>
     <Separator>
-      <InputCode id="maninho0" length={4} filled={true} />
+      <InputCode handleChange={() => ''} id="maninho0" length={4} filled={true} />
     </Separator>
     <Separator>
-      <InputCode id="maninho1" length={4} success={true} />
+      <InputCode handleChange={() => ''} id="maninho1" length={4} success={true} />
     </Separator>
     <Separator>
-      <InputCode id="maninho2" length={4} error={true} />
+      <InputCode handleChange={() => ''} id="maninho2" length={4} error={true} />
       <Dropdown placeholder="Texto" filled={true} />
     </Separator>
     <Separator>
@@ -86,7 +88,7 @@ const Landing = () => (
       <Checkbox>Linkedin</Checkbox>
     </Separator>
     <Separator>
-      <TagList />
+      <InputTagList />
     </Separator>
   </Separator>
 );

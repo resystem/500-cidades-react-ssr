@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "eslint . && next dev",
     "build": "next build && next export",
-    "start": "next start",
+    "start": "next start -p $PORT .",
     "lint": "eslint --fix .",
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
   },
@@ -41,8 +41,8 @@
     "next-with-apollo": "^5.1.1",
     "prettier": "^2.2.1",
     "prop-types": "^15.7.2",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
+    "react": "^0.0.0-ea155e226",
+    "react-dom": "^0.0.0-ea155e226",
     "styled-components": "^5.2.1"
   }
 }

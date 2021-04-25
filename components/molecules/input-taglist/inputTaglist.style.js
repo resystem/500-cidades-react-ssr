@@ -1,16 +1,19 @@
 import styled from 'styled-components';
 import {
   TagMedium,
+  TagDark,
   primaryMedium,
+  neutralColor2
 } from '../../../style/colors';
 
 export const TagListComponent = styled.div`
-  border-radius: 5px;
+background: ${neutralColor2};
+border-radius: 5px;
   display: flex;
   flex-wrap: wrap;
   padding: 5px 5px 0;
   width: 640px;
-  ${props => props.customStyle}
+  height: 2em;
 `;
 
 export const TagsList = styled.ul`
@@ -23,7 +26,7 @@ export const TagsList = styled.ul`
 
 export const Tag = styled.li`
   align-items: center;
-  background: #E7F8F7;
+  background: ${TagMedium};
   border-radius: 2px;
   color: ${primaryMedium};
   display: flex;
@@ -33,7 +36,9 @@ export const Tag = styled.li`
   margin-right: 5px;
   padding: 5px 10px;
   border-radius: 15px;
-  font-size: 0.9375em;
+  :hover {
+    background: ${TagDark};
+  }
 `;
 
 export const TagRemove = styled.button`
