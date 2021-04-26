@@ -1,0 +1,25 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo runing yarn install...
+      - yarn
+  pre_build:
+    commands:
+      - echo started at `date`
+  build:
+    commands:
+      - echo Build started on `date`
+      - yarn build
+  post_build:
+    commands:
+      - echo Build completed on `date`
+artifacts:
+  files:
+    - .next/**/*
+    - public/**/*
+    - .ebextenstions/**/*
+    - package.json
+
+

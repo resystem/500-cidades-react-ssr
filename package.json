@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "eslint . && next dev",
     "build": "next build && next export",
-    "start": "next start",
+    "start": "next start -p $PORT .",
     "lint": "eslint --fix .",
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
   },
