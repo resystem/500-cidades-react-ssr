@@ -19,13 +19,11 @@ const I18n = () => {
   const selectedLanguage = i18n.language // Idioma selecionado
   return (
     <div className="flags-container">
-      // Bandeira do Brasil
       <Flag
         image={BrasilFlag}
         isSelected={selectedLanguage === 'pt-BR'} // Verifica o idioma escolhido
         onClick={() => handleChangeLanguage('pt-BR')} // Troca o idioma para pt-BR
       />
-      // Bandeira dos EUA
       <Flag
         image={EuaFlag}
         isSelected={selectedLanguage === 'en-US'} // Verifica o idioma escolhido
