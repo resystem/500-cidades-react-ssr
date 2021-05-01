@@ -4,6 +4,7 @@ import InputPassword from '../../atoms/input-password/inputPassword';
 import InputCode from '../../atoms/input-code/inputCode';
 import Input from '../../atoms/input/input'
 import Dropdown from '../../molecules/dropdown/dropdown';
+import ColectiveCard from '../../molecules/colective-card/colectiveCard';
 import TextArea from '../../atoms/text-area/textArea';
 import Checkbox from '../../molecules/checkbox/checkbox';
 import InputTagList from '../../molecules/input-taglist/inputTaglist';
@@ -90,6 +91,7 @@ const Landing = () => (
     <Separator>
       <InputTagList />
     </Separator>
+    <ColectiveCard />
   </Separator>
 );
 
