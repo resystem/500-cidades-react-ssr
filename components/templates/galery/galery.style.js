@@ -42,6 +42,8 @@ export const ImagesContainer = styled.div`
 export const Frame = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   margin: 8px;
   margin-left: 0;
   ${props => props.onClick ? 'cursor: pointer;' : ''}
@@ -51,6 +53,14 @@ export const Image = styled.img`
   width: 100%;
   border-radius: 8px;
   margin-left: 0;
+  margin-bottom: 8px;
+  object-fit: fill;
+  ${props => props.circlePicture ? `
+      border-radius: 100%;
+      width: 100px;
+      height: 100px;
+    ` : ''
+  }
 `;
 
 export const ImageText = styled.label`
@@ -58,6 +68,7 @@ export const ImageText = styled.label`
   font-size: 0.875em;
   font-weight: 500;
   text-align: center;
+  width: 100%;
 `;
 
 
