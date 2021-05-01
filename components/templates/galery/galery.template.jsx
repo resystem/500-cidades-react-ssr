@@ -22,7 +22,7 @@ const Galery = ({
   title,
   columns,
   handleClick,
-
+  circlePicture,
 }) => (
   <Wrapper customStyle={customStyle}>
     <Header>
@@ -33,8 +33,8 @@ const Galery = ({
       {
         images.slice(0, (columns * lines)).map((img) => (
           <Frame onClick={handleClick}>
-            <Image src={img[200].mimified}/>
-            {showTitle && <ImageText>{img.title}</ImageText>}
+            <Image circlePicture={circlePicture} src={img[200].mimified}/>
+            {showTitle && <ImageText circlePicture={circlePicture}>{img.title}</ImageText>}
           </Frame>
         ))
       }
@@ -45,12 +45,13 @@ const Galery = ({
 Galery.propTypes = {
   images: PropTypes.array.isRequired,
   customStyle: PropTypes.string,
-  lines: PropTypes.number,
+  circlePicture: PropTypes.boolean,
 };
 
 Galery.defaultProps = {
   customStyle: '',
   lines: 2,
+  circlePicture: true,
   columns: 3,
   images: [
     {
