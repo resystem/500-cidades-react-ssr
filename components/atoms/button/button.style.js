@@ -48,6 +48,20 @@ export const ButtonComponent = styled.button`
         }
       `;
     }
+    if (props.type === 'outline') {
+      return `
+        background-color: #FFF;
+        border: 2px solid #4ACAC1;
+        color: #96638C;
+        :hover {
+          opacity: .7;
+        }
+        :active {
+          background-color: #4ACAC1;
+          color: #FFF;
+        }
+      `;
+    }
   }}
   ${props => props.customStyle}
 `;

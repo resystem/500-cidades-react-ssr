@@ -10,6 +10,7 @@ import Checkbox from '../../molecules/checkbox/checkbox';
 import InputTagList from '../../molecules/input-taglist/inputTaglist';
 import { Separator } from './landing.style';
 import ActivistModal from '../../modals/activist/activist.modal';
+import FloatIcon from '../../templates/float-icon/floatIcon.template';
 
 /**
  * This render the Landing template.
@@ -91,6 +92,7 @@ const Landing = () => (
     <Separator>
       <InputTagList />
     </Separator>
+    <FloatIcon />
     <ColectiveCard />
   </Separator>
 );
