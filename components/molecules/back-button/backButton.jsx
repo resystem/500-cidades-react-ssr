@@ -10,19 +10,21 @@ import {
  * render the ActivistModal atom.
  */
 const BackButton = ({
-  handleClick,
+  handleClick, hideLabel,
 }) => (
   <BackContainer onClick={handleClick}>
     <BackIcon src="/icons/arrow_left.svg" />
-    <Label>Voltar</Label>
+    {hideLabel || <Label>Voltar</Label>}
   </BackContainer>
 );
 
 BackButton.propTypes = {
   handleClick: PropTypes.func.isRequired,
+  hideLabel: PropTypes.bool,
 };
 
 BackButton.defaultProps = {
+  hideLabel: false,
 };
 
 export default BackButton;

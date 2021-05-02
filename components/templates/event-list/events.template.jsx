@@ -13,7 +13,7 @@ import {
 import EventCard from '../../organisms/event-card/eventCard';
 
 /**
- * render the ActivistModal atom.
+ * render the EventList template.
  */
 const EventList = ({
   events,

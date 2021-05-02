@@ -13,8 +13,14 @@ export const Image = styled.img`
   height: 94px;
   margin-right: 10px;
   cursor: pointer;
-  object-fit: fill;
+  object-fit: cover;
   border-radius: 8px;
+  ${props => props.isHorizontalPhoto ? 'width: 136px;' : ''}
+  ${props => props.hasBorderRadius ? `
+    border-radius: 100%;
+    width: 94px;
+    height: 94px;
+  ` : ''}
 `;
 
 export const Label = styled.label`

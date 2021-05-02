@@ -47,6 +47,7 @@ EventCard.defaultProps = {
   area: 'Vivência',
   type: 'Dança circular',
   isSubscribed: false,
+  customStyle: '',
 };
 
 export default EventCard;
