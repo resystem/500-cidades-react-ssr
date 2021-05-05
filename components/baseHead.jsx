@@ -30,6 +30,12 @@ const BaseHead = ({ description, keywords, title, imageUrl }) => (
     <link rel="stylesheet" href="/css/reset.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
     <link rel="stylesheet" href="/css/globals.css" />
+    {/* <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" /> */}
+    {/* <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" /> */}
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.js" />
+
+
 
     {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
     <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.G_TAG}`} />
