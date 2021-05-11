@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { StoreProvider } from '../store/Store';
 
 const modalsInitialState = {
-  activist: false
+  activist: false,
+  oportunity: false
 };
 
 /**
@@ -14,7 +15,7 @@ const Main = ({
   const [auth, setAuth] = useState(null);
   const [idaSDK, setIdaSDK] = useState(null);
   const [modals, setModals] = useState({
-    activist: true,
+    oportunity: true,
   });
 
   const closeModal = () => {
@@ -26,14 +27,14 @@ const Main = ({
     newModals[modalToOpen] = true;
     setModals(newModals);
   };
-  
+
   const values = {
     auth, setAuth,
     idaSDK, setIdaSDK,
     modals, closeModal, openModal,
   };
-  
-  
+
+
   return (
     <StoreProvider values={values}>
       <Component {...pageProps} />
