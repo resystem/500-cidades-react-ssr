@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import { black, inactive, tertiary, persianGreen } from '../../../settings/colors';
-import { white } from '../../../style/colors';
+import { black, inactive, tertiary, persianGreen, white } from '../../../settings/colors';
 
 export const ButtonComponent = styled.button`
   padding: 9px 24px;
@@ -46,6 +45,20 @@ export const ButtonComponent = styled.button`
         }
         :active {
           background-color: #981A1A;
+        }
+      `;
+    }
+    if (props.type === 'outline') {
+      return `
+        background-color: #FFF;
+        border: 2px solid #4ACAC1;
+        color: #96638C;
+        :hover {
+          opacity: .7;
+        }
+        :active {
+          background-color: #4ACAC1;
+          color: #FFF;
         }
       `;
     }

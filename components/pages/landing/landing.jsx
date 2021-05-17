@@ -1,16 +1,26 @@
 import React from 'react';
 import Button from '../../atoms/button/button';
+import InputPassword from '../../atoms/input-password/inputPassword';
+import InputCode from '../../atoms/input-code/inputCode';
 import Input from '../../atoms/input/input'
 import Dropdown from '../../molecules/dropdown/dropdown';
+import FollowCard from '../../molecules/follow-card/followCard';
 import TextArea from '../../atoms/text-area/textArea';
+import Checkbox from '../../molecules/checkbox/checkbox';
+import InputTagList from '../../molecules/input-taglist/inputTaglist';
 import { Separator } from './landing.style';
 import InputGroup from '../../molecules/input-group/inputGroup';
+import ActivistModal from '../../modals/activist/activist.modal';
+import PlaceCard from '../../organisms/place-card/placeCard';
+import FloatIcon from '../../templates/float-icon/floatIcon.template';
+import SeeMoreModal from '../../modals/seeMore/seeMore.modal';
 
 /**
  * This render the Landing template.
  */
 const Landing = () => (
   <Separator>
+    <ActivistModal />
     <Separator>
       <Button loading customStyle="margin: 10px;" handleClick={() => console.log('FOOOI')}>
         loading
@@ -49,6 +59,19 @@ const Landing = () => (
       <Input placeholder="Texto" error={true} />
     </Separator>
     <Separator>
+      <InputPassword customStyle="margin: 10px 0;" placeholder="Senha" error={true} />
+      <InputPassword customStyle="margin: 10px 0;" placeholder="Senha" success={true} />
+      <InputPassword customStyle="margin: 10px 0;" placeholder="Senha" filled={true} />
+      <InputCode handleChange={() => ''} id="maninho" length={4} />
+    </Separator>
+    <Separator>
+      <InputCode handleChange={() => ''} id="maninho0" length={4} filled={true} />
+    </Separator>
+    <Separator>
+      <InputCode handleChange={() => ''} id="maninho1" length={4} success={true} />
+    </Separator>
+    <Separator>
+      <InputCode handleChange={() => ''} id="maninho2" length={4} error={true} />
       <Dropdown placeholder="Texto" filled={true} />
     </Separator>
     <Separator>
@@ -79,6 +102,20 @@ const Landing = () => (
       <Input placeholder="Texto" error={true} />
       </InputGroup>
     </Separator>
+    <Separator>
+      <Checkbox>Instagram</Checkbox>
+      <Checkbox>Facebook</Checkbox>
+      <Checkbox>Linkedin</Checkbox>
+    </Separator>
+    <Separator>
+      <InputTagList />
+    </Separator>
+    <Separator>
+      <PlaceCard />
+    </Separator>
+    <FloatIcon />
+    <FollowCard />
+    <SeeMoreModal />
   </Separator>
 );
 

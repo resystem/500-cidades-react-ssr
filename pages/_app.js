@@ -1,6 +1,6 @@
 import React from 'react';
 import App from 'next/app';
-import { StoreProvider } from '../store/Store';
+import Main from '../components/Main';
 
 export default class MyApp extends App {
   constructor(props) {
@@ -8,11 +8,10 @@ export default class MyApp extends App {
   }
 
   render() {
-    const {Component,pageProps}=this.props;
+    const { Component, pageProps } = this.props;
+    
     return (
-      <StoreProvider>
-          <Component {...pageProps} />
-      </StoreProvider>
+      <Main Component={Component} pageProps={pageProps} />
     );
   }
 }
