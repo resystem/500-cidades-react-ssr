@@ -3,9 +3,9 @@ import React, { useEffect, useLayoutEffect, useState } from 'react';
 import { MapContainer, Marker, TileLayer,  } from 'react-leaflet';
 import { DivIcon } from 'leaflet';
 import ReactDOMServer from 'react-dom/server'
-import { PinContainer, Image } from './activistPin.style';
+import { PinContainer, Image } from './spacePin.style';
 
-const ActivistPin = ({ imageUrl }) => ReactDOMServer.renderToString(
+const SpacePin = ({ imageUrl }) => ReactDOMServer.renderToString(
   <PinContainer>
     <svg width="80" height="80" viewBox="0 0 112 145" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g filter="url(#filter0_f)">
@@ -15,7 +15,7 @@ const ActivistPin = ({ imageUrl }) => ReactDOMServer.renderToString(
       <g opacity="0.5" filter="url(#filter1_f)">
         <ellipse cx="56" cy="136.5" rx="34" ry="3.5" fill="#3B2737"/>
       </g>
-      <circle cx="56" cy="56" r="48" fill={`url(#${imageUrl}1)`}/>
+      <circle cx="56" cy="56" r="48" fill="url(#pattern0)"/>
       <defs>
         <filter id="filter0_f" x="6.63721" y="62.8457" width="41.0321" height="13.1556" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
           <feFlood flood-opacity="0" result="BackgroundImageFix"/>
@@ -27,15 +27,15 @@ const ActivistPin = ({ imageUrl }) => ReactDOMServer.renderToString(
           <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
           <feGaussianBlur stdDeviation="2.5" result="effect1_foregroundBlur"/>
         </filter>
-        <pattern id={`${imageUrl}1`} patternContentUnits="objectBoundingBox" width="1" height="1">
-          <use xlinkHref={`#${imageUrl}`} transform="translate(-0.16 -0.40) scale(0.00187729)"/>
+        <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+          <use xlinkHref="#image0" transform="translate(-0.16 -0.40) scale(0.00187729)"/>
         </pattern>
-        <Image id={imageUrl} src={imageUrl}  xlinkHref={imageUrl}/>
+        <Image id="image0"  xlinkHref={imageUrl}/>
       </defs>
       </svg>
   </PinContainer>
 );
 
 
-export default ActivistPin;
+export default SpacePin;
 

@@ -6,11 +6,10 @@ import styled from 'styled-components';
 export const Wrapper = styled.section`
   height: 100vh;
   width: 100vw;
-  background-color: rgba(0,0,0,.7);
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 2;
+  z-index: 5;
 `;
 
 export const Container = styled.div`

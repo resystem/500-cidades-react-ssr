@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
-export const Separator = styled.div`
-  padding: 10px;
+export const Container = styled.div`
+  height: 100vh;
+  overflow: hidden;
+`;
+
+export const MapContainer = styled.div`
+  z-index: 0;
 `;

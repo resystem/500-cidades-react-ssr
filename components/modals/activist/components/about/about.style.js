@@ -16,8 +16,10 @@ export const AboutContainer = styled.div`
 
 export const ProfileImage = styled.img`
   width: 150px;
+  height: 150px;
   border-radius: 100%;
   margin-right: 22px;
+  object-fit: cover;
 `;
 
 export const AgentDetails = styled.div`

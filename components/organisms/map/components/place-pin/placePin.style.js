@@ -10,4 +10,3 @@ export const Image = styled.image`
   height: 1000px;
   object-fit: fill;
 `;
-

@@ -19,11 +19,11 @@ import {
  * render the About atom.
  */
 const About = ({
-  name, location, facebook, instagram, twitter, tiktok,
+  name, location, facebook, instagram, twitter, tiktok, avatarImage
 }) => (
   <AboutWrapper>
     <AboutContainer>
-      <ProfileImage src="/images/avatar_dummy.png" />
+      <ProfileImage src={avatarImage} />
       <AgentDetails>
         <Name>{name}</Name>
         <Location>{location}</Location>

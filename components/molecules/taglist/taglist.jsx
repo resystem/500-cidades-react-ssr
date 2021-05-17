@@ -5,7 +5,6 @@ import { TagListComponent, TagsList, Tag, TagRemove, TagsInput, TagInput } from 
 const TagList = ({
   tags, showRemoveButton, customStyle
 }) => {
-  console.log('🚀 ~ tags', tags);
 
   return (
     <TagListComponent customStyle={customStyle}>

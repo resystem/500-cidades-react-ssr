@@ -1,0 +1,48 @@
+import { getRandomInArray } from '../utils/random.util';
+
+export const songList =  [
+  'O Mundo é um Moinho -  Cartola- Cartola',
+  'Clube da Esquina nº 2 -  Milton Nascimento e Lô Borges Márcio Borges',
+  'Águas de Março -  Elis Regina e Tom Jobim',
+  'Chega de Saudade -  João Gilberto, Tom Jobim e Vinícius de Moraes',
+  'Construção -  Chico Buarque',
+  'Metamorfose Ambulante -  Raul Seixas',
+  'Aquarela do Brasil -  João Gilberto e Ary Barroso',
+  'Garota de Ipanema -  Pery Ribeiro, Tom Jobim e Vinícius de Moraes',
+  'Trem das Onze -  Demônios da Garoa, Adoniran Barbosa',
+  'Carinhoso -  Marisa Monte, Paulinho da Viola, Pixinguinha e João de Barro',
+  'Felicidade -  Caetano Veloso e Lupicínio Rodrigues',
+  'Panis et Circenses -  Os Mutantes, Caetano Veloso e Gilberto Gil',
+  'Eu Sei Que Vou te Amar -  Maria Creuza, Vinicius de Moraes e Tom Jobim',
+  'Primavera -  Tim Maia, Cassiano e Sílvio Rochael',
+  'Sampa -  Caetano Veloso',
+  'Travessia -  Milton Nascimento, Fernando Brant',
+  'Vapor Barato -  Gal Costa, Jards Macalé e Waly Salomão',
+  'Asa Branca -  Luiz Gonzaga e Humberto Teixeira',
+  'Aquarela -  Toquinho, Vinícius de Moraes e Maurizio Fabrizio',
+  'Rosa de Hiroshima -  Secos & Molhados, Gérson Conrad e Vinicius de Moraes',
+  'O Ciúme -  Caetano Veloso',
+  'Ideologia -  Cazuza e Frejat',
+  'Pérola Negra -  Luiz Melodia',
+  'Índios -  Legião Urbana, Renato Russo',
+  'Sangrando -  Gonzaguinha',
+  'Como Nossos Pais -  Elis Regina, Belchior',
+  'Mas que Nada -  Jorge Ben Jor',
+  'Brasil Pandeiro -  Novos Baianos, Assis Valente',
+  'O Bêbado e a Equilibrista -  João Bosco, Aldir Blanc',
+  'Ouro de Tolo -  Raul Seixas',
+  'Sá Marina -  Wilson Simonal, Antonio Adolfo e Tibério Gaspar',
+  'Pra Não Dizer Que Não Falei das Flores -  Geraldo Vandré',
+  'Comida -  Titãs, Arnaldo Antunes, Marcelo Fromer, Sérgio Britto',
+  'Alucinação -  Belchior',
+  'País Tropical -  Wilson Simonal, Jorge Ben Jor',
+  'Me Chama -  Lobão e Os Ronaldos, Lobão',
+  'Corsário -  João Bosco, João Bosco e Aldir Blanc',
+  'Ovelha Negra -  Rita Lee',
+  'Da Lama ao Caos -  Chico Science & Nação Zumb, Chico Science',
+  'Casa no Campo -  Elis Regina, Zé Rodrix e Tavito',
+];
+
+export const getRandomBook = () => {
+  return getRandomInArray(songList);
+}

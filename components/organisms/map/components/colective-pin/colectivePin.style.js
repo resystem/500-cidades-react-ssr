@@ -5,9 +5,3 @@ export const PinContainer = styled.div`
   border: none;
 `;
 
-export const Image = styled.image`
-  width: 667px;
-  height: 1000px;
-  object-fit: fill;
-`;
-

@@ -14,7 +14,6 @@ import { DropdownContainer, DropdownHeader, DropdownListContainer, DropdownList,
     const onOptionClicked = value => () => {
       setSelectedOption(value);
       setIsOpen(false);
-      console.log(selectedOption);
     };
 
     const options = props.options || ["Sem opções disponíveis", "Sem opções disponíveis","Sem opções disponíveis"];
