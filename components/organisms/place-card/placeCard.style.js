@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Wrapper = styled.section`
   display: flex;
   flex-direction: row;
-  max-width: 600px;
+  width: 100%;
   ${props => props.customStyle}
 `;
 
@@ -17,9 +17,10 @@ export const Container = styled.div`
 `;
 
 export const Image = styled.img`
-  max-width: 136px;
-  max-height: 94px;
+  width: 136px;
+  height: 94px;
   border-radius: 8px;
+  object-fit: cover;
 `;
 
 export const Name = styled.label`
