@@ -1,0 +1,27 @@
+import styled from "styled-components"
+import { error } from "../../../settings/colors";
+
+export const Wrapper  = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+`;
+
+export const RequiredSign = styled.span`
+  color: ${error};
+  font-size: 0.75em;
+`;
+
+export const Label = styled.label`
+  padding-left: 16px;
+  font-size: 0.75em;
+`;
+
+export const Error = styled.span`
+  padding-left: 16px;
+  padding-top: 4px;
+  font-size: 0.75em;
+  color: ${error};
+`;

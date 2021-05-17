@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { StoreProvider } from '../store/Store';
 
 const modalsInitialState = {
-  activist: false
+  activist: false,
+  seeMore: true,
 };
 
 /**
@@ -13,24 +14,26 @@ const Main = ({
 }) => {
   const [auth, setAuth] = useState(null);
   const [idaSDK, setIdaSDK] = useState(null);
-  const [modals, setModals] = useState({
-    activist: true,
-  });
+  const [modals, setModals] = useState(modalsInitialState);
+  const [modalInfo, setModalInfo] = useState(null);
 
   const closeModal = () => {
     setModals(modalsInitialState);
+    setModalInfo({});
   };
 
-  const openModal = (modalToOpen) => {
+  const openModal = (modalToOpen, info) => {
     const newModals = modalsInitialState;
     newModals[modalToOpen] = true;
     setModals(newModals);
+    if (info) setModalInfo(info);
   };
   
   const values = {
     auth, setAuth,
     idaSDK, setIdaSDK,
     modals, closeModal, openModal,
+    modals, modalInfo,
   };
   
   

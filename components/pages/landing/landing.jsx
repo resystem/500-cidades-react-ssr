@@ -4,14 +4,16 @@ import InputPassword from '../../atoms/input-password/inputPassword';
 import InputCode from '../../atoms/input-code/inputCode';
 import Input from '../../atoms/input/input'
 import Dropdown from '../../molecules/dropdown/dropdown';
-import ColectiveCard from '../../molecules/colective-card/colectiveCard';
+import FollowCard from '../../molecules/follow-card/followCard';
 import TextArea from '../../atoms/text-area/textArea';
 import Checkbox from '../../molecules/checkbox/checkbox';
 import InputTagList from '../../molecules/input-taglist/inputTaglist';
 import { Separator } from './landing.style';
+import InputGroup from '../../molecules/input-group/inputGroup';
 import ActivistModal from '../../modals/activist/activist.modal';
 import PlaceCard from '../../organisms/place-card/placeCard';
 import FloatIcon from '../../templates/float-icon/floatIcon.template';
+import SeeMoreModal from '../../modals/seeMore/seeMore.modal';
 
 /**
  * This render the Landing template.
@@ -86,6 +88,21 @@ const Landing = () => (
       <TextArea placeholder="Texto" error={true} rows={6}/>
     </Separator>
     <Separator>
+      <InputGroup label="teste">
+        <Input placeholder="Texto" filled={true} />
+      </InputGroup>
+    </Separator>
+    <Separator>
+      <InputGroup label="teste required" isRequired>
+        <Input placeholder="Texto" filled={true} />
+      </InputGroup>
+    </Separator>
+    <Separator>
+      <InputGroup label="teste required with error" isRequired error="Teste de erro generico">
+      <Input placeholder="Texto" error={true} />
+      </InputGroup>
+    </Separator>
+    <Separator>
       <Checkbox>Instagram</Checkbox>
       <Checkbox>Facebook</Checkbox>
       <Checkbox>Linkedin</Checkbox>
@@ -97,7 +114,8 @@ const Landing = () => (
       <PlaceCard />
     </Separator>
     <FloatIcon />
-    <ColectiveCard />
+    <FollowCard />
+    <SeeMoreModal />
   </Separator>
 );
 

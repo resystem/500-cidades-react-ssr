@@ -4,7 +4,6 @@ export const BackContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100px;
   cursor: pointer;
   `;
 
