@@ -11,7 +11,9 @@ export default class MyApp extends App {
     const { Component, pageProps } = this.props;
     
     return (
-      <Main Component={Component} pageProps={pageProps} />
+      <Main  >
+        <Component {...pageProps} />
+      </Main>
     );
   }
 }

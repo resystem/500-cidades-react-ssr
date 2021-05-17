@@ -14,7 +14,7 @@ const modalsInitialState = {
  * render the Main.
  */
 const Main = ({
-  Component, pageProps,
+  children,
 }) => {
   const [auth, setAuth] = useState(null);
   const [idaSDK, setIdaSDK] = useState(null);
@@ -39,27 +39,11 @@ const Main = ({
     idaSDK, setIdaSDK,
     modals, closeModal, openModal,
     modalInfo, activists, setActivists,
-  };
-
-  useEffect(() => {
-    const myActivists = [];
-    let number = getRandomNumber(dummyCoordinates.length);
-    if (number < 8) number = 15;
-    for (let i = 0; i< number; i++) {
-      const newAct = new Activist();
-      newAct.generateActivist();
-      myActivists.push(newAct);
-    }
-    setActivists(myActivists.map((a, i) => {
-      a.setId(i)
-      return a;
-    }));
-  }, []);
-  
+  }; 
   
   return (
     <StoreProvider values={values}>
-      <Component {...pageProps} />
+      {children}
     </StoreProvider>
   );
 }

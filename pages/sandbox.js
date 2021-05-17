@@ -8,10 +8,10 @@ import '../components/I18n';
  * This render the Home template.
  */
 const Home = () => (
-  <>
+  <div>
     <BaseHead />
     <Sandbox />
-  </>
+  </div>
 );
 
 export default Home;

@@ -3,13 +3,14 @@ import React, { useContext, useEffect, useLayoutEffect, useState } from 'react';
 import { Map, Marker, TileLayer  } from 'react-leaflet';
 import { DivIcon } from 'leaflet';
 import styled from 'styled-components';
-import ReactDOMServer from 'react-dom/server'
 import ActivistPin from './components/activist-pin/activistPin';
 import ColectivePin from './components/colective-pin/colectivePin';
 import PlacePin from './components/place-pin/placePin';
 import SpacePin from './components/space/spacePin';
 import Store from '../../../store/Store';
 import { dummyCoordinates } from '../../../dummies/locations';
+import { getRandomNumber } from '../../../utils/random.util';
+import { Activist } from '../../../models/activist.model';
 
 const MapComp = styled.div`
   height: 90vh;
@@ -62,31 +63,31 @@ const renderMarkers = (markers, openActivistModal) => markers.map((marker) => (
   </Marker>
 ))
 
-// const RenderEvents = () => {
-//   const map = useMapEvents({
-//     click: (e) => {
-//     console.log('🚀 ~ click', e.latlng)
-//     },
-//     locationfound: (location) => {
-//       console.log('location found:', location)
-//     },
-//   })
-//   return null;
-// }
-
 const MapComponent = () => {
-  const { openModal, modals, activists } = useContext(Store);
+  const { openModal, modals, activists, setActivists } = useContext(Store);
   const openActivistModal = (data) => {
     openModal('activist', { activist_id: data.id });
   };
-  
+  useEffect(() => {
+    const myActivists = [];
+    let number = getRandomNumber(dummyCoordinates.length);
+    if (number < 8) number = 15;
+    for (let i = 0; i< number; i++) {
+      const newAct = new Activist();
+      newAct.generateActivist();
+      myActivists.push(newAct);
+    }
+    setActivists(myActivists.map((a, i) => {
+      a.setId(i)
+      return a;
+    }));
+  }, []);
 
   return (
     <>
       <Map click={() => console.log('CLOCK')} style={{ width: '100%', height: '100vh', zIndex: 0, padding: 0 }} center={[47.379, 8.5375]} zoom={11} >
         <TileLayer url="http://ec2-52-36-191-196.us-west-2.compute.amazonaws.com/styles/basic-preview/{z}/{x}/{y}.png"/>
         {renderMarkers(activists, openActivistModal)}
-        {/* {<RenderEvents />} */}
       </Map>
       <button
         onClick={() => addPin(getRandomPin(), map)}>
