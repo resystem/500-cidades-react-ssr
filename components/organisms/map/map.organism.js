@@ -1,6 +1,6 @@
 /*global L*/
 import React, { useContext, useEffect, useLayoutEffect, useState } from 'react';
-import { MapContainer, Marker, TileLayer, useMapEvents  } from 'react-leaflet';
+import { Map, Marker, TileLayer  } from 'react-leaflet';
 import { DivIcon } from 'leaflet';
 import styled from 'styled-components';
 import ReactDOMServer from 'react-dom/server'
@@ -56,29 +56,25 @@ const renderMarkers = (markers, openActivistModal) => markers.map((marker) => (
     iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
     shadowAnchor: [4, 62],  // the same for the shadow
     })}
+    onclick={() =>  openActivistModal(marker)}
     position={marker.geolocation}
-    eventHandlers={{
-      click: (e) => {
-        openActivistModal(marker)
-      },
-    }}
   >
   </Marker>
 ))
 
-const RenderEvents = () => {
-  const map = useMapEvents({
-    click: (e) => {
-    console.log('🚀 ~ click', e.latlng)
-    },
-    locationfound: (location) => {
-      console.log('location found:', location)
-    },
-  })
-  return null;
-}
+// const RenderEvents = () => {
+//   const map = useMapEvents({
+//     click: (e) => {
+//     console.log('🚀 ~ click', e.latlng)
+//     },
+//     locationfound: (location) => {
+//       console.log('location found:', location)
+//     },
+//   })
+//   return null;
+// }
 
-const Map = () => {
+const MapComponent = () => {
   const { openModal, modals, activists } = useContext(Store);
   const openActivistModal = (data) => {
     openModal('activist', { activist_id: data.id });
@@ -87,11 +83,11 @@ const Map = () => {
 
   return (
     <>
-      <MapContainer click={() => console.log('CLOCK')} style={{ width: '100%', height: '100vh', zIndex: 0, padding: 0 }} center={[47.379, 8.5375]} zoom={11} >
+      <Map click={() => console.log('CLOCK')} style={{ width: '100%', height: '100vh', zIndex: 0, padding: 0 }} center={[47.379, 8.5375]} zoom={11} >
         <TileLayer url="http://ec2-52-36-191-196.us-west-2.compute.amazonaws.com/styles/basic-preview/{z}/{x}/{y}.png"/>
         {renderMarkers(activists, openActivistModal)}
-        {<RenderEvents />}
-      </MapContainer>
+        {/* {<RenderEvents />} */}
+      </Map>
       <button
         onClick={() => addPin(getRandomPin(), map)}>
           lalala
@@ -101,5 +97,5 @@ const Map = () => {
 }
 
 
-export default Map;
+export default MapComponent;
 
