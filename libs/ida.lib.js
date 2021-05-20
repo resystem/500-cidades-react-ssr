@@ -1,6 +1,10 @@
+import dynamic from "next/dynamic";
+
+const ida = dynamic(() => import("@resystem/ida-js-sdk"), {
+  ssr: false
+});
 /* eslint-disable no-undef */
 /* eslint-disable no-async-promise-executor */
-const ida = async () => await import('@resystem/ida-js-sdk');
 
 // ida configurations, contains the app keys
 const idaConfiguration = {

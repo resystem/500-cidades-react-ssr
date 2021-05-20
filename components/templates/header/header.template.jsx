@@ -16,7 +16,7 @@ import Store from '../../../store/Store';
  */
 const Header = ({
 }) => {
-  const { idaSDK } = useContext(Store);
+  // const { idaSDK } = useContext(Store);
   const [showLanguages, setShowLanguages] = useState(false);
   const [selected, setSelected] = useState('map');
   return (

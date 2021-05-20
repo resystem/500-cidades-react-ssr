@@ -1,11 +1,7 @@
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import { useEffect } from 'react/cjs/react.development';
-import { dummyCoordinates } from '../../dummies/locations';
-import { Activist } from '../../models/activist.model';
 import { StoreProvider } from '../../store/Store';
-import { getRandomNumber } from '../../utils/random.util';
-import Header from '../templates/header/header.template';
 import { initIDA } from './main.controller';
 
 const modalsInitialState = {
@@ -21,7 +17,10 @@ const Main = ({
 }) => {
   const router = useRouter();
   const [auth, setAuth] = useState(null);
-  const [idaSDK, setIdaSDK] = useState(null);
+  const [idaSDK, setIdaSDK] = useState({
+    signinWithPopup: () => '',
+    signupWithPopup: () => '',
+  });
   const [modals, setModals] = useState(modalsInitialState);
   const [modalInfo, setModalInfo] = useState(null);
   const [activists, setActivists] = useState([]);
@@ -46,9 +45,9 @@ const Main = ({
     modalInfo, activists, setActivists,
   }; 
 
-  useEffect(() => {
-    initIDA(setShowLoading, setAuth, setIdaSDK, router);
-  }, []);
+  // useEffect(() => {
+  //   initIDA(setShowLoading, setAuth, setIdaSDK, router);
+  // }, []);
   
   return (
     <StoreProvider values={values}>

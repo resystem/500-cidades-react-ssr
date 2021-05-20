@@ -11,20 +11,9 @@ module.exports = withCSS({
   cssLoaderOptions: {
     url: false
   },
-  webpack: (config) => ({
-    ...config,
-    module: {
-      rules: [
-        ...config.module.rules,
-        {
-          test: /\.css$/,
-          loader: 'emit-file-loader',
-        },
-        {
-          test: /\.css$/,
-          use: ['babel-loader', 'raw-loader', 'postcss-loader'],
-        },
-      ],
-    },
-  }),
+  webpack: (config) => {
+    config.resolve.extensions = ['.js', '.jsx', ...config.resolve.extensions];
+    config.resolve.modules.push(path.resolve('./'));
+    return config;
+  }
 });
