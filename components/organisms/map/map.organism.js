@@ -1,8 +1,7 @@
 /*global L*/
-import React, { useContext, useEffect, useLayoutEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Map, Marker, TileLayer  } from 'react-leaflet';
 import { DivIcon } from 'leaflet';
-import styled from 'styled-components';
 import ActivistPin from './components/activist-pin/activistPin';
 import ColectivePin from './components/colective-pin/colectivePin';
 import PlacePin from './components/place-pin/placePin';
@@ -12,20 +11,10 @@ import { dummyCoordinates } from '../../../dummies/locations';
 import { getRandomNumber } from '../../../utils/random.util';
 import { Activist } from '../../../models/activist.model';
 
-const MapComp = styled.div`
-  height: 90vh;
-  width: 100%;
-  overflow: hidden;
-`;
-
 const getRandomPin = () => {
   const n = Math.floor((Math.random() * dummyCoordinates.length));
   return dummyCoordinates[n];
 }
-
-const renderLixo = () => (
-  <div>salveMlk</div>
-)
 
 const getPin = (type, imageUrl) => {
   if (type === 'activist') return ActivistPin({ imageUrl });
@@ -34,19 +23,6 @@ const getPin = (type, imageUrl) => {
   if (type === 'place') return PlacePin({ imageUrl })
   if (type === 'oportunity') return 'pin_activist'
   else return 'pin_activist'
-}
-
-const addPin = (pin, map) => {
-  var greenIcon = new DivIcon({
-    iconUrl: `/icons/${getPin(pin.type)}.svg`,
-  });
-
-  const options = {
-    icon: undefined,
-    children: <div>eee</div>
-  };
-
-  L.marker(pin.coords, options).addTo(map);
 }
 
 const renderMarkers = (markers, openActivistModal) => markers.map((marker) => (
@@ -85,14 +61,10 @@ const MapComponent = () => {
 
   return (
     <>
-      <Map click={() => console.log('CLOCK')} style={{ width: '100%', height: '100vh', zIndex: 0, padding: 0 }} center={[47.379, 8.5375]} zoom={11} >
+      <Map click={() => console.log('CLOCK')} style={{ width: '100%', height: 'calc(100vh - 50px)', zIndex: 0, padding: 0 }} center={[47.379, 8.5375]} zoom={11} >
         <TileLayer url="http://ec2-52-36-191-196.us-west-2.compute.amazonaws.com/styles/basic-preview/{z}/{x}/{y}.png"/>
         {renderMarkers(activists, openActivistModal)}
       </Map>
-      <button
-        onClick={() => addPin(getRandomPin(), map)}>
-          lalala
-      </button>
     </>
   )
 }

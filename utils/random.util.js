@@ -20,7 +20,6 @@ export const getRandomInArray = (array) => {
 }
 
 export const getNRandomStringsInArray = (array, n) => {
-  console.log('🚀 ~ 1')
   let strings = []
   let string = ''
   const length = array.length;

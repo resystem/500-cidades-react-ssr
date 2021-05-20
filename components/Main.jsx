@@ -4,6 +4,7 @@ import { dummyCoordinates } from '../dummies/locations';
 import { Activist } from '../models/activist.model';
 import { StoreProvider } from '../store/Store';
 import { getRandomNumber } from '../utils/random.util';
+import Header from './templates/header/header.template';
 
 const modalsInitialState = {
   activist: false,
@@ -43,6 +44,7 @@ const Main = ({
   
   return (
     <StoreProvider values={values}>
+      <Header />
       {children}
     </StoreProvider>
   );
