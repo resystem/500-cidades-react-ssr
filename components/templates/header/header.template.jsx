@@ -8,12 +8,15 @@ import {
 } from './header.style';
 import Button from '../../atoms/button/button';
 import LanguageDropdown from '../../organisms/language-dropdown/languageDropdown';
+import { useContext } from 'react/cjs/react.development';
+import Store from '../../../store/Store';
 
 /**
  * render the EventList template.
  */
 const Header = ({
 }) => {
+  const { idaSDK } = useContext(Store);
   const [showLanguages, setShowLanguages] = useState(false);
   const [selected, setSelected] = useState('map');
   return (
@@ -46,8 +49,8 @@ const Header = ({
       </Left>
       <Logo src="/icons/logo.svg"/>
       <UnLoggedSection>
-        <Button customStyle={loginButtonCustomStyle}>Entrar</Button>
-        <Button customStyle={signinButtonCustomStyle}>Crie sua conta</Button>
+        <Button handleClick={() => idaSDK.signinWithPopup()} customStyle={loginButtonCustomStyle}>Entrar</Button>
+        <Button handleClick={() => idaSDK.signupWithPopup()} customStyle={signinButtonCustomStyle}>Crie sua conta</Button>
       </UnLoggedSection>
     </Wrapper>
   );
