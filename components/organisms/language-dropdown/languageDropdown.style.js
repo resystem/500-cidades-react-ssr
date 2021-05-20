@@ -42,7 +42,7 @@ export const LanguagesList = styled.ul`
   background-color: #fff;
   width: 150px;
   ${
-    props => (props.display ? '' : 'display: none;')
+    props => (props.show ? '' : 'display: none;')
   }
 `;
 

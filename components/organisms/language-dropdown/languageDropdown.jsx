@@ -18,7 +18,7 @@ const LanguageDropdown = ({
     <LanguageButton onClick={() => setShowLanguages(!showLanguages)}>
       <CurrentLanguageIcon src={`/icons/${selected}.svg`} />
       <DropDownIcon src="/icons/arrow_drop_down.svg" />
-      <LanguagesList display={showLanguages}>
+      <LanguagesList show={showLanguages}>
         <LanguageItem onClick={() => setSelected('pt_BR')}>
           <LanguageIcon
             isSelected={selected === 'pt_BR'}
