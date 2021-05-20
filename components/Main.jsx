@@ -44,7 +44,6 @@ const Main = ({
   
   return (
     <StoreProvider values={values}>
-      <Header />
       {children}
     </StoreProvider>
   );

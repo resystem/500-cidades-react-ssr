@@ -10,6 +10,7 @@ import Store from '../../../store/Store';
 import { dummyCoordinates } from '../../../dummies/locations';
 import { getRandomNumber } from '../../../utils/random.util';
 import { Activist } from '../../../models/activist.model';
+import Header from '../../templates/header/header.template';
 
 const getRandomPin = () => {
   const n = Math.floor((Math.random() * dummyCoordinates.length));

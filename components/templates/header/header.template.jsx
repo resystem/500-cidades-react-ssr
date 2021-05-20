@@ -5,8 +5,6 @@ import {
   signinButtonCustomStyle,
   List, Item,
   Left,
-  LanguagesList, LanguageItem,
-  LanguageIcon, LanguageText,
 } from './header.style';
 import Button from '../../atoms/button/button';
 import LanguageDropdown from '../../organisms/language-dropdown/languageDropdown';
@@ -18,7 +16,6 @@ const Header = ({
 }) => {
   const [showLanguages, setShowLanguages] = useState(false);
   const [selected, setSelected] = useState('map');
-  console.log('🚀 ~ showLanguages', showLanguages)
   return (
     <Wrapper>
       <Left>
