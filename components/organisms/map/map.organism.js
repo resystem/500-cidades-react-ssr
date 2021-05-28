@@ -28,7 +28,7 @@ const getPin = (type, imageUrl) => {
 const renderMarkers = (markers, openActivistModal) => markers.map((marker) => (
   <Marker icon={new DivIcon({
     html: getPin('activist', marker.avatar_image),
-    iconSize:     [38, 95], // size of the icon
+    iconSize:     [95, 95], // size of the icon
     shadowSize:   [50, 64], // size of the shadow
     iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
     shadowAnchor: [4, 62],  // the same for the shadow
@@ -46,7 +46,7 @@ const MapComponent = () => {
   const [zoom, setZoom] = useState(5);
 
   const openActivistModal = (data) => {
-    openModal('activist', { activist_id: data.id });
+    openModal('activist', { activist: data });
   };
 
   useEffect(() => {

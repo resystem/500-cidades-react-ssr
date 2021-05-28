@@ -41,11 +41,11 @@ import Store from '../../../store/Store';
  */
 const ActivistModal = ({
 }) => {
-  // const { closeModal, modals, modalInfo, activists } = useContext(Store)
-  // if (!modals.activist || !modalInfo) return null;
-  // const activist = activists[modalInfo.activist_id]
-  // if (!activist) return null;
-  return null;
+  const { closeModal, modals, modalInfo, activists } = useContext(Store)
+  if (!modals.activist || !modalInfo) return null;
+  const activist = modalInfo.activist;
+  if (!activist) return null;
+  // return null;
   return (
     <Wrapper onClick={() => closeModal()}>
       <Container onClick={e => e.stopPropagation()}>
@@ -55,8 +55,8 @@ const ActivistModal = ({
         </Header>
         <About
           avatarImage={activist.avatar_image}
-          name={`${activist.name} ${activist.last_name}`}
-          location="São Bernardo do Campo - SP"
+          name={`${activist.name}`}
+          location={`${activist.address?.city} - ${activist.address?.state}`}
           facebook={activist.facebook}
           twitter={activist.twitter}
           instagram={activist.instagram}
@@ -68,24 +68,24 @@ const ActivistModal = ({
         </Biography>
         <Contact>
           <SectionTitle>Informações pessoais</SectionTitle>
-          <ContactInfo
+         {/*  <ContactInfo
             iconPath="/icons/world.svg"
             text={activist.web_site}
-          />
+          /> */}
           <ContactInfo
             iconPath="/icons/mail.svg"
             text={activist.email}
           />
-          <ContactInfo
+          {/* <ContactInfo
             iconPath="/icons/phone.svg"
             text={activist.phone}
-          />
+          /> */}
           <ContactInfo
             iconPath="/icons/whatsapp.svg"
             text={activist.whatsapp}
           />
         </Contact>
-        <Characteristic
+        {/* <Characteristic
           label="Identidade de Gênero"
           value={activist.gender}
         />
@@ -128,8 +128,8 @@ const ActivistModal = ({
         <Characteristic
           label="Cidade natal"
           value="Porto Seguro - BA"
-        />
-        <Galery
+        /> */}
+       {/*  <Galery
           title="Galeria"
           customStyle="margin-top: 40px;"
         />
@@ -170,53 +170,53 @@ const ActivistModal = ({
           customStyle={sectionTitleCustomStyle}
         >Areas de interesse</SectionTitle>
         <TagList tags={activist.interests} customStyle={maxWidthCustomStyle} />
-        
+         */}
         <Line />
         
         <Characteristic
           label="Endereço"
-          value="São Bernardo do Campo - SP"
+          value={`${activist.address?.city} - ${activist.address?.state}`}
         />
-        <Characteristic
+        {/* <Characteristic
           label="Pode ser um ponto de hospedagem?"
           value="Sim"
-        />
-        <SectionTitle
+        /> */}
+        {/* <SectionTitle
           customStyle={sectionTitleCustomStyle}
         >Mais informações</SectionTitle>
         <Characteristic
           label="Formação"
           value={activist.degree}
-        />
-        <SectionTitle customStyle={sectionSmallTitleCustomStyle} >Hobbies</SectionTitle>
-        <TagList tags={activist.hobbies} customStyle={maxWidthCustomStyle} />
+        /> */}
+       {/*  <SectionTitle customStyle={sectionSmallTitleCustomStyle} >Hobbies</SectionTitle>
+        <TagList tags={activist.hobbies || undefined} customStyle={maxWidthCustomStyle} />
   
         <SectionTitle customStyle={sectionSmallTitleCustomStyle} >Livros</SectionTitle>
-        <TagList tags={activist.books} customStyle={maxWidthCustomStyle} />
+        <TagList tags={activist.books || undefined} customStyle={maxWidthCustomStyle} />
   
         <SectionTitle customStyle={sectionSmallTitleCustomStyle} >Músicas</SectionTitle>
-        <TagList tags={activist.songs} customStyle={maxWidthCustomStyle} />
+        <TagList tags={activist.songs || undefined} customStyle={maxWidthCustomStyle} />
         
         <SectionTitle customStyle={sectionSmallTitleCustomStyle} >Comidas</SectionTitle>
-        <TagList tags={activist.foods} customStyle={maxWidthCustomStyle} />
+        <TagList tags={activist.foods || undefined} customStyle={maxWidthCustomStyle} />
         
         <SectionTitle customStyle={sectionSmallTitleCustomStyle} >Filmes</SectionTitle>
-        <TagList tags={activist.movies} customStyle={maxWidthCustomStyle} />
+        <TagList tags={activist.movies || undefined} customStyle={maxWidthCustomStyle} />
         
         <SectionTitle customStyle={sectionSmallTitleCustomStyle} >Séries</SectionTitle>
-        <TagList tags={activist.series} customStyle={maxWidthCustomStyle} />
+        <TagList tags={activist.series || undefined} customStyle={maxWidthCustomStyle} />
         
         <SectionTitle customStyle={sectionSmallTitleCustomStyle} >Sonhos</SectionTitle>
-        <TagList tags={activist.dreams} customStyle={maxWidthCustomStyle} />
+        <TagList tags={activist.dreams || undefined} customStyle={maxWidthCustomStyle} />
         
         <SectionTitle customStyle={sectionSmallTitleCustomStyle} >Lugares favoritos</SectionTitle>
-        <TagList tags={activist.favorite_places} customStyle={maxWidthCustomStyle} />
+        <TagList tags={activist.favorite_places || undefined} customStyle={maxWidthCustomStyle} />
         
         <SectionTitle customStyle={sectionSmallTitleCustomStyle} >Lugares que gostaria de conhecer</SectionTitle>
-        <TagList tags={activist.places_wanna_visit} customStyle={maxWidthCustomStyle} />
+        <TagList tags={activist.places_wanna_visit || undefined} customStyle={maxWidthCustomStyle} />
         
         <SectionTitle customStyle={sectionSmallTitleCustomStyle} >Como pode colaborar com esta comunidade?</SectionTitle>
-        <TagList tags={activist.how_collaborate} customStyle={maxWidthCustomStyle} />
+        <TagList tags={activist.how_collaborate || undefined} customStyle={maxWidthCustomStyle} /> */}
       </Container>
     </Wrapper>
   );

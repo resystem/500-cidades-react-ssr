@@ -27,7 +27,7 @@ TagList.propTypes = {
 
 TagList.defaultProps = {
   customStyle: '',
-  tags: ['fala', 'outra tag', 'vai mandar', 'WIIIIIIIIII', 'vai mandar, vai mandar', 'WIIIIIIIIIII']
+  tags: []
 };
 
 export default TagList;
