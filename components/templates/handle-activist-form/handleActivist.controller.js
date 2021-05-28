@@ -4,7 +4,6 @@ const getMapsProperty = (placeResults, id) => {
 }
 
 export const submitProxy = (values, handleSubmit, setErrors) => {
-console.log('🚀 ~ values', values);
   const errors = {};
   let hasError = false;
 
@@ -57,7 +56,6 @@ console.log('🚀 ~ values', values);
     hasError = true;
   }
 
-  console.log('🚀 ~ errors', errors);
   if (Object.keys(errors).length) setErrors(errors)
   else handleSubmit(values);
 };
