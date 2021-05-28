@@ -7,6 +7,7 @@ export const Wrapper  = styled.div`
   flex-direction: column;
   align-items: left;
   justify-content: center;
+  ${props => props.customStyle}
 `;
 
 export const RequiredSign = styled.span`
@@ -17,6 +18,7 @@ export const RequiredSign = styled.span`
 export const Label = styled.label`
   padding-left: 16px;
   font-size: 0.75em;
+  ${props => props.customStyle}
 `;
 
 export const Error = styled.span`

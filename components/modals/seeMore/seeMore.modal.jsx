@@ -75,6 +75,7 @@ const renderPlaces = (places) => places.map((place) => (
 const SeeMoreModal = ({
   activist,
 }) => {
+
   const state = useContext(Store)
   const info = state.modalInfo || {
     type: 'oportunity',

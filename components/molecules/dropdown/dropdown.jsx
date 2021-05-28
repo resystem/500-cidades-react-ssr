@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types'
 import { DropdownContainer, DropdownHeader, DropdownListContainer, DropdownList, ListItem, DropdownArrow } from './dropdown.style';
+import { useEffect } from 'react';
 
 /**
  * render the Dropdown molecule.
@@ -16,7 +17,11 @@ import { DropdownContainer, DropdownHeader, DropdownListContainer, DropdownList,
       setIsOpen(false);
     };
 
-    const options = props.options || ["Sem opções disponíveis", "Sem opções disponíveis","Sem opções disponíveis"];
+    useEffect(() => {
+      if (props.handleChange) props.handleChange({ target: { value: selectedOption, id: props.id }});
+    }, [selectedOption])
+
+    const options = props.options;
 
     return(
       <DropdownContainer
@@ -27,13 +32,13 @@ import { DropdownContainer, DropdownHeader, DropdownListContainer, DropdownList,
         error={props.error}
         onClick={toggling}
       >
-        {isOpen ?
-          <DropdownArrow src="/icons/arrow_dropup.svg" />
-          :
-          <DropdownArrow src="/icons/arrow_dropdown.svg" />
-        }
         <DropdownHeader >
           {selectedOption || props.placeholder}
+          {isOpen ?
+            <DropdownArrow src="/icons/arrow_dropup.svg" />
+            :
+            <DropdownArrow src="/icons/arrow_dropdown.svg" />
+          }
         </DropdownHeader>
         {isOpen && (
           <DropdownListContainer>
@@ -58,15 +63,18 @@ Dropdown.propTypes = {
   onBlur: PropTypes.func,
   error: PropTypes.bool,
   placeholder: PropTypes.string,
+  id: PropTypes.string,
   filled: PropTypes.bool,
-//   options: PropTypes.object({
-//       label: PropTypes.string,
-//       id: PropTypes.string
-//     })
 };
 
 Dropdown.defaultProps = {
+  options: [
+    "Sem opções disponíveis",
+    "Sem opções disponíveis",
+    "Sem opções disponíveis",
+  ],
   customStyle: '',
+  id: '',
   disabled: false,
   onFocus: () => '',
   onBlur: () => '',

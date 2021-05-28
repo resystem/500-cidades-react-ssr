@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.nav`
+export const Wrapper = styled.div`
   background-color: #3B2737;
   width: 100%;
   height: 50px;
@@ -14,10 +14,17 @@ export const Wrapper = styled.nav`
 
 export const Logo = styled.img`
   max-height: 35px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
 `;
 
-export const UnLoggedSection = styled.div`
- 
+export const UserSection = styled.div`
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  ${props => props.onClick ? 'cursor: pointer' : ''}
 `;
 
 export const loginButtonCustomStyle = `
@@ -26,6 +33,7 @@ export const loginButtonCustomStyle = `
   color: #3B2737;
   font-weight: 600;
   front-size: 1em;
+  cursor: pointer;
 `;
 
 export const signinButtonCustomStyle = `
@@ -34,6 +42,7 @@ export const signinButtonCustomStyle = `
   margin-left: 16px;
   font-weight: 600;
   front-size: 1em;
+  cursor: pointer;
 `;
 
 export const List = styled.ul`
@@ -56,4 +65,17 @@ export const Left = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+export const ProfileImage = styled.img`
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 100%;
+  margin-left: 10px;
+  border: 2px solid #FFF;
+`;
+
+export const ProfileName = styled.label`
+  color: #FFF
 `;

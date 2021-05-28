@@ -41,10 +41,11 @@ import Store from '../../../store/Store';
  */
 const ActivistModal = ({
 }) => {
-  const { closeModal, modals, modalInfo, activists } = useContext(Store)
-  if (!modals.activist || !modalInfo) return null;
-  const activist = activists[modalInfo.activist_id]
-  if (!activist) return null;
+  // const { closeModal, modals, modalInfo, activists } = useContext(Store)
+  // if (!modals.activist || !modalInfo) return null;
+  // const activist = activists[modalInfo.activist_id]
+  // if (!activist) return null;
+  return null;
   return (
     <Wrapper onClick={() => closeModal()}>
       <Container onClick={e => e.stopPropagation()}>

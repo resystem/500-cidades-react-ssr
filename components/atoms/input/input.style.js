@@ -11,22 +11,21 @@ import {
 
 export const InputComponent = styled.input `
   width: 247px;
-  height: 2em;
-  font-size: 16px;
-  padding: 0.2em;
+  font-size: 1rem;
   border-radius: 5px;
+  padding: 11px 16px;
   color: ${primaryMedium};
   caret-color: ${primaryMedium};
-  background: ${neutralColor2};
+  background-color: #E7F8F7;
   font-weight: 500;
   ::placeholder {
     color: ${neutralColor5};
   }
   :focus {
-    padding: 0.2em;
+    padding: 11px 16px;
   }
   :valid {
-    backgroung: ${brandSecondaryLightest}
+     background-color: ${brandSecondaryLightest}
   }
   ${(props) => {
     if (props.success) {

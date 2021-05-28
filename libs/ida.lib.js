@@ -1,15 +1,13 @@
 import dynamic from "next/dynamic";
 
-const ida = dynamic(() => import("@resystem/ida-js-sdk"), {
-  ssr: false
-});
+const ida = async () => await import('@resystem/ida-js-sdk');
 /* eslint-disable no-undef */
 /* eslint-disable no-async-promise-executor */
 
 // ida configurations, contains the app keys
 const idaConfiguration = {
-  appId: process.env.IDA_API_ID,
-  appKey: process.env.IDA_API_KEY
+  appId: process.env.IDA_APP_ID,
+  appKey: process.env.IDA_APP_KEY
 };
 
 /**
@@ -25,7 +23,7 @@ export const init = ({ onAuthChange }) =>
       ...idaConfiguration,
       onAuthChange,
       onLoad: (payload) => res(payload),
-      onOpen: (data) => console.log('Initialized IDa!', data)
+      onOpen: (data) => console.log('Initialized IDa!')
     });
   });
 

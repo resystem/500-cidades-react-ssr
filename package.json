@@ -1,25 +1,15 @@
 {
   "name": "500-cidades-2.0",
   "version": "1.0.0",
+  "private": true,
   "description": "",
-  "main": "index.js",
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export",
-    "start": "next start -p $PORT .",
+    "build": "NODE_ENV=production next build && next export",
+    "start": "node_modules/next/dist/bin/next start",
     "lint": "eslint --fix .",
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/resystem/500-cidades-2.0.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/resystem/500-cidades-2.0/issues"
-  },
-  "homepage": "https://github.com/resystem/500-cidades-2.0#readme",
   "dependencies": {
     "@apollo/react-hooks": "^4.0.0",
     "@resystem/ida-js-sdk": "^0.2.6",
@@ -41,15 +31,16 @@
     "i18next-browser-languagedetector": "^6.1.0",
     "leaflet": "^1.7.1",
     "moment": "^2.29.1",
-    "next": "^10.0.7",
+    "next": "^10.0.3",
     "next-with-apollo": "^5.1.1",
     "npm": "^7.13.0",
     "prettier": "^2.2.1",
     "prop-types": "^15.7.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "react-i18next": "^11.8.13",
     "react-leaflet": "^2.7.0",
-    "styled-components": "^5.2.1"
+    "styled-components": "^5.2.1",
+    "webpack": "^5.37.1"
   }
 }

@@ -61,5 +61,5 @@ export const LanguageItem = styled.li`
 `;
 
 export const LanguageText = styled.label`
-  
+  background-color: transparent;
 `;

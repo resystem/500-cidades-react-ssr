@@ -1,14 +1,30 @@
 import { init } from '../../libs/ida.lib';
-import { getUser, createUser } from './main.repository';
+import { getUser, createUser, getAllUsers } from './main.repository';
 
 /**
- * this find user on S.O.M api by the ida and set in global state
- * @param {string} ida this is the ativist identifier to search on S.O.M api
+ * this find user on 500 cidades api by the ida and set in global state
+ * @param {string} ida this is the ativist identifier to search on 500 cidades api
  * @param {function} dispatch this set new global state
  * @param {object} router this is the a manager app router
  */
-export const fetchLoggedUser = async (ida, router) => {
- 
+export const fetchLoggedUser = async (auth, openRegisterModal, setUser) => {
+  const user = await getUser(auth.ida);
+  if (!user.data.oneUser) openRegisterModal();
+  else setUser(user.data.oneUser)
+};
+
+/**
+ * this get all users in api
+ * @param {function} dispatch this set new global state
+ * @param {object} router this is the a manager app router
+ */
+export const getActivists = async (setActivists) => {
+  console.log('🚀 ~ setActivists');
+  const users = await getAllUsers();
+  console.log('🚀 ~ users', users);
+  if (users.data.allUsers?.length) setActivists(users.data.allUsers);
+  // if (!user.data.oneUser) openRegisterModal();
+  // else setUser(user.data.oneUser)
 };
 
 /**
@@ -23,13 +39,6 @@ export const initIDA = async (setShowLoading, setAuth, setIdaSDK, router) => {
   try {
     sdk = await init({
       onAuthChange: (auth) => {
-        if (auth) {
-          fetchLoggedUser(auth.ida, router);
-        } else {
-          setShowLoading(false);
-        }
-
-        // setta o usuário IDa na context API
         setAuth(auth);
       }
     });

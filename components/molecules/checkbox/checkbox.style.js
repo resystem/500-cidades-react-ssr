@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { primaryMedium, brandSecondaryMedium, BrandPrimaryMedium, neutralColor5 } from '../../../style/colors';
 
 export const CheckboxContainer = styled.div`
-  width: 120px;
   height: 35px;
   padding-left: 5px;
   margin: 0px 4px;
@@ -21,7 +20,7 @@ export const Icon = styled.svg`
 export const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
   border: 0;
   clip: rect(0 0 0 0);
-  clippath: inset(50%);
+  clip-path: inset(50%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
@@ -41,7 +40,7 @@ export const StyledCheckbox = styled.label`
   height: 24px;
   border-radius: 3px;
   transition: all 150ms;
-  border: 1px solid;
+  border: 2px solid #E9DDE6;
   margin-right: 2px;
   :hover {
     background-color: ${neutralColor5};

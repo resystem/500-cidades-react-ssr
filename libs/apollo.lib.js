@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/prop-types */
-import 'cross-fetch/polyfill';
+// import 'cross-fetch/polyfill';
 import React from 'react';
 import ApolloClient from 'apollo-boost';
 import { InMemoryCache } from 'apollo-cache-inmemory';
@@ -10,9 +10,9 @@ import nextWithApollo from 'next-with-apollo';
 export const client = (initialState) =>
   new ApolloClient({
     uri: process.env.GRAPHQL_URI,
-    cache: new InMemoryCache({
-      dataIdFromObject: (payload) => `/* ${payload._id} */-${Math.random()}`
-    }).restore(initialState || {}),
+    // cache: new InMemoryCache({
+    //   dataIdFromObject: (payload) => `${payload._id}-${Math.random()}`
+    // }).restore(initialState || {}),
     request: (operation) => {
       operation.setContext({
         headers: {

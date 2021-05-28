@@ -6,10 +6,11 @@ import { Wrapper, RequiredSign, Label, Error } from './inputGrounp.style';
  * render the Input Group Molecule.
  */
 const InputGroup = ({
-  children, label, error, isRequired, customStyle
+  children, label, error, isRequired, customStyle,
+  customLabelStyle
 }) => (
   <Wrapper customStyle={customStyle}>
-    {label ? (<Label>{label} <RequiredSign>{`${isRequired ? '*' : ''}`}</RequiredSign></Label>) : null}
+    {label ? (<Label customStyle={customLabelStyle}>{label} <RequiredSign>{`${isRequired ? '*' : ''}`}</RequiredSign></Label>) : null}
     {children}
     {error ? (<Error>{error}</Error>) : null}
   </Wrapper>

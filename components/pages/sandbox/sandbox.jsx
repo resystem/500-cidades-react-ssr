@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 import ActivistModal from '../../modals/activist/activist.modal';
 import { Container, MapContainer } from './sandbox.style';
 import Header from '../../templates/header/header.template';
+import RegisterActivistModal from '../../modals/register-activist/registerActivist.modal';
 
 const MapWithNoSSR = dynamic(() => import("../../organisms/map/map.organism"), {
   ssr: false
@@ -15,7 +16,6 @@ const Sandbox = () => {
   return (
     <Container>
       <Header />
-      <ActivistModal />
       <MapContainer>
         <MapWithNoSSR />
       </MapContainer>

@@ -10,7 +10,7 @@ import { InputComponent } from './input.style';
   handleChange, customStyle,
   disabled, onFocus, onBlur,
   placeholder, success, error,
-  filled
+  filled, value,
 }) => (
   <InputComponent
     onChange={handleChange}
@@ -18,6 +18,7 @@ import { InputComponent } from './input.style';
     disabled={disabled}
     onFocus={onFocus}
     onBlur={onBlur}
+    value={value}
     success={success}
     error={error}
     placeholder={placeholder}

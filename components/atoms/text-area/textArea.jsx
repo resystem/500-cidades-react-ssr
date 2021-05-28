@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types'
-import { TextAreaComponent } from './textArea.style';
+import { Counter, TextAreaComponent, Container } from './textArea.style';
+import { useEffect } from 'react';
 
 
 /**
@@ -10,22 +11,32 @@ import { TextAreaComponent } from './textArea.style';
   handleChange, customStyle,
   disabled, onFocus, onBlur,
   placeholder, success, error,
-  filled, rows
-}) => (
-  <TextAreaComponent
-    onChange={handleChange}
-    customStyle={customStyle}
-    disabled={disabled}
-    onFocus={onFocus}
-    onBlur={onBlur}
-    success={success}
-    error={error}
-    placeholder={placeholder}
-    filled={filled}
-    rows={rows}
-  >
-  </TextAreaComponent>
-);
+  filled, rows, value
+}) => {
+  const [valueInput, setValueInput] = useState(value || '');
+  useEffect(() => {
+    if (handleChange) handleChange({ target: { value: valueInput }});
+  }, [value]);
+  return (
+    <Container>
+      <TextAreaComponent
+        customStyle={customStyle}
+        disabled={disabled}
+        onFocus={onFocus}
+        onBlur={onBlur}
+        success={success}
+        onChange={({ target }) => setValueInput(target.value)}
+        error={error}
+        value={valueInput}
+        placeholder={placeholder}
+        filled={filled}
+        rows={rows}
+      >
+      </TextAreaComponent>
+      <Counter>{`${valueInput.length} / 500`}</Counter>
+    </Container>
+  );
+}
 
 TextArea.propTypes = {
   handleChange: PropTypes.func.isRequired,

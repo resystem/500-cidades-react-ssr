@@ -4,8 +4,10 @@ const withCSS = require('@zeit/next-css');
 
 module.exports = withCSS({
   env: {
-    IDA_API_ID: process.env.IDA_API_ID,
-    IDA_API_KEY: process.env.IDA_API_KEY,
+    IDA_APP_ID: process.env.IDA_APP_ID,
+    IDA_APP_KEY: process.env.IDA_APP_KEY,
+    GRAPHQL_URI: process.env.GRAPHQL_URI,
+    AUTOCOMPLETE_KEY: process.env.AUTOCOMPLETE_KEY,
   },
   exportPathMap: (defaultPathMap) => defaultPathMap,
   cssLoaderOptions: {
