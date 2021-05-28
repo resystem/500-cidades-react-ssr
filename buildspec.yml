@@ -19,7 +19,7 @@ artifacts:
   files:
     - .next/**/*
     - public/**/*
-    - .ebextenstions/**/*
+    - .ebextensions/**/*
     - package.json
 
 
