@@ -19,12 +19,12 @@ export const ImageContainer = styled.div`
 `;
 
 export const Image = styled.image`
-  width: 45px;
-  height: 45px;
+  width: 56px;
+  height: 56px;
   object-fit: cover;
   margin-top: -82px;
   position: absolute;
-  margin-left: 13px;
+  margin-left: 12px;
   z-index: 250;
   border-radius: 100%;
 `;
