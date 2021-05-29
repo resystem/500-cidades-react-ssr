@@ -1,6 +1,7 @@
 import axios from "axios";
 
 export const sendImageToApi = ({ base64 }) => {
+  console.log('🚀 ~ process.env.MEDIA_API_URI', process.env.MEDIA_API_URI);
   return axios.post(
     process.env.MEDIA_API_URI,
     { file: base64 },
