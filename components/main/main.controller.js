@@ -9,6 +9,7 @@ import { getUser, createUser, getAllUsers } from './main.repository';
  */
 export const fetchLoggedUser = async (auth, openRegisterModal, setUser) => {
   const user = await getUser(auth.ida);
+  // const user = { data: {}}
   if (!user.data.oneUser) openRegisterModal();
   else setUser(user.data.oneUser)
 };
@@ -19,12 +20,8 @@ export const fetchLoggedUser = async (auth, openRegisterModal, setUser) => {
  * @param {object} router this is the a manager app router
  */
 export const getActivists = async (setActivists) => {
-  console.log('🚀 ~ setActivists');
   const users = await getAllUsers();
-  console.log('🚀 ~ users', users);
   if (users.data.allUsers?.length) setActivists(users.data.allUsers);
-  // if (!user.data.oneUser) openRegisterModal();
-  // else setUser(user.data.oneUser)
 };
 
 /**

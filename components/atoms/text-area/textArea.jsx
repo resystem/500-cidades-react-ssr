@@ -16,7 +16,7 @@ import { useEffect } from 'react';
   const [valueInput, setValueInput] = useState(value || '');
   useEffect(() => {
     if (handleChange) handleChange({ target: { value: valueInput }});
-  }, [value]);
+  }, [valueInput]);
   return (
     <Container>
       <TextAreaComponent

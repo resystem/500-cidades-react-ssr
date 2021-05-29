@@ -8,6 +8,7 @@ module.exports = withCSS({
     IDA_APP_KEY: process.env.IDA_APP_KEY,
     GRAPHQL_URI: process.env.GRAPHQL_URI,
     AUTOCOMPLETE_KEY: process.env.AUTOCOMPLETE_KEY,
+    MEDIA_API_URI: process.env.MEDIA_API_URI,
   },
   exportPathMap: (defaultPathMap) => defaultPathMap,
   cssLoaderOptions: {

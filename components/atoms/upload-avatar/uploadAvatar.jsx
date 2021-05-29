@@ -24,10 +24,21 @@ function load(src, callback) {
  */
 const UploadAvatar = ({ src, alt, title, handleChange, customStyle, id }) => {
   const [loaddedSrc, setLoaddedSrc] = useState(null);
+  const [mimage, setmimage] = useState(src?.url);
 
   useEffect(() => {
-    load(src.url, setLoaddedSrc);
-  });
+    load(mimage, setLoaddedSrc);
+  }, [mimage]);
+
+  const onChange = ({ target }) => {
+    const url = URL.createObjectURL(target.files[0]);
+    setmimage(url);
+
+    handleChange('profileImage',{
+      file: target.files[0],
+      url,
+    })
+  };
 
   const emptyImage = <Icon src="/icons/plus_gray.svg" />;
   const image = (
@@ -36,10 +47,10 @@ const UploadAvatar = ({ src, alt, title, handleChange, customStyle, id }) => {
 
   return (
     <Fragment>
-      <Uploader customStyle={customStyle} onChange={handleChange} htmlFor={id}>
-        {src.url ? image : emptyImage}
+      <Uploader customStyle={customStyle} onChange={onChange} htmlFor={id}>
+        {loaddedSrc ? image : emptyImage}
       </Uploader>
-      <Input id={id} onChange={handleChange} type="file" />
+      <Input accept="image/png, image/jpeg" id={id} onChange={onChange} type="file" />
     </Fragment>
   );
 }

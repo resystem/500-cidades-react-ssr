@@ -28,6 +28,12 @@ export const oneUserQuery = gql`
       facebook
       instagram
       twitter
+      profile_image {
+        id
+        single_size {
+          mimified
+        }
+      }
       tiktok
       web_site
       qualification
@@ -85,6 +91,11 @@ export const allUsersQuery = gql`
       deficiency
       facebook
       instagram
+      profile_image {
+        single_size {
+          mimified
+        }
+      }
       twitter
       tiktok
       web_site

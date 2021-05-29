@@ -54,7 +54,7 @@ const ActivistModal = ({
           <MenuIcon src="/icons/dots_menu.svg" />
         </Header>
         <About
-          avatarImage={activist.avatar_image}
+          avatarImage={activist.profile_image?.single_size?.mimified}
           name={`${activist.name}`}
           location={`${activist.address?.city} - ${activist.address?.state}`}
           facebook={activist.facebook}

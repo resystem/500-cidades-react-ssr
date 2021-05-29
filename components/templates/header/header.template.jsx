@@ -27,7 +27,7 @@ const renderMissingUser = (openModal) => (
 const renderLoggedSection = (user, openModal) => (
   <UserSection onClick={() => openModal('editActivist')}>
     <ProfileName>{user.name}</ProfileName>
-    <ProfileImage src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png" />
+    <ProfileImage src={user.profile_image?.single_size?.mimified} />
   </UserSection>
 );
 

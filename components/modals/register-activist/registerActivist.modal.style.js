@@ -10,7 +10,7 @@ export const Wrapper = styled.section`
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 5;
+  z-index: 500;
 `;
 
 export const Container = styled.div`

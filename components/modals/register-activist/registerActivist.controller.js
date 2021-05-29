@@ -1,5 +1,6 @@
 import { client } from '../../../libs/apollo.lib'
 import { gql } from 'apollo-boost';
+import { getBase64, sendImageToApi } from '../../../utils/media.util';
 
 const createActivistMutation = gql`
   mutation createUser(
@@ -12,6 +13,11 @@ const createActivistMutation = gql`
       ida
       name
       social_name
+      profile_image {
+        single_size {
+          mimified
+        }
+      }
       email
       job
       biography
@@ -80,7 +86,26 @@ const createAddressMutation = gql`
   }
 `;
 
-const mapActivist = (activist, addressId, ida) => ({
+const createImageMutation = gql`
+  mutation createImage(
+    $image: ImageInput
+  ) {
+    createImage(
+      image: $image
+    ) {
+      id
+      name
+      description
+      single_size {
+        mimified
+        original
+        thumbnail
+      }
+    }
+  }
+`;
+
+const mapActivist = (activist, addressId, ida, profileImage) => ({
   ida,
   name: activist.name,
   social_name: activist.socialName,
@@ -129,19 +154,43 @@ const mapAddress = (address) => ({
 });
 
 export const handleSubmit = async (activist, ida, setUser, closeModal, activists, setActivists) => {
+  let createdImage;
   try {
-    
-    const createdAddress = await client().mutate({
+    if (activist.profileImage.file) {
+      const base64 = await getBase64(activist.profileImage.file);
+      const profileImage = await sendImageToApi({ base64: base64 });
+      createdImage = await client().mutate({
+        mutation: createImageMutation,
+        variables: {
+          image: {
+            name: 'profile_image',
+            single_size: profileImage.data.urls,
+          },
+        }
+      });
+    }
+  } catch (err) {
+    console.log('🚀 ~ err', [err]);
+  }
+  let createdAddress;
+  try {
+    createdAddress = await client().mutate({
       mutation: createAddressMutation,
       variables: {
         address: mapAddress(activist),
       }
     });
+  } catch (err) {
+    console.log('🚀 ~ err', [err]);
+  }
+  try {
+    const mappedActivist = mapActivist(activist, createdAddress.data.createAddress.id, ida)
+    if (createdImage) mappedActivist.profile_image = createdImage.data.createImage.id;
     
     const createdActivist = await client().mutate({
       mutation: createActivistMutation,
       variables: {
-        user: mapActivist(activist, createdAddress.data.createAddress.id, ida),
+        user: mappedActivist,
       }
     });
 

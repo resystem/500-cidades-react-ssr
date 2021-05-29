@@ -1,87 +1,6 @@
 import { client } from '../../../libs/apollo.lib'
-import { gql } from 'apollo-boost';
-
-const editActivistMutation = gql`
-  mutation updateUser(
-    $user: UserInput
-  ){
-    updateUser(
-      user: $user
-    ) {
-      id
-      ida
-      name
-      social_name
-      email
-      job
-      biography
-      interests
-      phone
-      address {
-        id
-        state
-        city
-        country
-        street
-        number
-        complement
-        geolocation
-        lat
-        lng
-        district
-        zipcode
-        geolocation
-      }
-      hometown
-      gender
-      sexual_orientation
-      color_race
-      deficiency
-      facebook
-      instagram
-      twitter
-      tiktok
-      web_site
-      whatsapp
-      qualification
-      languages
-      hobbies
-      books
-      music
-      food
-      movies
-      series
-      dream
-      favorite_places
-      places_wanna_visit
-      how_collaborate
-      sign
-    }
-  }
-`;
-
-const editAddressMutation = gql`
-  mutation updateAddress(
-    $address: AddressInput
-  ){
-    updateAddress(
-      address: $address
-    ) {
-      id
-      state
-      city
-      country
-      street
-      complement
-      number
-      district
-      zipcode
-      geolocation
-      lat
-      lng
-    }
-  }
-`;
+import { getBase64, sendImageToApi } from '../../../utils/media.util';
+import { editActivistMutation, editAddressMutation, updateImageMutation } from './editActivist.mutations';
 
 const mapActivist = (activist, addressId, ida, activistId) => ({
   id: activistId,
@@ -96,27 +15,6 @@ const mapActivist = (activist, addressId, ida, activistId) => ({
   twitter: activist.twitter,
   tiktok: activist.tiktok,
   address: addressId || null,
-  // job: String,
-  // interests: [String],
-  // phone: String,
-  // gender: String,
-  // sexual_orientation: String,
-  // color_race: String,
-  // deficiency: String,
-  // web_site: String,
-  // qualification: String,
-  // languages: [String],
-  // hobbies: String,
-  // books: String,
-  // music: String,
-  // food: String,
-  // movies: String,
-  // series: String,
-  // dream: String,
-  // favorite_places: String,
-  // places_wanna_visit: String,
-  // how_collaborate: String,
-  // sign: String,
 });
 
 const mapAddress = (address, id) => ({
@@ -134,26 +32,96 @@ const mapAddress = (address, id) => ({
   lng: address.lng,
 });
 
-export const handleSubmit = async (activist, ida, user, setUser, closeModal) => {
-  try {
+const editImage = async (profileImage, imageId) => {
+  const base64 = await getBase64(profileImage.file);
+  const image = await sendImageToApi({ base64: base64 });
+  
+  
+  const updatedImage = await client().mutate({
+    mutation: updateImageMutation,
+    variables: {
+      image: {
+        id: imageId,
+        name: 'profile_image',
+        single_size: image.data.urls,
+      },
+    }
+  });
 
+  return updatedImage.data.updateImage;
+}
+
+const createImage = async (profileImage) => {
+  const base64 = await getBase64(profileImage.file);
+  const image = await sendImageToApi({ base64: base64 });
+  console.log('🚀 ~ base64', base64);
+  console.log('🚀 ~ image', image.data.urls);
+  
+  
+  const createdImage = await client().mutate({
+    mutation: createImageMutation,
+    variables: {
+      image: {
+        name: 'profile_image',
+        single_size: image.data.urls,
+      },
+    }
+  });
+
+  return createdImage.data.createImage;
+}
+
+const updateAddress = async (activist, user) => {
+  try {
     const updatedAddress = await client().mutate({
       mutation: editAddressMutation,
       variables: {
         address: mapAddress(activist, user.address.id),
       }
     });
+    return updatedAddress.data.updateAddress;
+  } catch(err) {
+    console.log([err])
+  }
+};
 
+const updateActivist = async (activist, user, address, image) => {
+  try {
+    const mappedActivist = mapActivist(activist, address.id, user.ida, user.id)
+
+    if (image) mappedActivist.profile_image = image.id;
     const editActivist = await client().mutate({
       mutation: editActivistMutation,
       variables: {
-        user: mapActivist(activist, updatedAddress.data.updateAddress.id, ida, user.id),
+        user: mappedActivist,
       }
     });
-
-    setUser(editActivist.data.updateUser);
-    closeModal();
+    return editActivist.data.updateUser
   } catch(err) {
+    console.log([err])
+  }
+};
+
+export const handleSubmit = async (activist, ida, user, setUser, closeModal) => {
+console.log('🚀 ~ activist', activist);
+  let image;
+  try {
+    if (activist.profileImage?.file) {
+      if (user.profile_image?.single_size) {
+        image = await editImage(activist.profileImage, user.profile_image.id);
+      } else {
+        image = await createImage(activist.profileImage);
+      }
+    }
+ 
+    const updatedAddress = await updateAddress(activist, user);
+    const updatedActivist = await updateActivist(activist, user, updatedAddress, image);
+    console.log('🚀 ~ updatedActivist', updatedActivist);
+
+    setUser(updatedActivist);
+    closeModal();
+ 
+  } catch (err) {
     console.log('🚀 ~ err', [err]);
   }
 }

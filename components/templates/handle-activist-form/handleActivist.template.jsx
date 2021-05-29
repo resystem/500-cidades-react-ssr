@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types'
 import {
+  AboutWrapper,
   ActionWrapper, Container,
   customStyleCancelButton, customStyleSaveButton,
 } from './handleActivist.modal.style';
 import ActivistForm from '../../organisms/activist-form/activistForm';
 import Button from '../../atoms/button/button';
 import { getAddress, submitProxy } from './handleActivist.controller';
+import UploadAvatar from '../../atoms/upload-avatar/uploadAvatar';
 
 /**
  * render the HandleActivist atom.
@@ -35,6 +37,7 @@ const HandleActivistForm = ({
   const [geometry, setGeometry] = useState(activist.address?.geolocation || {});
   const [lat, setLat] = useState(activist.address?.lat || null);
   const [lng, setLng] = useState(activist.address?.lng || null);
+  const [profileImage, setProfileImage] = useState(null);
   const [errors, setErrors] = useState({});
 
   const handleChange = (id, value) => {
@@ -59,6 +62,7 @@ const HandleActivistForm = ({
       geometry: (payload) => setGeometry(payload),
       lat: (payload) => setLat(payload),
       lng: (payload) => setLng(payload),
+      profileImage: (payload) => setProfileImage(payload),
     };
     errors[id] = '';
     handlers[id](value);
@@ -79,6 +83,7 @@ const HandleActivistForm = ({
     street,
     number,
     complement,
+    profileImage,
     geometry,
     lat,
     lng,
@@ -86,16 +91,17 @@ const HandleActivistForm = ({
     city,
     state,
   };
-
+  console.log('🚀 ~ values', values);
+  
   useEffect(() => {
     getAddress(zipcode, handleChange);
   }, [zipcode])
 
   return (
     <Container>
-      {/* <AboutWrapper>
-        <UploadAvatar customStyle={inputCustomStyle}/>
-      </AboutWrapper> */}
+      <AboutWrapper>
+        <UploadAvatar src={profileImage} handleChange={handleChange} />
+      </AboutWrapper>
       <ActivistForm
         handleChange={handleChange}
         values={values}

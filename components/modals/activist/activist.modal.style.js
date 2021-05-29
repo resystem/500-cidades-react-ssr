@@ -56,6 +56,7 @@ export const Label = styled.label`
 
 export const Biography = styled.div`
   max-width: 400px;
+  width: 100%;
 `;
 
 export const SectionTitle = styled.h4`
