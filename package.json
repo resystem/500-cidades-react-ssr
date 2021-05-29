@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "NODE_ENV=production next build && next export",
-    "start": "node_modules/next/dist/bin/next start -p $PORT",
+    "start": "node_modules/next/dist/bin/next start",
     "lint": "eslint --fix .",
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
   },

@@ -80,10 +80,10 @@ const ActivistModal = ({
             iconPath="/icons/phone.svg"
             text={activist.phone}
           /> */}
-          <ContactInfo
+          {/* <ContactInfo
             iconPath="/icons/whatsapp.svg"
             text={activist.whatsapp}
-          />
+          /> */}
         </Contact>
         {/* <Characteristic
           label="Identidade de Gênero"

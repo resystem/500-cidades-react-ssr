@@ -96,6 +96,14 @@ const HandleActivistForm = ({
   useEffect(() => {
     getAddress(zipcode, handleChange);
   }, [zipcode])
+  useEffect(() => {
+    console.log('🚀 ~ useEffect');
+    if (activist.profile_image?.single_size?.mimified) {
+      setProfileImage({
+        url: activist.profile_image.single_size.mimified
+      });
+    }
+  }, [activist])
 
   return (
     <Container>
