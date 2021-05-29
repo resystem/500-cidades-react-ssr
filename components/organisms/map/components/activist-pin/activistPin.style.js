@@ -5,12 +5,14 @@ export const PinContainer = styled.div`
   border: none;
   display: flex;
   align-items: center;
+  z-index: 250;
   justify-content: center;
 `;
 export const ImageContainer = styled.div`
   width: 70px;
   height: 70px;
   display: flex;
+  z-index: 250;
   align-items: center;
   justify-content: center;
 `;
