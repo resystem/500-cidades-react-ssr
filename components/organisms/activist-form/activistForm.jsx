@@ -22,6 +22,7 @@ import TextArea from '../../atoms/text-area/textArea';
 import Checkbox from '../../molecules/checkbox/checkbox';
 import Dropdown from '../../molecules/dropdown/dropdown';
 import UploadAvatar from '../../atoms/upload-avatar/uploadAvatar';
+import { extractNumbers } from '../../../utils/numbers.utils';
 
 /**
  * render the ActivistForm atom.
@@ -173,7 +174,7 @@ const ActivistForm = ({
         <Input
           customStyle="width: 100%;"
           placeholder="Texto"
-          handleChange={({ target }) => handleChange('zipcode', target.value)}
+          handleChange={({ target }) => handleChange('zipcode', extractNumbers(target.value))}
           value={values.zipcode}
           />
       </InputGroup>

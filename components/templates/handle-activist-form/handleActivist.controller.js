@@ -35,6 +35,10 @@ export const submitProxy = (values, handleSubmit, setErrors) => {
     errors.number = 'Numero é obrigatório';
     hasError = true;
   }
+  if (!values.geometry) {
+    errors.number = 'Cep invalido';
+    hasError = true;
+  }
   // if (!values.complement) {
   //   errors.complement = 'Complemento é obrigatório';
   //   hasError = true;
