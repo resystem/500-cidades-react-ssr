@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types'
 import {
   Container,
@@ -18,6 +18,7 @@ import BackButton from '../../molecules/back-button/backButton';
 const RegisterActivistModal = ({
 }) => {
   const { closeModal, modals, user, auth, setUser, activists, setActivists } = useContext(Store);
+  const [isLoading, setLoading] = useState(false);
   if (!modals.registerActivist) return null;
   if (!auth || user) return null;
   return (
@@ -29,7 +30,8 @@ const RegisterActivistModal = ({
           <MenuIcon src="/icons/dots_menu.svg" />
         </Header>
         <HandleActivistForm
-          handleSubmit={(activist) => handleSubmit(activist, auth.ida, setUser, closeModal, activists, setActivists)}
+          handleSubmit={(activist) => handleSubmit(activist, auth.ida, setUser, closeModal, activists, setActivists, setLoading)}
+          isLoading={isLoading}
           handleCancel={() => closeModal()}
         />
       </Container>

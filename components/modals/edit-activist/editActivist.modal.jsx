@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types'
 import {
   Container,
@@ -18,6 +18,7 @@ import BackButton from '../../molecules/back-button/backButton';
 const EditActivistModal = ({
 }) => {
   const { closeModal, modals, user, auth, setUser, setActivists, activists } = useContext(Store);
+  const [isLoading, setLoading] = useState(false);
   if (!modals.editActivist) return null;
   if (!auth || !user) return null;
   return (
@@ -30,7 +31,8 @@ const EditActivistModal = ({
         </Header>
         <HandleActivistForm
           activist={user}
-          handleSubmit={(activist) => handleSubmit(activist, auth.ida, user, setUser, closeModal, setActivists, activists)}
+          handleSubmit={(activist) => handleSubmit(activist, auth.ida, user, setUser, closeModal, setActivists, activists, setLoading)}
+          isLoading={isLoading}
           handleCancel={() => console.log('handleCancel')}
         />
       </Container>

@@ -21,8 +21,8 @@ export const Image = styled.image`
   width: 45px;
   height: 45px;
   object-fit: cover;
-  margin-left: -94px;
-  margin-top: -16px;
+  /* margin-left: -94px;
+  margin-top: -16px; */
   z-index: 250;
   border-radius: 100%;
 `;

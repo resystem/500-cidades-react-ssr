@@ -14,7 +14,7 @@ import UploadAvatar from '../../atoms/upload-avatar/uploadAvatar';
  * render the HandleActivist atom.
  */
 const HandleActivistForm = ({
-  handleSubmit, handleCancel, activist,
+  handleSubmit, handleCancel, activist, isLoading,
 }) => {
   const [name, setName] = useState(activist.name || '');
   const [socialName, setSocialName] = useState(activist.social_name || '');
@@ -117,10 +117,12 @@ const HandleActivistForm = ({
       />
       <ActionWrapper>
         <Button
+          loading={isLoading}
           handleClick={handleCancel}
           customStyle={customStyleCancelButton}
         >Cancelar</Button>
         <Button
+          loading={isLoading}
           handleClick={() => submitProxy(values, handleSubmit, setErrors)}
           customStyle={customStyleSaveButton}
         >Salvar</Button>

@@ -101,9 +101,10 @@ const updateActivist = async (activist, user, address, image) => {
 };
 
 export const handleSubmit = async (
-  activist, ida, user, setUser, closeModal, setActivists, activists
+  activist, ida, user, setUser, closeModal, setActivists, activists, setLoading,
 ) => {
 console.log('🚀 ~ activist', activists);
+  setLoading(true);
   let image;
   try {
     if (activist.profileImage?.file) {
@@ -123,8 +124,9 @@ console.log('🚀 ~ activist', activists);
     const newActivists = activists.map(a => (a.ida === user.ida ? updatedActivist : a));
     console.log('🚀 ~ newActivists', newActivists);
     setActivists(newActivists);
- 
+    setLoading(false);
   } catch (err) {
+    setLoading(false);
     console.log('🚀 ~ err', [err]);
   }
 }

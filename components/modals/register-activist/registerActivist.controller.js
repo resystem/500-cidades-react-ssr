@@ -153,8 +153,9 @@ const mapAddress = (address) => ({
   lng: address.lng,
 });
 
-export const handleSubmit = async (activist, ida, setUser, closeModal, activists, setActivists) => {
+export const handleSubmit = async (activist, ida, setUser, closeModal, activists, setActivists, setLoading) => {
   let createdImage;
+  setLoading(true);
   try {
     if (activist.profileImage.file) {
       const base64 = await getBase64(activist.profileImage.file);
@@ -170,6 +171,7 @@ export const handleSubmit = async (activist, ida, setUser, closeModal, activists
       });
     }
   } catch (err) {
+    setLoading(false);
     console.log('🚀 ~ err', [err]);
   }
   let createdAddress;
@@ -181,6 +183,7 @@ export const handleSubmit = async (activist, ida, setUser, closeModal, activists
       }
     });
   } catch (err) {
+    setLoading(false);
     console.log('🚀 ~ err', [err]);
   }
   try {
@@ -197,7 +200,9 @@ export const handleSubmit = async (activist, ida, setUser, closeModal, activists
     setUser(createdActivist.data.createUser);
     closeModal();
     setActivists([...activists, createdActivist.data.createUser])
+    setLoading(false);
   } catch(err) {
+    setLoading(false);
     console.log('🚀 ~ err', [err]);
   }
 }
