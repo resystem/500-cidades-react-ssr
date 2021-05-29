@@ -41,6 +41,7 @@ const renderMarkers = (markers, openActivistModal) => markers.map((marker) => (
 
 const MapComponent = () => {
   const { openModal, activists, user } = useContext(Store);
+  console.log('🚀 ~ activists', activists);
   const map = useRef(null);
   const [center, setCenter] = useState([-10.466205555063867, -48.62548828125001]);
   const [zoom, setZoom] = useState(5);

@@ -1,6 +1,6 @@
 import { client } from '../../../libs/apollo.lib'
 import { getBase64, sendImageToApi } from '../../../utils/media.util';
-import { editActivistMutation, editAddressMutation, updateImageMutation } from './editActivist.mutations';
+import { createImageMutation, editActivistMutation, editAddressMutation, updateImageMutation } from './editActivist.mutations';
 
 const mapActivist = (activist, addressId, ida, activistId) => ({
   id: activistId,
@@ -54,8 +54,6 @@ const editImage = async (profileImage, imageId) => {
 const createImage = async (profileImage) => {
   const base64 = await getBase64(profileImage.file);
   const image = await sendImageToApi({ base64: base64 });
-  console.log('🚀 ~ base64', base64);
-  console.log('🚀 ~ image', image.data.urls);
   
   
   const createdImage = await client().mutate({
@@ -102,8 +100,10 @@ const updateActivist = async (activist, user, address, image) => {
   }
 };
 
-export const handleSubmit = async (activist, ida, user, setUser, closeModal) => {
-console.log('🚀 ~ activist', activist);
+export const handleSubmit = async (
+  activist, ida, user, setUser, closeModal, setActivists, activists
+) => {
+console.log('🚀 ~ activist', activists);
   let image;
   try {
     if (activist.profileImage?.file) {
@@ -116,10 +116,13 @@ console.log('🚀 ~ activist', activist);
  
     const updatedAddress = await updateAddress(activist, user);
     const updatedActivist = await updateActivist(activist, user, updatedAddress, image);
-    console.log('🚀 ~ updatedActivist', updatedActivist);
 
     setUser(updatedActivist);
+    console.log('🚀 ~ updatedActivist', updatedActivist);
     closeModal();
+    const newActivists = activists.map(a => (a.ida === user.ida ? updatedActivist : a));
+    console.log('🚀 ~ newActivists', newActivists);
+    setActivists(newActivists);
  
   } catch (err) {
     console.log('🚀 ~ err', [err]);

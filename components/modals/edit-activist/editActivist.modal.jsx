@@ -17,7 +17,7 @@ import BackButton from '../../molecules/back-button/backButton';
  */
 const EditActivistModal = ({
 }) => {
-  const { closeModal, modals, user, auth, setUser } = useContext(Store);
+  const { closeModal, modals, user, auth, setUser, setActivists, activists } = useContext(Store);
   if (!modals.editActivist) return null;
   if (!auth || !user) return null;
   return (
@@ -30,7 +30,7 @@ const EditActivistModal = ({
         </Header>
         <HandleActivistForm
           activist={user}
-          handleSubmit={(activist) => handleSubmit(activist, auth.ida, user, setUser, closeModal)}
+          handleSubmit={(activist) => handleSubmit(activist, auth.ida, user, setUser, closeModal, setActivists, activists)}
           handleCancel={() => console.log('handleCancel')}
         />
       </Container>
