@@ -30,11 +30,11 @@ const ActivistPin = ({ imageUrl }) => ReactDOMServer.renderToString(
         <pattern id={`${imageUrl}1`} patternContentUnits="objectBoundingBox" width="1" height="1">
           <use xlinkHref={`#${imageUrl}`} transform="translate(-0.16 -0.40) scale(0.00187729)"/>
         </pattern>
-        <ImageContainer>
-          <Image objectFit="cover" id={imageUrl} src={imageUrl}  xlinkHref={imageUrl}/>
-        </ImageContainer>
       </defs>
       </svg>
+      <ImageContainer>
+        <Image objectFit="cover" id={imageUrl} src={imageUrl}  xlinkHref={imageUrl}/>
+      </ImageContainer>
   </PinContainer>
 );
 
