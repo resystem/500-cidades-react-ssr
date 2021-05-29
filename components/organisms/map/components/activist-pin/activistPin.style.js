@@ -5,6 +5,7 @@ export const PinContainer = styled.div`
   border: none;
   display: flex;
   align-items: center;
+  position: relative;
   z-index: 250;
   justify-content: center;
 `;
@@ -21,8 +22,9 @@ export const Image = styled.image`
   width: 45px;
   height: 45px;
   object-fit: cover;
-  /* margin-left: -94px;
-  margin-top: -16px; */
+  margin-top: -82px;
+  position: absolute;
+  margin-left: 13px;
   z-index: 250;
   border-radius: 100%;
 `;
