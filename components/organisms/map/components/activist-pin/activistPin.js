@@ -3,7 +3,7 @@ import React, { useEffect, useLayoutEffect, useState } from 'react';
 import { MapContainer, Marker, TileLayer,  } from 'react-leaflet';
 import { DivIcon } from 'leaflet';
 import ReactDOMServer from 'react-dom/server'
-import { PinContainer, Image } from './activistPin.style';
+import { PinContainer, Image, ImageContainer } from './activistPin.style';
 
 const ActivistPin = ({ imageUrl }) => ReactDOMServer.renderToString(
   <PinContainer>
@@ -30,7 +30,9 @@ const ActivistPin = ({ imageUrl }) => ReactDOMServer.renderToString(
         <pattern id={`${imageUrl}1`} patternContentUnits="objectBoundingBox" width="1" height="1">
           <use xlinkHref={`#${imageUrl}`} transform="translate(-0.16 -0.40) scale(0.00187729)"/>
         </pattern>
-        <Image id={imageUrl} src={imageUrl}  xlinkHref={imageUrl}/>
+        <ImageContainer>
+          <Image objectFit="cover" id={imageUrl} src={imageUrl}  xlinkHref={imageUrl}/>
+        </ImageContainer>
       </defs>
       </svg>
   </PinContainer>
