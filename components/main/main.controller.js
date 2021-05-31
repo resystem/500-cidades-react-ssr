@@ -21,7 +21,7 @@ export const fetchLoggedUser = async (auth, openRegisterModal, setUser) => {
  */
 export const getActivists = async (setActivists) => {
   const users = await getAllUsers();
-  if (users.data.allUsers?.length) setActivists(users.data.allUsers);
+  if (users.data.allUsers?.length) setActivists(users.data.allUsers.filter(u => u?.address?.lat));
 };
 
 /**

@@ -66,7 +66,6 @@ const ActivistForm = ({
         label="Facebook"
         customStyle="margin-top: 24px;"
         error={errors.facebook}
-        isRequired
         customLabelStyle="font-size: 0.875em;"
       >
         <Input
@@ -80,7 +79,6 @@ const ActivistForm = ({
         label="Instagram"
         customStyle="margin-top: 24px;"
         error={errors.instagram}
-        isRequired
         customLabelStyle="font-size: 0.875em;"
       >
         <Input
@@ -94,7 +92,6 @@ const ActivistForm = ({
         label="Twitter"
         customStyle="margin-top: 24px;"
         error={errors.twitter}
-        isRequired
         customLabelStyle="font-size: 0.875em;"
       >
         <Input
@@ -108,7 +105,6 @@ const ActivistForm = ({
         label="Tiktok"
         customStyle="margin-top: 24px;"
         error={errors.tiktok}
-        isRequired
         customLabelStyle="font-size: 0.875em;"
       >
         <Input
@@ -209,7 +205,6 @@ const ActivistForm = ({
       <InputGroup
         label="Complemento"
         customStyle="margin-top: 24px;"
-        isRequired
         customLabelStyle="font-size: 0.875em;"
         error={errors.complement}
         >

@@ -31,14 +31,15 @@ export const submitProxy = (values, handleSubmit, setErrors) => {
     errors.street = 'Rua é obrigatório';
     hasError = true;
   }
+  if (!values.geometry) {
+    errors.zipcode = 'CEP inválido';
+    hasError = true;
+  }
   if (!values.number) {
     errors.number = 'Numero é obrigatório';
     hasError = true;
   }
-  if (!values.geometry) {
-    errors.number = 'Cep invalido';
-    hasError = true;
-  }
+
   // if (!values.complement) {
   //   errors.complement = 'Complemento é obrigatório';
   //   hasError = true;

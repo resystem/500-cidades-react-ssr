@@ -29,7 +29,7 @@ const About = ({
         <Location>{location}</Location>
         <Type>
           <AgentIcon src="/icons/agent.svg" />
-          <AgentLabel>Agente</AgentLabel>
+          <AgentLabel>Ativista</AgentLabel>
         </Type>
         <Line />
         <SocialMediaContainer>

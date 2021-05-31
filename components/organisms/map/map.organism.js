@@ -28,10 +28,8 @@ const getPin = (type, imageUrl) => {
 const renderMarkers = (markers, openActivistModal) => markers.map((marker) => (
   <Marker icon={new DivIcon({
     html: getPin('activist', marker?.profile_image?.single_size?.mimified),
-    iconSize:     [95, 95], // size of the icon
-    shadowSize:   [50, 64], // size of the shadow
-    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-    shadowAnchor: [4, 62],  // the same for the shadow
+    iconSize:     [94, 94], // size of the icon
+    iconAnchor:   [25.5, 59.55], // point of the icon which will correspond to marker's location
     })}
     onclick={() =>  openActivistModal(marker)}
     position={[marker.address.lat, marker.address.lng]}
