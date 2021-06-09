@@ -11,17 +11,47 @@ export const editActivistMutation = gql`
       ida
       name
       social_name
+      email
+      biography
+      whatsapp
+      facebook
+      instagram
+      twitter
+      tiktok
+      job
+      phone
+      hometown
+      homestate
+      homecountry
+      gender
+      sexual_orientation
+
+      color_race
+      deficiency
+      web_site
+      qualification
+      main_language
+      sign
+      education
+      
+      how_to_collaborate
+      places_wanna_visit
+      favorite_places
+      dreams
+      series
+      movies
+      foods
+      songs
+      books
+      interests
+      languages
+      hobbies
       profile_image {
         id
         single_size {
           mimified
         }
       }
-      email
-      job
-      biography
-      interests
-      phone
       address {
         id
         state
@@ -37,30 +67,6 @@ export const editActivistMutation = gql`
         zipcode
         geolocation
       }
-      hometown
-      gender
-      sexual_orientation
-      color_race
-      deficiency
-      facebook
-      instagram
-      twitter
-      tiktok
-      web_site
-      whatsapp
-      qualification
-      languages
-      hobbies
-      books
-      music
-      food
-      movies
-      series
-      dream
-      favorite_places
-      places_wanna_visit
-      how_collaborate
-      sign
     }
   }
 `;

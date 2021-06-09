@@ -40,7 +40,7 @@ export const DropdownContainer = styled.div`
 export const DropdownHeader = styled.div`
   width: 100%;
   color: ${primaryMedium};
-  padding: 11px 8px 11px 16px;
+  padding: 0 8px 0 0;
   background-color: #E7F8F7;
   border-radius: 5px;
   cursor: pointer;

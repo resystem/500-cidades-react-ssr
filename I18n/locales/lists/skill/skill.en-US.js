@@ -1,0 +1,18 @@
+export default {
+  press: 'Press',
+  photography: 'Photography',
+  team_management: 'Team management',
+  contents: 'Contents',
+  editorial: 'Editorial',
+  script: 'Script',
+  image_treatment: 'Image Treatment',
+  video_mapping: 'Video Mapping',
+  videomaker: 'Videomaker',
+  video_edition: 'Video edition',
+  games: 'Games',
+  development: 'Development',
+  audiovisual_production: 'Audiovisual production',
+  events_production: 'Events production',
+  marketing: 'Marketing',
+  other: 'Other',
+};

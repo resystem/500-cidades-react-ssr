@@ -1,5 +1,5 @@
 import { init } from '../../libs/ida.lib';
-import { getUser, createUser, getAllUsers } from './main.repository';
+import { getUser, createUser, getAllUsers, getAllAssets } from './main.repository';
 
 /**
  * this find user on 500 cidades api by the ida and set in global state
@@ -22,6 +22,24 @@ export const fetchLoggedUser = async (auth, openRegisterModal, setUser) => {
 export const getActivists = async (setActivists) => {
   const users = await getAllUsers();
   if (users.data.allUsers?.length) setActivists(users.data.allUsers.filter(u => u?.address?.lat));
+};
+
+/**
+ * this get all assets in api
+ * @param {function} dispatch this set new global state
+ * @param {object} router this is the a manager app router
+ */
+export const getAssets = async (setAssets) => {
+  const assetsResp = await getAllAssets({ asset: {} });
+  const assets = {};
+
+  const arr = assetsResp.data.allAssets;
+  arr.forEach((a) => {
+    assets[a.type] = a.data.list;
+  });
+  
+  setAssets(assets);
+  console.log('🚀 ~ assets', assets);
 };
 
 /**

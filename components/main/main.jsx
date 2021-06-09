@@ -5,7 +5,7 @@ import ActivistModal from '../modals/activist/activist.modal';
 import RegisterActivistModal from '../modals/register-activist/registerActivist.modal';
 import EditActivist from '../modals/edit-activist/editActivist.modal';
 import Header from '../templates/header/header.template';
-import { initIDA, fetchLoggedUser, getActivists } from './main.controller';
+import { initIDA, fetchLoggedUser, getActivists, getAssets } from './main.controller';
 
 const modalsInitialState = {
   activist: false,
@@ -28,6 +28,7 @@ const Main = ({
   const [modalInfo, setModalInfo] = useState(null);
   const [activists, setActivists] = useState([]);
   const [showLoading, setShowLoading] = useState(false);
+  const [assets, setAssets] = useState(false);
 
   const closeModal = () => {
     setModals(modalsInitialState);
@@ -46,12 +47,14 @@ const Main = ({
     idaSDK, setIdaSDK,
     modals, modalInfo, closeModal, openModal,
     activists, setActivists,
-    user, setUser,
+    user, setUser, showLoading,
+    assets, setAssets,
   }; 
   
   useEffect(() => {
     initIDA(setShowLoading, setAuth, setIdaSDK, router);
-    getActivists(setActivists)
+    getActivists(setActivists);
+    getAssets(setAssets)
   }, []);
  
   useEffect(() => {

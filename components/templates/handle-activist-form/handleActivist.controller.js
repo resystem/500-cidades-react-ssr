@@ -39,7 +39,6 @@ export const submitProxy = (values, handleSubmit, setErrors) => {
     errors.number = 'Numero é obrigatório';
     hasError = true;
   }
-
   // if (!values.complement) {
   //   errors.complement = 'Complemento é obrigatório';
   //   hasError = true;
@@ -60,13 +59,55 @@ export const submitProxy = (values, handleSubmit, setErrors) => {
     errors.country = 'País é obrigatório';
     hasError = true;
   }
+  if (!values.lat) {
+    errors.lat = 'Latitude é obrigatório';
+    hasError = true;
+  }
+  if (!values.lng) {
+    errors.lng = 'Longitude é obrigatório';
+    hasError = true;
+  }
+  if (!values.homecountry) {
+    errors.lng = 'País de origem é obrigatório';
+    hasError = true;
+  }
+  
+  if (!values.homestate) {
+    errors.lng = 'Estado de origem é obrigatório';
+    hasError = true;
+  }
+  
+  if (!values.hometown) {
+    errors.lng = 'Cidade Natal é obrigatório';
+    hasError = true;
+  }
+  if (!values.mainLanguage) {
+    errors.lng = 'Idioma principal é obrigatório';
+    hasError = true;
+  }
 
   if (Object.keys(errors).length) setErrors(errors)
-  else handleSubmit(values);
+  else handleSubmit(mapValues(values));
 };
 
-export const getAddress = async (zipcodeInput, handleChange) => {
+const mapValues = (values) => ({
+  ...values,
+  books: values.books.split(',').map(a => a.trim()),
+  dreams: values.dreams.split(',').map(a => a.trim()),
+  favoritePlaces: values.favoritePlaces.split(',').map(a => a.trim()),
+  foods: values.foods.split(',').map(a => a.trim()),
+  hobbies: values.hobbies.split(',').map(a => a.trim()),
+  howToCollaborate: values.howToCollaborate.split(',').map(a => a.trim()),
+  movies: values.movies.split(',').map(a => a.trim()),
+  placesWannaVisit: values.placesWannaVisit.split(',').map(a => a.trim()),
+  series: values.series.split(',').map(a => a.trim()),
+  songs: values.songs.split(',').map(a => a.trim()),
+});
+
+export const getAddress = async (zipcodeInput, handleChange, lastZipcode, setLastZipcode) => {
   if (zipcodeInput.length !== 8) return null;
+  
+  if (zipcodeInput === lastZipcode) return null;
     try {
       const zipcodeAddress = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${zipcodeInput}&language=pt&key=${process.env.AUTOCOMPLETE_KEY}`);
       const result = await zipcodeAddress.json();
@@ -74,12 +115,13 @@ export const getAddress = async (zipcodeInput, handleChange) => {
         const placeResults = result.results[0];
         handleChange('city', getMapsProperty(placeResults, "administrative_area_level_2"));
         handleChange('state', getMapsProperty(placeResults, "administrative_area_level_1"));
-        handleChange('street', getMapsProperty(placeResults, "sublocality"));
+        handleChange('street', placeResults.formatted_address.split(',')[0]);
         handleChange('country', getMapsProperty(placeResults, "country"));
         handleChange('district', getMapsProperty(placeResults, "sublocality"));
         handleChange('geometry', placeResults.geometry.bounds);
         handleChange('lat', placeResults.geometry.location.lat);
         handleChange('lng', placeResults.geometry.location.lng);
+        setLastZipcode(zipcodeInput)
       } else {
         throw new Error("Couldn't find zipcode")
       }

@@ -27,20 +27,47 @@ const HandleActivistForm = ({
   const [whatsapp, setWhatsapp] = useState(activist.whatsapp || '');
 
   const [zipcode, setZipcode] = useState(activist.address?.zipcode || '');
+  const [lastZipcode, setLastZipcode] = useState(activist.address?.zipcode || '');
   const [street, setStreet] = useState(activist.address?.street || '');
   const [number, setNumber] = useState(activist.address?.number || '');
   const [complement, setComplement] = useState(activist.address?.complement);
   const [district, setDistrict] = useState(activist.address?.district || '');
   const [city, setCity] = useState(activist.address?.city || '');
   const [state, setState] = useState(activist.address?.state || '');
+  const [gender, setGender] = useState(activist.gender || '');
+  const [sexualOrientation, setSexualOrientation] = useState(activist.sexual_orientation || '');
+  const [colorRace, setColorRace] = useState(activist.color_race || '');
+  const [deficiency, setDeficiency] = useState(activist.deficiency || '');
+  const [sign, setSign] = useState(activist.sign || '');
+  const [mainLanguage, setMainLanguage] = useState(activist.main_language || '');
+  const [languages, setLanguages] = useState(activist.languages || []);
+  const [phone, setPhone] = useState(activist.phone || '');
+  const [website, setWebsite] = useState(activist.web_site || '');
+  const [birthDate, setBirthDate] = useState(activist.birth_data || '');
+  const [hometown, setHometown] = useState(activist.hometown || '');
+  const [homestate, setHomestate] = useState(activist.homestate || '');
+  const [homecountry, setHomecountry] = useState(activist.homecountry || '');
+  const [job, setJob] = useState(activist.job || '');
   const [country, setCountry] = useState(activist.address?.country || '');
+  const [hobbies, setHobbies] = useState(activist.hobbies?.join(', ') || '');
+  const [books, setBooks] = useState(activist.books?.join(', ') || '');
+  const [songs, setSongs] = useState(activist.songs?.join(', ') || '');
+  const [foods, setFoods] = useState(activist.foods?.join(', ') || '');
+  const [movies, setMovies] = useState(activist.movies?.join(', ') || '');
+  const [series, setSeries] = useState(activist.series?.join(', ') || '');
+  const [dreams, setDreams] = useState(activist.dreams?.join(', ') || '');
+  const [favoritePlaces, setFavoritePlaces] = useState(activist.favorite_places?.join(', ') || '');
+  const [placesWannaVisit, setPlacesWannaVisit] = useState(activist.places_wanna_visit?.join(', ') || '');
+  const [howToCollaborate, setHowToCollaborate] = useState(activist.how_to_collaborate?.join(', ') || '');
   const [geometry, setGeometry] = useState(activist.address?.geolocation || {});
+  const [education, setEducation] = useState(activist.education || '');
   const [lat, setLat] = useState(activist.address?.lat || null);
   const [lng, setLng] = useState(activist.address?.lng || null);
   const [profileImage, setProfileImage] = useState(null);
   const [errors, setErrors] = useState({});
 
   const handleChange = (id, value) => {
+  console.log('🚀 ~ id, value', id,' | ',  value);
     const handlers = {
       name: (payload) => setName(payload),
       socialName: (payload) => setSocialName(payload),
@@ -58,8 +85,38 @@ const HandleActivistForm = ({
       district: (payload) => setDistrict(payload),
       city: (payload) => setCity(payload),
       state: (payload) => setState(payload),
+      education: (payload) => setEducation(payload),
+      birthDate: (payload) => setBirthDate(payload),
       country: (payload) => setCountry(payload),
+      books: (payload) => setBooks(payload),
+      gender: (payload) => setGender(payload),
+      books: (payload) => setBooks(payload),
+      songs: (payload) => setSongs(payload),
+      foods: (payload) => setFoods(payload),
+      movies: (payload) => setMovies(payload),
+      series: (payload) => setSeries(payload),
+      dreams: (payload) => setDreams(payload),
+      website: (payload) => setWebsite(payload),
+      favoritePlaces: (payload) => setFavoritePlaces(payload),
+      placesWannaVisit: (payload) => setPlacesWannaVisit(payload),
+      howToCollaborate: (payload) => setHowToCollaborate(payload),
+      job: (payload) => setJob(payload),
       geometry: (payload) => setGeometry(payload),
+      sexualOrientation: (payload) => setSexualOrientation(payload),
+      phone: (payload) => setPhone(payload),
+      colorRace: (payload) => setColorRace(payload),
+      hometown: (payload) => setHometown(payload),
+      homestate: (payload) => setHomestate(payload),
+      hobbies: (payload) => setHobbies(payload),
+      homecountry: (payload) => setHomecountry(payload),
+      mainLanguage: (payload) => setMainLanguage(payload),
+      languages: (payload) => {
+        const l = [ ...languages.filter(l => l !== payload)];
+        if(l.length === languages.length) l.push(payload);
+        setLanguages(l);
+      },
+      sign: (payload) => setSign(payload),
+      deficiency: (payload) => setDeficiency(payload),
       lat: (payload) => setLat(payload),
       lng: (payload) => setLng(payload),
       profileImage: (payload) => setProfileImage(payload),
@@ -74,16 +131,42 @@ const HandleActivistForm = ({
     facebook,
     instagram,
     twitter,
+    gender,
     tiktok,
+    education,
     biography,
-    country,
+    sexualOrientation,
+    colorRace,
+    hobbies,
+    deficiency,
+    sign,
+    mainLanguage,
+    languages,
+    books,
+    songs,
+    foods,
+    movies,
+    series,
+    dreams,
+    favoritePlaces,
+    placesWannaVisit,
+    howToCollaborate,
+    job,
     email,
     whatsapp,
+    profileImage,
+    hometown,
+    homestate,
+    homecountry,
+    phone,
+    website,
+    birthDate,
+
+    country,
     zipcode,
     street,
     number,
     complement,
-    profileImage,
     geometry,
     lat,
     lng,
@@ -91,13 +174,11 @@ const HandleActivistForm = ({
     city,
     state,
   };
-  console.log('🚀 ~ values', values);
   
   useEffect(() => {
-    getAddress(zipcode, handleChange);
+    getAddress(zipcode, handleChange, lastZipcode, setLastZipcode);
   }, [zipcode])
   useEffect(() => {
-    console.log('🚀 ~ useEffect');
     if (activist.profile_image?.single_size?.mimified) {
       setProfileImage({
         url: activist.profile_image.single_size.mimified
@@ -137,8 +218,8 @@ HandleActivistForm.propTypes = {
 HandleActivistForm.defaultProps = {
   activist: {},
   title: 'Criar Perfil',
-  handleSubmit: (activist) => console.log('🚀 ~ activist', activist),
-  handleCancel: () => console.log('🚀 ~ CANCEL'),
+  handleSubmit: (activist) => console.log('handleSubmit'),
+  handleCancel: () => console.log('CANCEL'),
 };
 
 export default HandleActivistForm;

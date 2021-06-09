@@ -1,5 +1,5 @@
 import { client } from '../../libs/apollo.lib';
-import { oneUserQuery, allUsersQuery } from './main.query';
+import { oneUserQuery, allAssetsQuery, allUsersQuery } from './main.query';
 
 export const getUser = (ida) => client().query({
   query: oneUserQuery,
@@ -8,11 +8,16 @@ export const getUser = (ida) => client().query({
   }
 });
 
-export const getAllUsers = () => client().mutate({
-  mutation: allUsersQuery,
+export const getAllUsers = () => client().query({
+  query: allUsersQuery,
   variables: {
     user: {}
   }
+});
+
+export const getAllAssets = (variables) => client().query({
+  query: allAssetsQuery,
+  variables
 });
 
 export default getUser;

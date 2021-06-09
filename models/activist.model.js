@@ -14,7 +14,7 @@ import { cityList } from "../dummies/cities";
 import { getRandomSexualOrientation } from "../dummies/sexual_orientation";
 import { getRandomSign } from "../dummies/signs";
 import { getRandomWebsite } from "../dummies/websites";
-import { languagesList } from "../dummies/lenguages";
+import { languagesList } from "../dummies/languages";
 import { getNRandomStringsInArray, getRandomInArray } from "../utils/random.util";
 import { dummyCoordinates } from "../dummies/locations";
 

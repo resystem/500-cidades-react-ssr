@@ -1,0 +1,18 @@
+export default {
+  press: 'Prensa',
+  photography: 'Fotografía',
+  team_management: 'Gestión de equipos',
+  contents: 'Producción de contenido',
+  editorial: 'Redacción',
+  script: 'Guión',
+  image_treatment: 'Edición de imagen',
+  video_mapping: 'Mapping',
+  videomaker: 'Videomaker',
+  video_edition: 'Edición de video',
+  games: 'Juegos / Games',
+  development: 'Desarrollo',
+  audiovisual_production: 'Producción audiovisual',
+  events_production: 'Producción de eventos',
+  marketing: 'Marketing',
+  other: 'Otro',
+};

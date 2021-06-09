@@ -1,0 +1,16 @@
+export default {
+  cisgender_woman: 'Mujer cisgénero - Mujer que se identifica con el género que se le asignó al nacer',
+  transgender_woman: 'Mujer trans - Mujer que se identifica con un género diferente al que se le asignó al nacer',
+  cisgender_man: 'Hombre cisgénero - Hombre que se identifica con el género que se le asignó al nacer',
+  transgender_man: 'Hombre trans - Hombre que se identifica con un género diferente al que se le asignó al nacer',
+  travist: 'Travesti - Expresión de género latinoamericana. Mujer que se identifica con un género diferente al que le asignaron al nacer',
+  transgender: 'Transgénero - Persona que no se identifica con el género que se le asignó al nacer',
+  intersex: 'Intersexual - Una persona que nace con características anatómicas u hormonales relacionadas con más de un sexo o con ninguno de ellos totalmente',
+  non_binary: 'No binario - Identidad o expresión de género que no se limita a las categorías "masculino", "femenino" u "hombre o mujer"',
+  fluid: 'Fluido - Persona que transita entre diferentes géneros',
+  agender: 'Agénero - Persona que no se identifica con ningún género',
+  xenogender: 'Xenogénero - Identidad de género caracterizada por la relación con cosas no asociadas con el género',
+  dont_know: 'No sé responder',
+  not_said: 'Prefiero no decirlo',
+  other: 'Otros',
+};

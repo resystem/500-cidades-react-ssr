@@ -30,7 +30,6 @@ const UploadAvatar = ({ src, alt, title, handleChange, customStyle, id }) => {
     load(mimage, setLoaddedSrc);
   }, [mimage]);
   useEffect(() => {
-    console.log('🚀 ~ src', src);
     setmimage(src?.url);
   }, [src]);
 

@@ -9,7 +9,6 @@ export const TagListComponent = styled.div`
   display: flex;
   flex-wrap: wrap;
   padding: 5px 5px 0;
-  width: 640px;
   ${props => props.customStyle}
 `;
 

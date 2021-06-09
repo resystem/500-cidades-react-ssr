@@ -14,7 +14,30 @@ const mapActivist = (activist, addressId, ida, activistId) => ({
   instagram: activist.instagram,
   twitter: activist.twitter,
   tiktok: activist.tiktok,
+  job: activist.job,
+  phone: activist.phone,
+  hometown: activist.hometown,
+  homestate: activist.homestate,
+  homecountry: activist.homecountry,
+  gender: activist.gender,
+  sexual_orientation: activist.sexualOrientation,
+  color_race: activist.colorRace,
+  deficiency: activist.deficiency,
+  web_site: activist.website,
+  education: activist.education,
+  how_to_collaborate: activist.howToCollaborate,
+  places_wanna_visit: activist.placesWannaVisit,
+  favorite_places: activist.favoritePlaces,
+  dreams: activist.dreams,
+  series: activist.series,
+  movies: activist.movies,
+  foods: activist.foods,
+  songs: activist.songs,
+  books: activist.books,
+  languages: activist.languages,
+  hobbies: activist.hobbies,
   address: addressId || null,
+
 });
 
 const mapAddress = (address, id) => ({
@@ -28,8 +51,8 @@ const mapAddress = (address, id) => ({
   zipcode: address.zipcode,
   complement: address.complement,
   geolocation: address.geometry,
-  lat: address.lat,
-  lng: address.lng,
+  lat: +(address.lat),
+  lng: +(address.lng),
 });
 
 const editImage = async (profileImage, imageId) => {
@@ -103,7 +126,7 @@ const updateActivist = async (activist, user, address, image) => {
 export const handleSubmit = async (
   activist, ida, user, setUser, closeModal, setActivists, activists, setLoading,
 ) => {
-console.log('🚀 ~ activist', activists);
+  console.log('🚀 ~ activist', activist);
   setLoading(true);
   let image;
   try {
@@ -119,10 +142,8 @@ console.log('🚀 ~ activist', activists);
     const updatedActivist = await updateActivist(activist, user, updatedAddress, image);
 
     setUser(updatedActivist);
-    console.log('🚀 ~ updatedActivist', updatedActivist);
     closeModal();
     const newActivists = activists.map(a => (a.ida === user.ida ? updatedActivist : a));
-    console.log('🚀 ~ newActivists', newActivists);
     setActivists(newActivists);
     setLoading(false);
   } catch (err) {

@@ -33,7 +33,7 @@ const EditActivistModal = ({
           activist={user}
           handleSubmit={(activist) => handleSubmit(activist, auth.ida, user, setUser, closeModal, setActivists, activists, setLoading)}
           isLoading={isLoading}
-          handleCancel={() => console.log('handleCancel')}
+          handleCancel={() => closeModal()}
         />
       </Container>
     </Wrapper>

@@ -8,6 +8,7 @@ import {
 } from './header.style';
 import Button from '../../atoms/button/button';
 import LanguageDropdown from '../../organisms/language-dropdown/languageDropdown';
+import { useTranslation } from 'react-i18next';
 import Store from '../../../store/Store';
 
 const renderUnloggedSection = (idaSDK) => (
@@ -36,7 +37,8 @@ const renderLoggedSection = (user, openModal) => (
  */
 const Header = ({
 }) => {
-  const { idaSDK, auth, user, openModal } = useContext(Store);
+  const { idaSDK, auth, user, openModal, assets } = useContext(Store);
+  const { t } = useTranslation();
   const [selected, setSelected] = useState('map');
   return (
     <Wrapper>
@@ -48,21 +50,21 @@ const Header = ({
             onClick={() => setSelected('map')}
             id="map"
           >
-            Mapa
+            {t('header.map')}
           </Item>
           <Item
             isSelected={selected === 'oportunities'}
             onClick={() => setSelected('oportunities')}
             id="oportunities"
           >
-            Oportunidades
+            {t('header.opportunities')}
           </Item>
           <Item
             isSelected={selected === 'about'}
             onClick={() => setSelected('about')}
             id="about"
           >
-            Sobre
+            {t('header.about')}
           </Item>
         </List>
       </Left>

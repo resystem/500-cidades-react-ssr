@@ -75,10 +75,11 @@ const MapComponent = () => {
         }}
         center={center}
         zoom={zoom}
+        onclick={(data) => console.log(data)}
         onViewportChanged={(data) => console.log('🚀 ~ data', data)}
       >
         <TileLayer url="http://mapa.idativista.org:8080/styles/basic-preview/{z}/{x}/{y}.png"/>
-        {renderMarkers(activists.filter((a) => a.address.lat), openActivistModal)}
+        {renderMarkers(activists.filter((a) => a?.address?.lat), openActivistModal)}
       </Map>
     </>
   )

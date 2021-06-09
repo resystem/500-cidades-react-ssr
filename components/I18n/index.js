@@ -2,13 +2,13 @@ import i18n from 'i18next'
 import LanguageDetector from 'i18next-browser-languagedetector'
 import { initReactI18next } from 'react-i18next'
 
-// import translations from './locales'
+import translations from '../../I18n/locales'
 
 // Configuração i18n
 const i18nConfig = {
-  // resources: translations,
-  // fallbackLng: 'pt-BR',
-  // defaultNS: 'translations'
+  resources: translations,
+  fallbackLng: 'pt-BR',
+  defaultNS: 'translations'
 }
 
 

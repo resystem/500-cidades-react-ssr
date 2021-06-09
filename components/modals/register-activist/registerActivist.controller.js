@@ -13,16 +13,46 @@ const createActivistMutation = gql`
       ida
       name
       social_name
+      email
+      biography
+      whatsapp
+      facebook
+      instagram
+      twitter
+      tiktok
+      job
+      phone
+      hometown
+      homestate
+      homecountry
+      gender
+      sexual_orientation
+
+      color_race
+      deficiency
+      web_site
+      qualification
+      main_language
+      sign
+      education
+      
+      how_to_collaborate
+      places_wanna_visit
+      favorite_places
+      dreams
+      series
+      movies
+      foods
+      songs
+      books
+      interests
+      languages
+      hobbies
       profile_image {
         single_size {
           mimified
         }
       }
-      email
-      job
-      biography
-      interests
-      phone
       address {
         id
         state
@@ -37,29 +67,6 @@ const createActivistMutation = gql`
         zipcode
         geolocation
       }
-      hometown
-      gender
-      sexual_orientation
-      color_race
-      deficiency
-      facebook
-      instagram
-      twitter
-      tiktok
-      web_site
-      qualification
-      languages
-      hobbies
-      books
-      music
-      food
-      movies
-      series
-      dream
-      favorite_places
-      places_wanna_visit
-      how_collaborate
-      sign
     }
   }
 `;
@@ -116,6 +123,28 @@ const mapActivist = (activist, addressId, ida, profileImage) => ({
   instagram: activist.instagram,
   twitter: activist.twitter,
   tiktok: activist.tiktok,
+  job: activist.job,
+  phone: activist.phone,
+  hometown: activist.hometown,
+  homestate: activist.homestate,
+  homecountry: activist.homecountry,
+  gender: activist.gender,
+  sexual_orientation: activist.sexualOrientation,
+  color_race: activist.colorRace,
+  deficiency: activist.deficiency,
+  web_site: activist.website,
+  education: activist.education,
+  how_to_collaborate: activist.howToCollaborate,
+  places_wanna_visit: activist.placesWannaVisit,
+  favorite_places: activist.favoritePlaces,
+  dreams: activist.dreams,
+  series: activist.series,
+  movies: activist.movies,
+  foods: activist.foods,
+  songs: activist.songs,
+  books: activist.books,
+  languages: activist.languages,
+  hobbies: activist.hobbies,
   address: addressId || null,
 });
 

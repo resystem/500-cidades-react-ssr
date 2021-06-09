@@ -2,50 +2,65 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types'
 import { DropdownContainer, DropdownHeader, DropdownListContainer, DropdownList, ListItem, DropdownArrow } from './dropdown.style';
 import { useEffect } from 'react';
+import Input from '../../atoms/input/input';
+import { normalizeString } from '../../../utils/string.util';
 
 /**
  * render the Dropdown molecule.
  */
  function Dropdown(props) {
     const [isOpen, setIsOpen] = useState(false);
-    const [selectedOption, setSelectedOption] = useState(null);
+    const [filter, setFilter] = useState(props.isList ? '' : props.value);
+    const [list, setList] = useState(props.options);
 
     const toggling = () => setIsOpen(!isOpen);
 
     const onOptionClicked = value => () => {
-      setSelectedOption(value);
+      if (props.handleChange) props.handleChange({ target: { value, id: props.id }});
       setIsOpen(false);
+      setFilter(props.isList ? '' : props.value);
     };
 
     useEffect(() => {
-      if (props.handleChange) props.handleChange({ target: { value: selectedOption, id: props.id }});
-    }, [selectedOption])
+      setFilter(props.value);
+    }, [props.value]);
+
+    useEffect(() => {
+      const normalizedFilter = normalizeString(filter);
+      const regex = new RegExp(`${normalizedFilter}`, 'gi');
+
+      const newList = props.options.filter((i) =>
+        regex.test(normalizeString(i.name)) || regex.test(normalizeString(i.id))
+      );
+      
+      setList(newList);
+    }, [filter]);
 
     const options = props.options;
 
     return(
       <DropdownContainer
-        onChange={props.handleChange}
         customStyle={props.customStyle}
-        disabled={props.disabled}
         filled={props.filled}
         error={props.error}
-        onClick={toggling}
       >
         <DropdownHeader >
-          {selectedOption || props.placeholder}
-          {isOpen ?
-            <DropdownArrow src="/icons/arrow_dropup.svg" />
-            :
-            <DropdownArrow src="/icons/arrow_dropdown.svg" />
-          }
+          <Input
+            customStyle="width: 100%;"
+            value={filter}
+            onFocus={() => setIsOpen(true)}
+            placeholder={props.placeholder}
+            handleChange={({ target }) => setFilter(target.value)}
+          />
+          {isOpen && <DropdownArrow onClick={toggling} src="/icons/arrow_dropup.svg" />}
+          {!isOpen && <DropdownArrow onClick={toggling} src="/icons/arrow_dropdown.svg" />}
         </DropdownHeader>
         {isOpen && (
           <DropdownListContainer>
             <DropdownList>
-              {options.map(option => (
-                <ListItem onClick={onOptionClicked(option)} key={Math.random()}>
-                  {option}
+              {list.map(option => (
+                <ListItem onClick={onOptionClicked(option.id)} key={Math.random()}>
+                  {option.name}
                 </ListItem>
               ))}
             </DropdownList>
@@ -69,9 +84,9 @@ Dropdown.propTypes = {
 
 Dropdown.defaultProps = {
   options: [
-    "Sem opções disponíveis",
-    "Sem opções disponíveis",
-    "Sem opções disponíveis",
+    { name: "Sem opções disponíveis", id: 'na'},
+    { name: "Sem opções disponíveis", id: 'na'},
+    { name: "Sem opções disponíveis", id: 'na'},
   ],
   customStyle: '',
   id: '',

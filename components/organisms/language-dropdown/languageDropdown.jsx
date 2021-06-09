@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types'
 import {
   LanguageButton, DropDownIcon,
@@ -6,6 +6,7 @@ import {
   LanguagesList, LanguageItem,
   LanguageIcon, LanguageText,
 } from './languageDropdown.style';
+import { useTranslation } from 'react-i18next';
 
 /**
  * render the LanguageDropdown organism.
@@ -13,30 +14,35 @@ import {
 const LanguageDropdown = ({
 }) => {
   const [showLanguages, setShowLanguages] = useState(false);
-  const [selected, setSelected] = useState('pt_BR');
+  const { t, i18n } = useTranslation();
+  console.log('🚀 ~ i18n', i18n);
+  const [selected, setSelected] = useState('pt-BR');
+  useEffect(() => {
+    i18n.changeLanguage(selected)
+  }, selected)
   return (
     <LanguageButton onClick={() => setShowLanguages(!showLanguages)}>
       <CurrentLanguageIcon src={`/icons/${selected}.svg`} />
       <DropDownIcon src="/icons/arrow_drop_down.svg" />
       <LanguagesList show={showLanguages}>
-        <LanguageItem onClick={() => setSelected('pt_BR')}>
+        <LanguageItem onClick={() => setSelected('pt-BR')}>
           <LanguageIcon
-            isSelected={selected === 'pt_BR'}
-            src="/icons/pt_BR.svg"
+            isSelected={selected === 'pt-BR'}
+            src="/icons/pt-BR.svg"
           />
           <LanguageText>Português</LanguageText>
         </LanguageItem>
-        <LanguageItem onClick={() => setSelected('es_ES')}>
+        <LanguageItem onClick={() => setSelected('es-ES')}>
           <LanguageIcon
-            isSelected={selected === 'es_ES'}
-            src="/icons/es_ES.svg"
+            isSelected={selected === 'es-ES'}
+            src="/icons/es-ES.svg"
           />
           <LanguageText>Español</LanguageText>
         </LanguageItem>
-        <LanguageItem onClick={() => setSelected('EN_us')}>
+        <LanguageItem onClick={() => setSelected('en-US')}>
           <LanguageIcon
-            isSelected={selected === 'EN_us'}
-            src="/icons/EN_us.svg"
+            isSelected={selected === 'en-US'}
+            src="/icons/en-US.svg"
           />
           <LanguageText>English</LanguageText>
         </LanguageItem>

@@ -1,0 +1,15 @@
+export default {
+  aries: 'Aries',
+  taurus: 'Tauto',
+  gemini: 'Géminis',
+  cancer: 'Cáncer',
+  leo: 'Leo',
+  virgo: 'Virgo',
+  libra: 'Libra',
+  scorpio: 'Escorpio',
+  sagittarius: 'Sagitario',
+  capricorn: 'Capricornio',
+  aquarius: 'Acuario',
+  pisces: 'Piscis',
+  dont_know: "No sé responder",
+};

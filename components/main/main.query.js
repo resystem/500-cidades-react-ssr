@@ -16,40 +16,46 @@ export const oneUserQuery = gql`
       name
       social_name
       email
-      job
       biography
-      interests
-      phone
-      hometown
-      gender
-      sexual_orientation
-      color_race
-      deficiency
+      whatsapp
       facebook
       instagram
       twitter
+      tiktok
+      job
+      phone
+      hometown
+      homestate
+      homecountry
+      gender
+      sexual_orientation
+
+      color_race
+      deficiency
+      web_site
+      qualification
+      main_language
+      sign
+      education
+      
+      how_to_collaborate
+      places_wanna_visit
+      favorite_places
+      dreams
+      series
+      movies
+      foods
+      songs
+      books
+      interests
+      languages
+      hobbies
       profile_image {
         id
         single_size {
           mimified
         }
       }
-      tiktok
-      web_site
-      qualification
-      languages
-      hobbies
-      books
-      music
-      food
-      movies
-      whatsapp
-      series
-      dream
-      favorite_places
-      places_wanna_visit
-      how_collaborate
-      sign
       address {
         id
         state
@@ -80,39 +86,45 @@ export const allUsersQuery = gql`
       name
       social_name
       email
-      job
       biography
-      interests
-      phone
-      hometown
-      gender
-      sexual_orientation
-      color_race
-      deficiency
+      whatsapp
       facebook
       instagram
+      twitter
+      tiktok
+      job
+      phone
+      hometown
+      homestate
+      homecountry
+      gender
+      sexual_orientation
+
+      color_race
+      deficiency
+      web_site
+      qualification
+      main_language
+      sign
+      education
+      
+      how_to_collaborate
+      places_wanna_visit
+      favorite_places
+      dreams
+      series
+      movies
+      foods
+      songs
+      books
+      interests
+      languages
+      hobbies
       profile_image {
         single_size {
           mimified
         }
       }
-      twitter
-      tiktok
-      web_site
-      qualification
-      languages
-      hobbies
-      books
-      music
-      food
-      movies
-      whatsapp
-      series
-      dream
-      favorite_places
-      places_wanna_visit
-      how_collaborate
-      sign
       address {
         id
         state
@@ -127,6 +139,20 @@ export const allUsersQuery = gql`
         lat
         lng
       }
+    }
+  }
+`;
+
+export const allAssetsQuery = gql`
+  query allAssets(
+    $asset: AssetInput
+  ){
+    allAssets( 
+      asset: $asset
+    ) {
+      id
+      data
+      type
     }
   }
 `;
