@@ -21,10 +21,10 @@ export const submitProxy = (values, handleSubmit, setErrors) => {
     errors.email = 'Biografia é obrigatório';
     hasError = true;
   }
-  if (!values.whatsapp) {
-    errors.whatsapp = 'Celular é obrigatório';
-    hasError = true;
-  }
+  // if (!values.whatsapp) {
+  //   errors.whatsapp = 'Celular é obrigatório';
+  //   hasError = true;
+  // }
   if (!values.zipcode) {
     errors.zipcode = 'CEP é obrigatório';
     hasError = true;
@@ -126,7 +126,7 @@ export const getAddress = async (zipcodeInput, handleChange, lastZipcode, setLas
         const placeResults = result.results[0];
         handleChange('city', getMapsProperty(placeResults, "administrative_area_level_2"));
         handleChange('state', getMapsProperty(placeResults, "administrative_area_level_1"));
-        handleChange('street', placeResults.formatted_address.split(',')[0]);
+        // handleChange('street', placeResults.formatted_address.split(',')[0]);
         handleChange('country', getMapsProperty(placeResults, "country"));
         handleChange('district', getMapsProperty(placeResults, "sublocality"));
         handleChange('geometry', placeResults.geometry.bounds);

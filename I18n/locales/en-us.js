@@ -9,6 +9,8 @@ import raceList from './lists/race/race.en-US';
 import genderList from './lists/gender/gender.en-US';
 import educationList from './lists/education/education.en-US';
 
+import activistForm from './components/activist-form/activistForm.en-US';
+
 export default {
   translations: {
     header: {
@@ -26,5 +28,6 @@ export default {
     race_list: raceList,
     gender_list: genderList,
     education_list: educationList,
+    activist_form: activistForm,
   }
 }

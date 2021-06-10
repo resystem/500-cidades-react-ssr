@@ -37,9 +37,9 @@ const ActivistForm = ({
 
   return (
     <Form>
-      <Label><Required>*</Required> Campos de preenchimento obrigatório.</Label>
+      <Label><Required>*</Required>{t('activist_form.legends.requiredAlert')}</Label>
       <InputGroup
-        label="Nome completo"
+        label={t('activist_form.labels.name')}
         customStyle="margin-top: 32px;"
         error={errors.name}
         isRequired
@@ -53,7 +53,7 @@ const ActivistForm = ({
         />
       </InputGroup>
       <InputGroup
-        label="Nome social"
+        label={t('activist_form.labels.socialName')}
         error={errors.socialName}
         customStyle="margin-top: 24px;"
         customLabelStyle="font-size: 0.875em;"
@@ -66,9 +66,9 @@ const ActivistForm = ({
           />
       </InputGroup>
       <Line />
-      <Subtitle>Redes sociais</Subtitle>
+      <Subtitle>{t('activist_form.subtitles.socialMedias')}</Subtitle>
       <InputGroup
-        label="Facebook"
+        label={t('activist_form.labels.facebook')}
         customStyle="margin-top: 24px;"
         error={errors.facebook}
         customLabelStyle="font-size: 0.875em;"
@@ -81,7 +81,7 @@ const ActivistForm = ({
         />
       </InputGroup>
       <InputGroup
-        label="Instagram"
+        label={t('activist_form.labels.instagram')}
         customStyle="margin-top: 24px;"
         error={errors.instagram}
         customLabelStyle="font-size: 0.875em;"
@@ -94,7 +94,7 @@ const ActivistForm = ({
         />
       </InputGroup>
       <InputGroup
-        label="Twitter"
+        label={t('activist_form.labels.twitter')}
         customStyle="margin-top: 24px;"
         error={errors.twitter}
         customLabelStyle="font-size: 0.875em;"
@@ -107,7 +107,7 @@ const ActivistForm = ({
         />
       </InputGroup>
       <InputGroup
-        label="Tiktok"
+        label={t('activist_form.labels.tiktok')}
         customStyle="margin-top: 24px;"
         error={errors.tiktok}
         customLabelStyle="font-size: 0.875em;"
@@ -121,7 +121,7 @@ const ActivistForm = ({
       </InputGroup>
       <Line />
       <InputGroup
-        label="Biografia"
+        label={t('activist_form.labels.biography')}
         customStyle="margin-top: 24px;"
         error={errors.biography}
         isRequired
@@ -134,9 +134,9 @@ const ActivistForm = ({
           placeholder="Texto"
         />
       </InputGroup>
-      <Subtitle>Contato</Subtitle>
+      <Subtitle>{t('activist_form.subtitles.contact')}</Subtitle>
       <InputGroup
-        label="Site"
+        label={t('activist_form.labels.website')}
         customStyle="margin-top: 24px;"
         error={errors.website}
         customLabelStyle="font-size: 0.875em;"
@@ -149,7 +149,7 @@ const ActivistForm = ({
         />
       </InputGroup>
       <InputGroup
-        label="E-mail"
+        label={t('activist_form.labels.email')}
         customStyle="margin-top: 24px;"
         isRequired
         customLabelStyle="font-size: 0.875em;"
@@ -163,20 +163,7 @@ const ActivistForm = ({
         />
       </InputGroup>
       <InputGroup
-        label="Telefone fixo"
-        customStyle="margin-top: 24px;"
-        error={errors.phone}
-        customLabelStyle="font-size: 0.875em;"
-      >
-        <Input
-          customStyle="width: 100%;"
-          placeholder="(99) 99999 9999"
-          handleChange={({ target }) => handleChange('phone', extractNumbers(target.value))}
-          value={VMasker.toPattern(values.phone, '(99) 9999-9999')}
-        />
-      </InputGroup>
-      <InputGroup
-        label="Celular / WhatsApp"
+        label={t('activist_form.labels.whatsapp')}
         customStyle="margin-top: 24px;"
         isRequired
         error={errors.whatsapp}
@@ -189,11 +176,23 @@ const ActivistForm = ({
           placeholder="(99) 99999 9999"
         />
       </InputGroup>
-      <Subtitle>Informações pessoais</Subtitle>
       <InputGroup
-        label="Identidade de gênero"
+        label={t('activist_form.labels.phone')}
         customStyle="margin-top: 24px;"
-        isRequired
+        error={errors.phone}
+        customLabelStyle="font-size: 0.875em;"
+      >
+        <Input
+          customStyle="width: 100%;"
+          placeholder="(99) 99999 9999"
+          handleChange={({ target }) => handleChange('phone', extractNumbers(target.value))}
+          value={VMasker.toPattern(values.phone, '(99) 9999-9999')}
+        />
+      </InputGroup>
+      <Subtitle>{t('activist_form.subtitles.personalInformation')}</Subtitle>
+      <InputGroup
+        label={t('activist_form.labels.gender')}
+        customStyle="margin-top: 24px;"
         error={errors.gender}
         customLabelStyle="font-size: 0.875em;"
       >
@@ -209,9 +208,8 @@ const ActivistForm = ({
         />
       </InputGroup>
       <InputGroup
-        label="Orientação sexual"
+        label={t('activist_form.labels.sexualOrientation')}
         customStyle="margin-top: 24px;"
-        isRequired
         error={errors.sexualOrientation}
         customLabelStyle="font-size: 0.875em;"
       >
@@ -227,9 +225,8 @@ const ActivistForm = ({
         />
       </InputGroup>
       <InputGroup
-        label="Cor e raça"
+        label={t('activist_form.labels.colorRace')}
         customStyle="margin-top: 24px;"
-        isRequired
         error={errors.colorRace}
         customLabelStyle="font-size: 0.875em;"
       >
@@ -245,7 +242,7 @@ const ActivistForm = ({
         />
       </InputGroup>
       <InputGroup
-        label="Pessoa com deficiência"
+        label={t('activist_form.labels.deficiency')}
         customStyle="margin-top: 24px;"
         error={errors.deficiency}
         customLabelStyle="font-size: 0.875em;"
@@ -262,7 +259,7 @@ const ActivistForm = ({
         />
       </InputGroup>
       <InputGroup
-        label="Data de nascimento"
+        label={t('activist_form.labels.birthDate')}
         customStyle="margin-top: 24px;"
         isRequired
         error={errors.birthDate}
@@ -276,9 +273,8 @@ const ActivistForm = ({
         />
       </InputGroup>
       <InputGroup
-        label="Signo"
+        label={t('activist_form.labels.sign')}
         customStyle="margin-top: 24px;"
-        isRequired
         error={errors.sign}
         customLabelStyle="font-size: 0.875em;"
         >
@@ -294,7 +290,24 @@ const ActivistForm = ({
         />
       </InputGroup>
       <InputGroup
-        label="Profissão"
+        label={t('activist_form.labels.education')}
+        customStyle="margin-top: 24px;"
+        error={errors.education}
+        customLabelStyle="font-size: 0.875em;"
+        >
+        <Dropdown
+          options={assets?.education_list?.map(o => ({
+            name: t(`education_list.${o}`),
+            id: o,
+          }))}
+          value={values.education ? t(`education_list.${values.education}`) : ''}
+          customStyle="width: 100%;"
+          handleChange={({ target }) => handleChange('education', target.value)}
+          placeholder="Texto"
+          />
+      </InputGroup>
+      <InputGroup
+        label={t('activist_form.labels.job')}
         customStyle="margin-top: 24px;"
         error={errors.job}
         customLabelStyle="font-size: 0.875em;"
@@ -311,7 +324,7 @@ const ActivistForm = ({
         />
       </InputGroup>
       <InputGroup
-        label="Idioma principal"
+        label={t('activist_form.labels.mainLanguage')}
         customStyle="margin-top: 24px;"
         isRequired
         error={errors.mainLanguage}
@@ -329,7 +342,7 @@ const ActivistForm = ({
         />
       </InputGroup>
       <InputGroup
-        label="Outros idiomas que fala"
+        label={t('activist_form.labels.languages')}
         customStyle="margin-top: 24px;"
         error={errors.languages}
         customLabelStyle="font-size: 0.875em;"
@@ -349,9 +362,9 @@ const ActivistForm = ({
           tags={values.languages ? values.languages.map(l => t(`language_list.${l}`)) : []}
         />
       </InputGroup>
-      <Subtitle>Nacionalidade</Subtitle>
+      {/* <Subtitle>{t('activist_form.subtitles.nacionality')}</Subtitle>
       <InputGroup
-        label="País"
+        label={t('activist_form.labels.homecountry')}
         customStyle="margin-top: 24px;"
         isRequired
         error={errors.homecountry}
@@ -370,6 +383,7 @@ const ActivistForm = ({
       </InputGroup>
       <InputGroup
         label="Estado/província"
+        label={t('activist_form.labels.homestate')}
         customStyle="margin-top: 24px;"
         isRequired
         error={errors.homestate}
@@ -387,7 +401,7 @@ const ActivistForm = ({
         />
       </InputGroup>
       <InputGroup
-        label="Cidade natal"
+        label={t('activist_form.labels.hometown')}
         customStyle="margin-top: 24px;"
         isRequired
         error={errors.hometown}
@@ -399,25 +413,11 @@ const ActivistForm = ({
           handleChange={({ target }) => handleChange('hometown', target.value)}
           value={values.hometown}
         />
-      </InputGroup>
-      <Subtitle>Áreas de interesse</Subtitle>
-      <Label>Separe as palavras-chave com vírgula</Label>
-      {/* <InputGroup
-        label="Cidade natal"
-        customStyle="margin-top: 24px;"
-        isRequired
-        error={errors.}
-        customLabelStyle="font-size: 0.875em;"
-        >
-        <Input
-          customStyle="width: 100%;"
-          placeholder="Texto"
-          />
       </InputGroup> */}
       <Line />
-      <Subtitle>Mapa</Subtitle>
+      <Subtitle>{t('activist_form.subtitles.map')}</Subtitle>
       <InputGroup
-        label="CEP"
+        label={t('activist_form.labels.zipcode')}
         customStyle="margin-top: 24px;"
         isRequired
         customLabelStyle="font-size: 0.875em;"
@@ -431,7 +431,7 @@ const ActivistForm = ({
           />
       </InputGroup>
       <InputGroup
-        label="Logradouro"
+        label={t('activist_form.labels.street')}
         customStyle="margin-top: 24px;"
         isRequired
         customLabelStyle="font-size: 0.875em;"
@@ -445,7 +445,7 @@ const ActivistForm = ({
           />
       </InputGroup>
       <InputGroup
-        label="Número"
+        label={t('activist_form.labels.number')}
         customStyle="margin-top: 24px;"
         isRequired
         customLabelStyle="font-size: 0.875em;"
@@ -459,7 +459,7 @@ const ActivistForm = ({
           />
       </InputGroup>
       <InputGroup
-        label="Complemento"
+        label={t('activist_form.labels.complement')}
         customStyle="margin-top: 24px;"
         customLabelStyle="font-size: 0.875em;"
         error={errors.complement}
@@ -472,7 +472,7 @@ const ActivistForm = ({
           />
       </InputGroup>
       <InputGroup
-        label="Bairro"
+        label={t('activist_form.labels.district')}
         customStyle="margin-top: 24px;"
         isRequired
         customLabelStyle="font-size: 0.875em;"
@@ -486,7 +486,7 @@ const ActivistForm = ({
           />
       </InputGroup>
       <InputGroup
-        label="Cidade"
+        label={t('activist_form.labels.city')}
         customStyle="margin-top: 24px;"
         isRequired
         customLabelStyle="font-size: 0.875em;"
@@ -500,7 +500,7 @@ const ActivistForm = ({
           />
       </InputGroup>
       <InputGroup
-        label="Estado"
+        label={t('activist_form.labels.state')}
         customStyle="margin-top: 24px;"
         isRequired
         customLabelStyle="font-size: 0.875em;"
@@ -514,7 +514,7 @@ const ActivistForm = ({
           />
       </InputGroup>
       <InputGroup
-        label="Pais"
+        label={t('activist_form.labels.country')}
         customStyle="margin-top: 24px;"
         isRequired
         customLabelStyle="font-size: 0.875em;"
@@ -528,7 +528,7 @@ const ActivistForm = ({
           />
       </InputGroup>
       <InputGroup
-        label="Latitude"
+        label={t('activist_form.labels.lat')}
         customStyle="margin-top: 24px;"
         isRequired
         customLabelStyle="font-size: 0.875em;"
@@ -542,7 +542,7 @@ const ActivistForm = ({
           />
       </InputGroup>
       <InputGroup
-        label="Longitude"
+        label={t('activist_form.labels.lng')}
         customStyle="margin-top: 24px;"
         isRequired
         customLabelStyle="font-size: 0.875em;"
@@ -555,30 +555,14 @@ const ActivistForm = ({
           value={values.lng}
           />
       </InputGroup>
-      <Checkbox>Pode ser ponto de hospedagem</Checkbox>
+      <Subtitle>{t('activist_form.subtitles.cultureHost')}</Subtitle>
+      <Label>{t('activist_form.legends.cultureHost')}</Label>
+      <Checkbox>{t('activist_form.labels.isAHostPoint')}</Checkbox>
       <Line />
-      <Subtitle>Áreas de interesse</Subtitle>
-      <Label>Separe as palavras-chave com vírgula</Label>
+      <Subtitle>{t('activist_form.subtitles.interestFields')}</Subtitle>
+      <Label>{t('activist_form.legends.fillTip')}</Label>
       <InputGroup
-        label="Formação"
-        customStyle="margin-top: 24px;"
-        isRequired
-        error={errors.education}
-        customLabelStyle="font-size: 0.875em;"
-        >
-        <Dropdown
-          options={assets?.education_list?.map(o => ({
-            name: t(`education_list.${o}`),
-            id: o,
-          }))}
-          value={values.education ? t(`education_list.${values.education}`) : ''}
-          customStyle="width: 100%;"
-          handleChange={({ target }) => handleChange('education', target.value)}
-          placeholder="Texto"
-          />
-      </InputGroup>
-      <InputGroup
-        label="Hobbies"
+        label={t('activist_form.labels.hobbies')}
         customStyle="margin-top: 24px;"
         error={errors.hobbies}
         customLabelStyle="font-size: 0.875em;"
@@ -591,7 +575,7 @@ const ActivistForm = ({
           />
       </InputGroup>
       <InputGroup
-        label="Livros"
+        label={t('activist_form.labels.books')}
         customStyle="margin-top: 24px;"
         error={errors.books}
         customLabelStyle="font-size: 0.875em;"
@@ -604,7 +588,7 @@ const ActivistForm = ({
           />
       </InputGroup>
       <InputGroup
-        label="Música"
+        label={t('activist_form.labels.songs')}
         customStyle="margin-top: 24px;"
         error={errors.songs}
         customLabelStyle="font-size: 0.875em;"
@@ -617,7 +601,7 @@ const ActivistForm = ({
           />
       </InputGroup>
       <InputGroup
-        label="Comidas"
+        label={t('activist_form.labels.foods')}
         customStyle="margin-top: 24px;"
         error={errors.foods}
         customLabelStyle="font-size: 0.875em;"
@@ -630,7 +614,7 @@ const ActivistForm = ({
           />
       </InputGroup>
       <InputGroup
-        label="Filmes"
+        label={t('activist_form.labels.movies')}
         customStyle="margin-top: 24px;"
         error={errors.movies}
         customLabelStyle="font-size: 0.875em;"
@@ -643,7 +627,7 @@ const ActivistForm = ({
           />
       </InputGroup>
       <InputGroup
-        label="Series"
+        label={t('activist_form.labels.series')}
         customStyle="margin-top: 24px;"
         error={errors.series}
         customLabelStyle="font-size: 0.875em;"
@@ -656,7 +640,7 @@ const ActivistForm = ({
           />
       </InputGroup>
       <InputGroup
-        label="Sonhos"
+        label={t('activist_form.labels.dreams')}
         customStyle="margin-top: 24px;"
         error={errors.dreams}
         customLabelStyle="font-size: 0.875em;"
@@ -669,7 +653,7 @@ const ActivistForm = ({
           />
       </InputGroup>
       <InputGroup
-        label="Lugares favoritos"
+        label={t('activist_form.labels.favoritePlaces')}
         customStyle="margin-top: 24px;"
         error={errors.favoritePlaces}
         customLabelStyle="font-size: 0.875em;"
@@ -682,7 +666,7 @@ const ActivistForm = ({
           />
       </InputGroup>
       <InputGroup
-        label="Lugares que gostaria de conhecer"
+        label={t('activist_form.labels.placesWannaVisit')}
         customStyle="margin-top: 24px;"
         error={errors.placesWannaVisit}
         customLabelStyle="font-size: 0.875em;"
@@ -695,7 +679,7 @@ const ActivistForm = ({
           />
       </InputGroup>
       <InputGroup
-        label="Como pode colaborar com a comunidade?"
+        label={t('activist_form.labels.howToCollaborate')}
         customStyle="margin-top: 24px;"
         error={errors.howToCollaborate}
         customLabelStyle="font-size: 0.875em;"
