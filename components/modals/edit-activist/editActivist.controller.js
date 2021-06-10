@@ -113,7 +113,6 @@ const updateAddress = async (activist, user) => {
 const updateActivist = async (activist, user, address, image) => {
   try {
     const mappedActivist = mapActivist(activist, address.id, user.ida, user.id)
-    console.log('🚀 ~ mappedActivist', mappedActivist);
 
     if (image) mappedActivist.profile_image = image.id;
     const editActivist = await client().mutate({
@@ -131,7 +130,6 @@ const updateActivist = async (activist, user, address, image) => {
 export const handleSubmit = async (
   activist, ida, user, setUser, closeModal, setActivists, activists, setLoading,
 ) => {
-  console.log('🚀 ~ activist', activist);
   setLoading(true);
   let image;
   try {

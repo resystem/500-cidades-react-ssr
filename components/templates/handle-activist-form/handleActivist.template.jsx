@@ -17,7 +17,6 @@ import { dateToStrDDMMYYYY } from '../../../utils/date.util';
 const HandleActivistForm = ({
   handleSubmit, handleCancel, activist, isLoading,
 }) => {
-  console.log('🚀 ~ activist', activist);
   const [name, setName] = useState(activist.name || '');
   const [socialName, setSocialName] = useState(activist.social_name || '');
   const [facebook, setFacebook] = useState(activist.facebook || '');
@@ -69,7 +68,6 @@ const HandleActivistForm = ({
   const [errors, setErrors] = useState({});
 
   const handleChange = (id, value) => {
-  console.log('🚀 ~ id, value', id,' | ',  value);
     const handlers = {
       name: (payload) => setName(payload),
       socialName: (payload) => setSocialName(payload),
