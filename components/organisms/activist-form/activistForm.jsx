@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types'
+import VMasker from 'vanilla-masker';
 import {
   Container,
   Header,
@@ -170,8 +171,8 @@ const ActivistForm = ({
         <Input
           customStyle="width: 100%;"
           placeholder="(99) 99999 9999"
-          handleChange={({ target }) => handleChange('phone', target.value)}
-          value={values.phone}
+          handleChange={({ target }) => handleChange('phone', extractNumbers(target.value))}
+          value={VMasker.toPattern(values.phone, '(99) 9999-9999')}
         />
       </InputGroup>
       <InputGroup
@@ -183,8 +184,8 @@ const ActivistForm = ({
         >
         <Input
           customStyle="width: 100%;"
-          handleChange={({ target }) => handleChange('whatsapp', target.value)}
-          value={values.whatsapp}
+          handleChange={({ target }) => handleChange('whatsapp', extractNumbers(target.value))}
+          value={VMasker.toPattern(values.whatsapp, '(99) 99999-9999')}
           placeholder="(99) 99999 9999"
         />
       </InputGroup>
@@ -269,9 +270,9 @@ const ActivistForm = ({
       >
         <Input
           customStyle="width: 100%;"
-          placeholder="Texto"
-          handleChange={({ target }) => handleChange('birthDate', target.value)}
-          value={values.birthDate}
+          placeholder="DD/MM/AAAA"
+          handleChange={({ target }) => handleChange('birthDate', extractNumbers(target.value))}
+          value={VMasker.toPattern(values.birthDate, '99/99/9999')}
         />
       </InputGroup>
       <InputGroup
@@ -426,7 +427,7 @@ const ActivistForm = ({
           customStyle="width: 100%;"
           placeholder="Texto"
           handleChange={({ target }) => handleChange('zipcode', extractNumbers(target.value))}
-          value={values.zipcode}
+          value={VMasker.toPattern(values.zipcode, '99999-999')}
           />
       </InputGroup>
       <InputGroup

@@ -1,4 +1,5 @@
 import { client } from '../../../libs/apollo.lib'
+import { strToDateDDMMYYYY } from '../../../utils/date.util';
 import { getBase64, sendImageToApi } from '../../../utils/media.util';
 import { createImageMutation, editActivistMutation, editAddressMutation, updateImageMutation } from './editActivist.mutations';
 
@@ -20,6 +21,7 @@ const mapActivist = (activist, addressId, ida, activistId) => ({
   homestate: activist.homestate,
   homecountry: activist.homecountry,
   birth_sign: activist.sign,
+  birth_date: strToDateDDMMYYYY(activist.birthDate),
   gender: activist.gender,
   sexual_orientation: activist.sexualOrientation,
   color_race: activist.colorRace,

@@ -1,3 +1,5 @@
+import { strToDateDDMMYYYY } from "../../../utils/date.util";
+
 const getMapsProperty = (placeResults, id) => {
   const component = placeResults.address_components.find(i => i.types.includes(id));
   return component ? component.long_name : '';
@@ -68,21 +70,30 @@ export const submitProxy = (values, handleSubmit, setErrors) => {
     hasError = true;
   }
   if (!values.homecountry) {
-    errors.lng = 'País de origem é obrigatório';
+    errors.homecountry = 'País de origem é obrigatório';
     hasError = true;
   }
   
   if (!values.homestate) {
-    errors.lng = 'Estado de origem é obrigatório';
+    errors.homestate = 'Estado de origem é obrigatório';
     hasError = true;
   }
   
   if (!values.hometown) {
-    errors.lng = 'Cidade Natal é obrigatório';
+    errors.hometown = 'Cidade Natal é obrigatório';
     hasError = true;
   }
   if (!values.mainLanguage) {
-    errors.lng = 'Idioma principal é obrigatório';
+    errors.mainLanguage = 'Idioma principal é obrigatório';
+    hasError = true;
+  }
+  if (!values.birthDate) {
+    errors.birthDate = 'Data de nascimento é obrigatório';
+    hasError = true;
+  }
+  
+  if (values.birthDate && strToDateDDMMYYYY(values.birthDate).toString() === 'Invalid Date') {
+    errors.birthDate = 'Data de nascimento esta inválido';
     hasError = true;
   }
 

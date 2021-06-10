@@ -41,6 +41,7 @@
     "react-i18next": "^11.8.13",
     "react-leaflet": "^2.7.0",
     "styled-components": "^5.2.1",
+    "vanilla-masker": "^1.2.0",
     "webpack": "^5.37.1"
   }
 }

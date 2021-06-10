@@ -9,6 +9,7 @@ import ActivistForm from '../../organisms/activist-form/activistForm';
 import Button from '../../atoms/button/button';
 import { getAddress, submitProxy } from './handleActivist.controller';
 import UploadAvatar from '../../atoms/upload-avatar/uploadAvatar';
+import { dateToStrDDMMYYYY } from '../../../utils/date.util';
 
 /**
  * render the HandleActivist atom.
@@ -16,6 +17,7 @@ import UploadAvatar from '../../atoms/upload-avatar/uploadAvatar';
 const HandleActivistForm = ({
   handleSubmit, handleCancel, activist, isLoading,
 }) => {
+  console.log('🚀 ~ activist', activist);
   const [name, setName] = useState(activist.name || '');
   const [socialName, setSocialName] = useState(activist.social_name || '');
   const [facebook, setFacebook] = useState(activist.facebook || '');
@@ -43,7 +45,7 @@ const HandleActivistForm = ({
   const [languages, setLanguages] = useState(activist.languages || []);
   const [phone, setPhone] = useState(activist.phone || '');
   const [website, setWebsite] = useState(activist.web_site || '');
-  const [birthDate, setBirthDate] = useState(activist.birth_data || '');
+  const [birthDate, setBirthDate] = useState(dateToStrDDMMYYYY(new Date(+activist.birth_date)) || '');
   const [hometown, setHometown] = useState(activist.hometown || '');
   const [homestate, setHomestate] = useState(activist.homestate || '');
   const [homecountry, setHomecountry] = useState(activist.homecountry || '');

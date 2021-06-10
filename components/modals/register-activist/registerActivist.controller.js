@@ -2,6 +2,7 @@ import { client } from '../../../libs/apollo.lib'
 import { gql } from 'apollo-boost';
 import { getBase64, sendImageToApi } from '../../../utils/media.util';
 import { userApolloSchema } from '../../../utils/user.util';
+import { strToDateDDMMYYYY } from '../../../utils/date.util';
 
 const createActivistMutation = gql`
   mutation createUser(
@@ -73,6 +74,7 @@ const mapActivist = (activist, addressId, ida, profileImage) => ({
   homestate: activist.homestate,
   homecountry: activist.homecountry,
   birth_sign: activist.sign,
+  birth_date: strToDateDDMMYYYY(activist.birthDate),
   gender: activist.gender,
   sexual_orientation: activist.sexualOrientation,
   color_race: activist.colorRace,
