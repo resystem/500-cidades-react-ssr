@@ -20,7 +20,9 @@ export const fetchLoggedUser = async (auth, openRegisterModal, setUser) => {
  * @param {object} router this is the a manager app router
  */
 export const getActivists = async (setActivists) => {
+  console.log('🚀 ~ setActivists', setActivists);
   const users = await getAllUsers();
+  console.log('🚀 ~ users.data.allUsers', users.data.allUsers.map(u => u.profile_image));
   if (users.data.allUsers?.length) setActivists(users.data.allUsers.filter(u => u?.address?.lat));
 };
 
@@ -54,6 +56,7 @@ export const initIDA = async (setShowLoading, setAuth, setIdaSDK, router) => {
   try {
     sdk = await init({
       onAuthChange: (auth) => {
+      console.log('🚀 ~ auth', auth);
         setAuth(auth);
       }
     });

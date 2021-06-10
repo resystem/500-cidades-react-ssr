@@ -10,9 +10,7 @@ export const getUser = (ida) => client().query({
 
 export const getAllUsers = () => client().query({
   query: allUsersQuery,
-  variables: {
-    user: {}
-  }
+  variables: { user: {} }
 });
 
 export const getAllAssets = (variables) => client().query({

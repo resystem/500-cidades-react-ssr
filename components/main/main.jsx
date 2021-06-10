@@ -50,6 +50,7 @@ const Main = ({
     user, setUser, showLoading,
     assets, setAssets,
   }; 
+  console.log('🚀 ~ values', values);
   
   useEffect(() => {
     initIDA(setShowLoading, setAuth, setIdaSDK, router);

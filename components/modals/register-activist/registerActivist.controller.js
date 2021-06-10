@@ -1,6 +1,7 @@
 import { client } from '../../../libs/apollo.lib'
 import { gql } from 'apollo-boost';
 import { getBase64, sendImageToApi } from '../../../utils/media.util';
+import { userApolloSchema } from '../../../utils/user.util';
 
 const createActivistMutation = gql`
   mutation createUser(
@@ -9,64 +10,7 @@ const createActivistMutation = gql`
     createUser(
       user: $user
     ) {
-      id
-      ida
-      name
-      social_name
-      email
-      biography
-      whatsapp
-      facebook
-      instagram
-      twitter
-      tiktok
-      job
-      phone
-      hometown
-      homestate
-      homecountry
-      gender
-      sexual_orientation
-
-      color_race
-      deficiency
-      web_site
-      qualification
-      main_language
-      sign
-      education
-      
-      how_to_collaborate
-      places_wanna_visit
-      favorite_places
-      dreams
-      series
-      movies
-      foods
-      songs
-      books
-      interests
-      languages
-      hobbies
-      profile_image {
-        single_size {
-          mimified
-        }
-      }
-      address {
-        id
-        state
-        city
-        country
-        street
-        number
-        geolocation
-        lat
-        lng
-        district
-        zipcode
-        geolocation
-      }
+      ${userApolloSchema}
     }
   }
 `;
@@ -128,6 +72,7 @@ const mapActivist = (activist, addressId, ida, profileImage) => ({
   hometown: activist.hometown,
   homestate: activist.homestate,
   homecountry: activist.homecountry,
+  birth_sign: activist.sign,
   gender: activist.gender,
   sexual_orientation: activist.sexualOrientation,
   color_race: activist.colorRace,
@@ -135,6 +80,7 @@ const mapActivist = (activist, addressId, ida, profileImage) => ({
   web_site: activist.website,
   education: activist.education,
   how_to_collaborate: activist.howToCollaborate,
+  main_language: activist.mainLanguage,
   places_wanna_visit: activist.placesWannaVisit,
   favorite_places: activist.favoritePlaces,
   dreams: activist.dreams,

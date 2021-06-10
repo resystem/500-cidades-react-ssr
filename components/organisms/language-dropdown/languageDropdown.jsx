@@ -15,7 +15,6 @@ const LanguageDropdown = ({
 }) => {
   const [showLanguages, setShowLanguages] = useState(false);
   const { t, i18n } = useTranslation();
-  console.log('🚀 ~ i18n', i18n);
   const [selected, setSelected] = useState('pt-BR');
   useEffect(() => {
     i18n.changeLanguage(selected)

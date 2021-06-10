@@ -19,12 +19,14 @@ const mapActivist = (activist, addressId, ida, activistId) => ({
   hometown: activist.hometown,
   homestate: activist.homestate,
   homecountry: activist.homecountry,
+  birth_sign: activist.sign,
   gender: activist.gender,
   sexual_orientation: activist.sexualOrientation,
   color_race: activist.colorRace,
   deficiency: activist.deficiency,
   web_site: activist.website,
   education: activist.education,
+  main_language: activist.mainLanguage,
   how_to_collaborate: activist.howToCollaborate,
   places_wanna_visit: activist.placesWannaVisit,
   favorite_places: activist.favoritePlaces,
@@ -109,6 +111,7 @@ const updateAddress = async (activist, user) => {
 const updateActivist = async (activist, user, address, image) => {
   try {
     const mappedActivist = mapActivist(activist, address.id, user.ida, user.id)
+    console.log('🚀 ~ mappedActivist', mappedActivist);
 
     if (image) mappedActivist.profile_image = image.id;
     const editActivist = await client().mutate({
