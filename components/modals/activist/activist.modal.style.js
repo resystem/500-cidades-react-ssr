@@ -64,6 +64,7 @@ export const SectionTitle = styled.h4`
   margin-bottom: 16px;
   font-weight: bold;
   font-size: 1.125em;
+  ${(props) => props.hide ? 'display: none;' : ''}
   ${props => props.customStyle}
 `;
 

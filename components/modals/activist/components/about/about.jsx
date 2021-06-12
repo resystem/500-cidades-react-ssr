@@ -14,47 +14,51 @@ import {
   SocialMediaContainer,
   SocialMedia,
 } from './about.style';
+import { useTranslation } from 'react-i18next';
 
 /**
  * render the About atom.
  */
 const About = ({
   name, location, facebook, instagram, twitter, tiktok, avatarImage
-}) => (
-  <AboutWrapper>
-    <AboutContainer>
-      <ProfileImage src={avatarImage} />
-      <AgentDetails>
-        <Name>{name}</Name>
-        <Location>{location}</Location>
-        <Type>
-          <AgentIcon src="/icons/agent.svg" />
-          <AgentLabel>Ativista</AgentLabel>
-        </Type>
-        <Line />
-        <SocialMediaContainer>
-          <SocialMedia
-            onClick={() => window.open(facebook)}
-            src="/icons/facebook.svg"
-          />
-          <SocialMedia
-            onClick={() => window.open(instagram)}
-            src="/icons/instagram.svg"
-          />
-          <SocialMedia
-            onClick={() => window.open(twitter)}
-            src="/icons/twitter.svg"
-          />
-          <SocialMedia
-            onClick={() => window.open(tiktok)}
-            src="/icons/tiktok.svg"
-          />
-        </SocialMediaContainer>
-      </AgentDetails>
-    </AboutContainer>
-  </AboutWrapper>
-);
+}) => {
+  const { t } = useTranslation();
 
+  return (
+    <AboutWrapper>
+      <AboutContainer>
+        <ProfileImage src={avatarImage} />
+        <AgentDetails>
+          <Name>{name}</Name>
+          <Location>{location}</Location>
+          <Type>
+            <AgentIcon src="/icons/agent.svg" />
+            <AgentLabel>{t('activist_modal.activist')}</AgentLabel>
+          </Type>
+          <Line />
+          <SocialMediaContainer>
+            <SocialMedia
+              onClick={() => window.open(facebook)}
+              src="/icons/facebook.svg"
+            />
+            <SocialMedia
+              onClick={() => window.open(instagram)}
+              src="/icons/instagram.svg"
+            />
+            <SocialMedia
+              onClick={() => window.open(twitter)}
+              src="/icons/twitter.svg"
+            />
+            <SocialMedia
+              onClick={() => window.open(tiktok)}
+              src="/icons/tiktok.svg"
+            />
+          </SocialMediaContainer>
+        </AgentDetails>
+      </AboutContainer>
+    </AboutWrapper>
+  );
+}
 About.propTypes = {
 };
 

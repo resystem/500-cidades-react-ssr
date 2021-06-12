@@ -5,18 +5,23 @@ import {
   BackIcon,
   Label,
 } from './backButton.style';
+import { useTranslation } from 'react-i18next';
 
 /**
  * render the ActivistModal atom.
  */
 const BackButton = ({
   handleClick, hideLabel,
-}) => (
-  <BackContainer onClick={handleClick}>
-    <BackIcon src="/icons/arrow_left.svg" />
-    {hideLabel || <Label>Voltar</Label>}
-  </BackContainer>
-);
+}) => {
+  const { t } = useTranslation();
+
+  return (
+    <BackContainer onClick={handleClick}>
+      <BackIcon src="/icons/arrow_left.svg" />
+      {hideLabel || <Label>{t('common.back')}</Label>}
+    </BackContainer>
+  );
+}
 
 BackButton.propTypes = {
   handleClick: PropTypes.func.isRequired,

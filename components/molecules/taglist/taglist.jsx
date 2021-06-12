@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import { TagListComponent, TagsList, Tag, TagRemove, TagsInput, TagInput } from './taglist.style';
 
 const TagList = ({
-  tags, showRemoveButton, customStyle
+  tags, showRemoveButton, customStyle, hide
 }) => {
+  if (hide) return null;
   return (
     <TagListComponent customStyle={customStyle}>
       <TagsList>

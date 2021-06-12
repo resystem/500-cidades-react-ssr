@@ -7,6 +7,7 @@ import {
 export const TagListComponent = styled.div`
   border-radius: 5px;
   display: flex;
+  width: 100%;
   flex-wrap: wrap;
   padding: 5px 5px 0;
   ${props => props.customStyle}

@@ -10,6 +10,7 @@ import genderList from './lists/gender/gender.pt-BR';
 import educationList from './lists/education/education.pt-BR';
 
 import activistForm from './components/activist-form/activistForm.pt-BR';
+import activistModal from './components/activist-modal/activistModal.pt-BR';
 
 export default {
   translations: {
@@ -29,5 +30,9 @@ export default {
     gender_list: genderList,
     education_list: educationList,
     activist_form: activistForm,
+    activist_modal: activistModal,
+    common: {
+      back: 'Voltar'
+    },
   }
 };

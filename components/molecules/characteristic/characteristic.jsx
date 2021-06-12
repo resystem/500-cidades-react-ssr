@@ -10,17 +10,20 @@ import {
  * render the Characteristic atom.
  */
 const Characteristic = ({
-  label, value
-}) => (
-  <CharacteristicContainer>
-    <CharacteristicLabel>
-      {label}
-    </CharacteristicLabel>
-    <CharacteristicValue>
-      {value}
-    </CharacteristicValue>
-  </CharacteristicContainer>
-);
+  label, value, hide
+}) => {
+  if (hide) return null
+  return (
+    <CharacteristicContainer>
+      <CharacteristicLabel>
+        {label}
+      </CharacteristicLabel>
+      <CharacteristicValue>
+        {value}
+      </CharacteristicValue>
+    </CharacteristicContainer>
+  );
+}
 
 Characteristic.propTypes = {
 };

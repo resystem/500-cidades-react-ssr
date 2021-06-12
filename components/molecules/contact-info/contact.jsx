@@ -10,13 +10,16 @@ import {
  * render the Contact atom.
  */
 const Contact = ({
-  iconPath, text
-}) => (
-  <ContactInfo>
-    <ContactIcon src={iconPath} />
-    <ContactLabel>{text}</ContactLabel>
-  </ContactInfo>
-);
+  iconPath, text, hide
+}) => {
+  if (hide) return null;
+  return (
+    <ContactInfo>
+      <ContactIcon src={iconPath} />
+      <ContactLabel>{text}</ContactLabel>
+    </ContactInfo>
+  );
+}
 
 Contact.propTypes = {
 };
