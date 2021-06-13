@@ -130,6 +130,7 @@ const updateActivist = async (activist, user, address, image) => {
 export const handleSubmit = async (
   activist, ida, user, setUser, closeModal, setActivists, activists, setLoading,
 ) => {
+  console.log('🚀 ~ activist', activist);
   setLoading(true);
   let image;
   try {

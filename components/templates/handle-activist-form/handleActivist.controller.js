@@ -69,20 +69,20 @@ export const submitProxy = (values, handleSubmit, setErrors) => {
     errors.lng = 'Longitude é obrigatório';
     hasError = true;
   }
-  if (!values.homecountry) {
-    errors.homecountry = 'País de origem é obrigatório';
-    hasError = true;
-  }
+  // if (!values.homecountry) {
+  //   errors.homecountry = 'País de origem é obrigatório';
+  //   hasError = true;
+  // }
   
-  if (!values.homestate) {
-    errors.homestate = 'Estado de origem é obrigatório';
-    hasError = true;
-  }
+  // if (!values.homestate) {
+  //   errors.homestate = 'Estado de origem é obrigatório';
+  //   hasError = true;
+  // }
   
-  if (!values.hometown) {
-    errors.hometown = 'Cidade Natal é obrigatório';
-    hasError = true;
-  }
+  // if (!values.hometown) {
+  //   errors.hometown = 'Cidade Natal é obrigatório';
+  //   hasError = true;
+  // }
   if (!values.mainLanguage) {
     errors.mainLanguage = 'Idioma principal é obrigatório';
     hasError = true;
@@ -97,6 +97,7 @@ export const submitProxy = (values, handleSubmit, setErrors) => {
     hasError = true;
   }
 
+  console.log('🚀 ~ errors', errors);
   if (Object.keys(errors).length) setErrors(errors)
   else handleSubmit(mapValues(values));
 };
