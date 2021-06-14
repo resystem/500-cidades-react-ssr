@@ -75,6 +75,7 @@ export const ListItem = styled.li`
   list-style: none;
   padding: 8px 16px;
   cursor: pointer;
+  font-family: 'Roboto', sans-serif;
   &:hover {
     color: #3B2737;
     background-color: rgba(150,99,140, .2);

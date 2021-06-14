@@ -17,6 +17,7 @@ export const userApolloSchema = `
   homecountry
   gender
   sexual_orientation
+  is_host_point
 
   color_race
   deficiency

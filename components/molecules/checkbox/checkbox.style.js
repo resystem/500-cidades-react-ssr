@@ -42,6 +42,7 @@ export const StyledCheckbox = styled.label`
   transition: all 150ms;
   border: 2px solid #E9DDE6;
   margin-right: 2px;
+  font-family: 'Roboto', sans-serif;
   :hover {
     background-color: ${neutralColor5};
   }

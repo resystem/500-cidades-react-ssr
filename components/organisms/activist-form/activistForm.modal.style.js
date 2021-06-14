@@ -10,6 +10,7 @@ export const Wrapper = styled.section`
   top: 0;
   left: 0;
   z-index: 5;
+  font-family: 'Roboto', sans-serif;
 `;
 
 export const Container = styled.div`
@@ -27,7 +28,7 @@ export const Container = styled.div`
     background-color: transparent;
   }
   ::-webkit-scrollbar {
-    width: 16px;
+    width: 8px;
     height: 128px;
     background-color: transparent;
   }
@@ -43,6 +44,7 @@ export const Header = styled.header`
   width: 100%;
   align-items: center;
   justify-content: space-between;
+  font-family: 'Roboto', sans-serif;
 `;
 
 export const MenuIcon = styled.img`
@@ -53,6 +55,7 @@ export const MenuIcon = styled.img`
 
 export const Label = styled.label`
   font-size: 0.875em;
+  font-family: 'Roboto', sans-serif;
 `;
 
 export const PageTitle = styled.h2`
@@ -69,12 +72,14 @@ export const AboutWrapper = styled.div`
 
 export const Subtitle = styled.h4`
   font-weight: 700;
-  margin-top: 16px;
+  margin-top: 32px;
   font-size: 1.125em;
+  font-family: 'Roboto', sans-serif;
 `;
 
 export const Required = styled.span`
   color: red;
+  font-family: 'Roboto', sans-serif;
 `;
 
 export const Form = styled.section`

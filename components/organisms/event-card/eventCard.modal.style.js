@@ -33,11 +33,13 @@ export const Area = styled.label`
   font-size: 0.75em;
   color: #96638C;
   font-weight: 700;
+  font-family: 'Roboto', sans-serif;
 
 `;
 
 export const Type = styled.label`
   font-size: 0.75em;
+  font-family: 'Roboto', sans-serif;
 `;
 
 export const buttonCustomStyle = (isSubscribed) => `
@@ -48,6 +50,7 @@ export const buttonCustomStyle = (isSubscribed) => `
   font-size: 0.75em;
   border: 2px solid #4ACAC1;
   font-weight: 700;
+  font-family: 'Roboto', sans-serif;
   ${isSubscribed ? 'background-color: #4ACAC1;' : ''}
   ${isSubscribed ? 'color: #FFF;' : ''}
   ${isSubscribed ? 'border: 1px solid #4ACAC1;' : ''}

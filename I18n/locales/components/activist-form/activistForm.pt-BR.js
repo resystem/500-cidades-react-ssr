@@ -1,6 +1,6 @@
 export default {
   labels: {
-    name: 'Nome Complete',
+    name: 'Nome Completo',
     socialName: 'Nome Social',
     facebook: 'Facebook',
     instagram: 'Instagram',

@@ -557,7 +557,12 @@ const ActivistForm = ({
       </InputGroup>
       <Subtitle>{t('activist_form.subtitles.cultureHost')}</Subtitle>
       <Label>{t('activist_form.legends.cultureHost')}</Label>
-      <Checkbox>{t('activist_form.labels.isAHostPoint')}</Checkbox>
+      <Checkbox
+        value={values.isHostPoint}
+        handleClick={({ target }) => handleChange('isHostPoint', target.value)}
+      >
+        {t('activist_form.labels.isAHostPoint')}
+      </Checkbox>
       <Line />
       <Subtitle>{t('activist_form.subtitles.interestFields')}</Subtitle>
       <Label>{t('activist_form.legends.fillTip')}</Label>

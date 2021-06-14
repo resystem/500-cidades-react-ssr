@@ -54,6 +54,7 @@ const HandleActivistForm = ({
   const [books, setBooks] = useState(activist.books?.join(', ') || '');
   const [songs, setSongs] = useState(activist.songs?.join(', ') || '');
   const [foods, setFoods] = useState(activist.foods?.join(', ') || '');
+  const [isHostPoint, setIsHostPoint] = useState(activist.is_host_point);
   const [movies, setMovies] = useState(activist.movies?.join(', ') || '');
   const [series, setSeries] = useState(activist.series?.join(', ') || '');
   const [dreams, setDreams] = useState(activist.dreams?.join(', ') || '');
@@ -85,6 +86,7 @@ const HandleActivistForm = ({
       district: (payload) => setDistrict(payload),
       city: (payload) => setCity(payload),
       state: (payload) => setState(payload),
+      isHostPoint: (payload) => setIsHostPoint(payload),
       education: (payload) => setEducation(payload),
       birthDate: (payload) => setBirthDate(payload),
       country: (payload) => setCountry(payload),
@@ -130,6 +132,7 @@ const HandleActivistForm = ({
     socialName,
     facebook,
     instagram,
+    isHostPoint,
     twitter,
     gender,
     tiktok,

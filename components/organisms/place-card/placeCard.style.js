@@ -28,9 +28,11 @@ export const Name = styled.label`
   font-weight: 700;
   color: black;
   font-size: 0.875em;
+  font-family: 'Roboto', sans-serif;
 `;
 
 export const Location = styled.label`
   font-size: 0.75em;
   color: #96638C;
+  font-family: 'Roboto', sans-serif;
 `;

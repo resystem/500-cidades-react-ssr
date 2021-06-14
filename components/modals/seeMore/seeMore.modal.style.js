@@ -27,7 +27,7 @@ export const Container = styled.div`
     background-color: transparent;
   }
   ::-webkit-scrollbar {
-    width: 16px;
+    width: 8px;
     height: 128px;
     background-color: transparent;
   }

@@ -5,5 +5,6 @@ export const Title = styled.h4`
   margin-bottom: 16px;
   font-weight: bold;
   font-size: 1.125em;
+  font-family: 'Roboto', sans-serif;
   ${props => props.customStyle}
 `;

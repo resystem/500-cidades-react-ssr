@@ -11,6 +11,7 @@ export const Wrapper = styled.section`
   top: 0;
   left: 0;
   z-index: 5;
+  margin-top: 50px;
 `;
 
 export const Container = styled.div`
@@ -38,11 +39,13 @@ export const MenuIcon = styled.img`
 
 export const Label = styled.label`
   font-size: 0.875em;
+  font-family: 'Roboto', sans-serif;
 `;
 
 export const PageTitle = styled.h2`
   font-weight: 700;
   font-size: 1.375em;
+  font-family: 'Roboto', sans-serif;
 `;
 
 export const AboutWrapper = styled.div`
@@ -56,10 +59,12 @@ export const Subtitle = styled.h4`
   font-weight: 700;
   margin-top: 16px;
   font-size: 1.125em;
+  font-family: 'Roboto', sans-serif;
 `;
 
 export const Required = styled.span`
   color: red;
+  font-family: 'Roboto', sans-serif;
 `;
 
 export const Form = styled.section`
@@ -78,4 +83,5 @@ export const Line = styled.div`
 
 export const inputCustomStyle = `
   margin: 22px 0 32px;
+  font-family: 'Roboto', sans-serif;
 `;

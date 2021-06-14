@@ -21,8 +21,8 @@ export const TextAreaComponent = styled.textarea`
   border-radius: 5px;
   color: ${primaryMedium};
   caret-color: ${primaryMedium};
+  font-family: 'Roboto', sans-serif;
   background-color: #E7F8F7;
-  font-weight: 500;
   ::placeholder {
     color: ${neutralColor5};
   }

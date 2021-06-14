@@ -16,8 +16,10 @@ export const InputComponent = styled.input `
   color: ${primaryMedium};
   background-color: transparent !important;
   font-weight: 500;
+  font-family: 'Roboto', sans-serif;
   ::placeholder {
     color: ${neutralColor5};
+    font-family: 'Roboto', sans-serif;
   }
   
   :focus {

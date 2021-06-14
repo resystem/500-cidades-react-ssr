@@ -10,6 +10,7 @@ export const Wrapper = styled.section`
   top: 0;
   left: 0;
   z-index: 5;
+  margin-top: 50px;
 `;
 
 export const Container = styled.div`
@@ -26,7 +27,7 @@ export const Container = styled.div`
     background-color: transparent;
   }
   ::-webkit-scrollbar {
-    width: 16px;
+    width: 8px;
     height: 128px;
     background-color: transparent;
   }

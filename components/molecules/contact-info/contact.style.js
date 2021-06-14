@@ -16,4 +16,5 @@ export const ContactLabel = styled.label`
   font-size: 0.875em;
   color: #96638C;
   cursor: pointer;
+  font-family: 'Roboto', sans-serif;
 `;

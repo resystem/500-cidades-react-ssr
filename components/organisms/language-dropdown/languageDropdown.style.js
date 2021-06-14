@@ -51,6 +51,7 @@ export const LanguageItem = styled.li`
   padding: 2px 24px;
   align-items: center;
   cursor: pointer;
+  font-family: 'Roboto', sans-serif;
   :hover {
     background-color: #F7F2F6;
   }
@@ -62,4 +63,5 @@ export const LanguageItem = styled.li`
 
 export const LanguageText = styled.label`
   background-color: transparent;
+  font-family: 'Roboto', sans-serif;
 `;

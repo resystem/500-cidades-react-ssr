@@ -40,6 +40,7 @@ const mapActivist = (activist, addressId, ida, activistId) => ({
   books: activist.books,
   languages: activist.languages,
   hobbies: activist.hobbies,
+  is_host_point: activist.isHostPoint,
   address: addressId || null,
 
 });
@@ -111,6 +112,7 @@ const updateAddress = async (activist, user) => {
 };
 
 const updateActivist = async (activist, user, address, image) => {
+  console.log('🚀 ~ activist', activist);
   try {
     const mappedActivist = mapActivist(activist, address.id, user.ida, user.id)
 

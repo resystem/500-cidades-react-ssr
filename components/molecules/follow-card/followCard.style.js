@@ -27,6 +27,7 @@ export const Label = styled.label`
   display: block;
   color: #96638C;
   font-weight: 400;
+  font-family: 'Roboto', sans-serif;
   margin-bottom: 8px;
 `;
 
@@ -39,6 +40,7 @@ export const Title = styled.label`
   display: block;
   color: #3B2737;
   font-weight: 700;
+  font-family: 'Roboto', sans-serif;
 `;
 
 export const buttonCustomStyle = `

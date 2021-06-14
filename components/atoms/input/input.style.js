@@ -17,7 +17,7 @@ export const InputComponent = styled.input `
   color: ${primaryMedium};
   caret-color: ${primaryMedium};
   background-color: #E7F8F7;
-  font-weight: 500;
+  font-family: 'Roboto', sans-serif;
   ::placeholder {
     color: ${neutralColor5};
   }

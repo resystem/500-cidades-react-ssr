@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import {
   CheckboxContainer,
@@ -11,16 +11,20 @@ import {
 function Checkbox({
   children,
   handleClick,
+  value,
   customStyle,
   disabled,
   onFocus,
   onBlur,
 }) {
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState(value);
 
   function handleCheckboxChange() {
     setChecked(!checked);
   }
+  useEffect(() => {
+    handleClick({ target: { value: checked }})
+  }, [checked]);
   return (
     <CheckboxContainer checked={checked} onClick={handleCheckboxChange}>
       <HiddenCheckbox checked={checked} onClick={handleCheckboxChange} />

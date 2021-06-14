@@ -34,6 +34,7 @@ export const Tag = styled.li`
   padding: 5px 10px;
   border-radius: 15px;
   font-size: 0.9375em;
+  font-family: 'Roboto', sans-serif;
 `;
 
 export const TagRemove = styled.button`
@@ -52,12 +53,14 @@ export const TagRemove = styled.button`
   padding: 0;
   transform: rotate(45deg);
   width: 15px;
+  font-family: 'Roboto', sans-serif;
 `;
 
 export const TagsInput = styled.li`
   background: none;
   flex-grow: 1;
   padding: 0;
+  font-family: 'Roboto', sans-serif;
 `;
 
 export const TagInput = styled.input`

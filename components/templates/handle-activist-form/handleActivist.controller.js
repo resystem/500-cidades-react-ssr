@@ -103,16 +103,16 @@ export const submitProxy = (values, handleSubmit, setErrors) => {
 
 const mapValues = (values) => ({
   ...values,
-  books: values.books.split(',').map(a => a.trim()),
-  dreams: values.dreams.split(',').map(a => a.trim()),
-  favoritePlaces: values.favoritePlaces.split(',').map(a => a.trim()),
-  foods: values.foods.split(',').map(a => a.trim()),
-  hobbies: values.hobbies.split(',').map(a => a.trim()),
-  howToCollaborate: values.howToCollaborate.split(',').map(a => a.trim()),
-  movies: values.movies.split(',').map(a => a.trim()),
-  placesWannaVisit: values.placesWannaVisit.split(',').map(a => a.trim()),
-  series: values.series.split(',').map(a => a.trim()),
-  songs: values.songs.split(',').map(a => a.trim()),
+  books: values.books.split(',').filter(a => a).map(a => a.trim()),
+  dreams: values.dreams.split(',').filter(a => a).map(a => a.trim()),
+  favoritePlaces: values.favoritePlaces.split(',').filter(a => a).map(a => a.trim()),
+  foods: values.foods.split(',').filter(a => a).map(a => a.trim()),
+  hobbies: values.hobbies.split(',').filter(a => a).map(a => a.trim()),
+  howToCollaborate: values.howToCollaborate.split(',').filter(a => a).map(a => a.trim()),
+  movies: values.movies.split(',').filter(a => a).map(a => a.trim()),
+  placesWannaVisit: values.placesWannaVisit.split(',').filter(a => a).map(a => a.trim()),
+  series: values.series.split(',').filter(a => a).map(a => a.trim()),
+  songs: values.songs.split(',').filter(a => a).map(a => a.trim()),
 });
 
 export const getAddress = async (zipcodeInput, handleChange, lastZipcode, setLastZipcode) => {

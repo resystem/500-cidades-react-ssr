@@ -13,11 +13,13 @@ export const Wrapper  = styled.div`
 export const RequiredSign = styled.span`
   color: ${error};
   font-size: 0.75em;
+  font-family: 'Roboto', sans-serif;
 `;
 
 export const Label = styled.label`
   padding-left: 16px;
   font-size: 0.75em;
+  font-family: 'Roboto', sans-serif;
   ${props => props.customStyle}
 `;
 
@@ -26,4 +28,5 @@ export const Error = styled.span`
   padding-top: 4px;
   font-size: 0.75em;
   color: ${error};
+  font-family: 'Roboto', sans-serif;
 `;

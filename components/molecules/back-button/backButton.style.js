@@ -16,4 +16,5 @@ export const BackIcon = styled.img`
 export const Label = styled.label`
   font-size: 0.875;
   cursor: pointer;
+  font-family: 'Roboto', sans-serif;
 `;

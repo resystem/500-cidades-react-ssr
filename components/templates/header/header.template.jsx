@@ -14,7 +14,7 @@ import Store from '../../../store/Store';
 const renderUnloggedSection = (idaSDK) => (
   <UserSection>
     <Button handleClick={() => (idaSDK && idaSDK.signinWithPopup())} customStyle={loginButtonCustomStyle}>Entrar</Button>
-    <Button handleClick={() => (idaSDK && idaSDK.signupWithPopup())} customStyle={signinButtonCustomStyle}>Crie sua conta</Button>
+    <Button handleClick={() => (idaSDK && idaSDK.signinWithPopup())} customStyle={signinButtonCustomStyle}>Crie sua conta</Button>
   </UserSection>
 );
 

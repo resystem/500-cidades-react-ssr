@@ -12,10 +12,12 @@ export const CharacteristicLabel = styled.label`
   font-weight: 500;
   line-height: 1.37em;
   margin-bottom: 8px;
+  font-family: 'Roboto', sans-serif;
 `;
 
 export const CharacteristicValue = styled.label`
   font-size: 0.875em;
   color: #96638C;
+  font-family: 'Roboto', sans-serif;
 `;
 

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-// import { white30 } from '../../../settings/colors';
 
 export const PreLoaderImage = styled.img`
   width: 150px;
@@ -10,6 +9,7 @@ export const PreLoaderImage = styled.img`
   transition-property: opacity;
   transition-duration: 1s;
   transition-delay: 0.5s;
+  font-family: 'Roboto', sans-serif;
 
   ${(props) => props.customStyle}
 `;

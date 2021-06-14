@@ -20,6 +20,7 @@ export const InputComponent = styled.input`
   border-radius: 4px;
   background: ${neutralColor2};
   font-weight: 500;
+  font-family: 'Roboto', sans-serif;
   ::placeholder {
     color: ${neutralColor5};
   }

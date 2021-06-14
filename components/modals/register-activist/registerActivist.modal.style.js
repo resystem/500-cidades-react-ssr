@@ -27,6 +27,7 @@ export const Header = styled.header`
   padding: 16px;
   align-items: center;
   justify-content: space-between;
+  font-family: 'Roboto', sans-serif;
   background-color: #FFF;
 `;
 
@@ -38,11 +39,13 @@ export const MenuIcon = styled.img`
 
 export const Label = styled.label`
   font-size: 0.875em;
+  font-family: 'Roboto', sans-serif;
 `;
 
 export const PageTitle = styled.h2`
   font-weight: 700;
   font-size: 1.375em;
+  font-family: 'Roboto', sans-serif;
 `;
 
 export const AboutWrapper = styled.div`
@@ -56,10 +59,12 @@ export const Subtitle = styled.h4`
   font-weight: 700;
   margin-top: 16px;
   font-size: 1.125em;
+  font-family: 'Roboto', sans-serif;
 `;
 
 export const Required = styled.span`
   color: red;
+  font-family: 'Roboto', sans-serif;
 `;
 
 export const Form = styled.section`

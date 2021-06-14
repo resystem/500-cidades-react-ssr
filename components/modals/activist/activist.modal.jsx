@@ -2,23 +2,10 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types'
 import VMasker from 'vanilla-masker';
 import {
-  AboutContainer,
   Container,
   Header,
   Wrapper,
-  BackContainer,
-  BackIcon,
-  Label,
   MenuIcon,
-  AboutWrapper,
-  ProfileImage,
-  AgentDetails,
-  Name,
-  Location,
-  Type,
-  AgentIcon,
-  AgentLabel,
-  SocialMedia,
   SectionTitle,
   BiographyText,
   Contact,
@@ -32,8 +19,6 @@ import BackButton from '../../molecules/back-button/backButton';
 import About from './components/about/about';
 import ContactInfo from '../../molecules/contact-info/contact';
 import Characteristic from '../../molecules/characteristic/characteristic';
-import Galery from '../../templates/galery/galery.template';
-import EventList from '../../templates/event-list/events.template';
 import TagList from '../../molecules/taglist/taglist';
 import Store from '../../../store/Store';
 import { useTranslation } from 'react-i18next';
