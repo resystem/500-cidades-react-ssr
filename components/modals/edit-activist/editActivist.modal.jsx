@@ -23,7 +23,7 @@ const EditActivistModal = ({
   if (!auth || !user) return null;
   return (
     <Wrapper>
-      <Container /* onClick={e => e.stopPropagation()} */>
+      <Container>
         <Header>
           <BackButton handleClick={() => closeModal()} />
           <PageTitle>Editar Perfil</PageTitle>
