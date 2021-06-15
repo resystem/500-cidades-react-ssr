@@ -10,6 +10,7 @@ import Button from '../../atoms/button/button';
 import LanguageDropdown from '../../organisms/language-dropdown/languageDropdown';
 import { useTranslation } from 'react-i18next';
 import Store from '../../../store/Store';
+import LoggedSection from './components/logged-section/loggedSection';
 
 const renderUnloggedSection = (idaSDK) => (
   <UserSection>
@@ -25,12 +26,7 @@ const renderMissingUser = (openModal) => (
 
 );
 
-const renderLoggedSection = (user, openModal) => (
-  <UserSection onClick={() => openModal('editActivist')}>
-    <ProfileName>{user.name}</ProfileName>
-    <ProfileImage src={user.profile_image?.single_size?.mimified} />
-  </UserSection>
-);
+const renderLoggedSection = (user, openModal) => (<LoggedSection user={user} openModal={openModal} />);
 
 /**
  * render the EventList template.

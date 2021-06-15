@@ -20,13 +20,6 @@ export const Logo = styled.img`
   margin: auto;
 `;
 
-export const UserSection = styled.div`
-  background-color: transparent;
-  display: flex;
-  align-items: center;
-  ${props => props.onClick ? 'cursor: pointer' : ''}
-`;
-
 export const loginButtonCustomStyle = `
   background-color: #FFD503;
   border-color: #FFD503;
@@ -67,15 +60,9 @@ export const Left = styled.div`
   align-items: center;
 `;
 
-export const ProfileImage = styled.img`
-  width: 40px;
-  height: 40px;
-  object-fit: cover;
-  border-radius: 100%;
-  margin-left: 10px;
-  border: 2px solid #FFF;
-`;
-
-export const ProfileName = styled.label`
-  color: #FFF
+export const UserSection = styled.div`
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  ${props => props.onClick ? 'cursor: pointer' : ''}
 `;

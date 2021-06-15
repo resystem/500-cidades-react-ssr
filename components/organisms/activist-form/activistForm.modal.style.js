@@ -55,6 +55,7 @@ export const MenuIcon = styled.img`
 
 export const Label = styled.label`
   font-size: 0.875em;
+
   font-family: 'Roboto', sans-serif;
 `;
 
@@ -73,6 +74,7 @@ export const AboutWrapper = styled.div`
 export const Subtitle = styled.h4`
   font-weight: 700;
   margin-top: 32px;
+  margin-bottom: 6px;
   font-size: 1.125em;
   font-family: 'Roboto', sans-serif;
 `;

@@ -34,7 +34,6 @@ const ActivistModal = ({
   if (!modals.activist || !modalInfo) return null;
   const activist = modalInfo.activist;
   if (!activist) return null;
-  // return null;
   return (
     <Wrapper onClick={ () => closeModal() }>
       <Container onClick={ e => e.stopPropagation() }>

@@ -19,6 +19,16 @@ export default {
       opportunities: 'Oportunidades',
       about: 'Sobre',
     },
+    common: {
+      back: 'Vuelve'
+    },
+    logged_section: {
+      profile: 'Mi Perfil',
+      edit_profile: 'Editar Perfil',
+      privacy_policy: 'Políticas de privacidad',
+      faq: 'Preguntas Frecuentes',
+      logout: 'Salir',
+    },
     disability_list: disabilityList,
     sex_orientation_list: sexOrientationList,
     job_lis: jobList,
@@ -31,8 +41,5 @@ export default {
     education_list: educationList,
     activist_form: activistForm,
     activist_modal: activistModal,
-    common: {
-      back: 'Vuelve'
-    },
   }
 }
