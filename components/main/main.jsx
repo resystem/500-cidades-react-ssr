@@ -7,13 +7,14 @@ import EditActivist from '../modals/edit-activist/editActivist.modal';
 import Header from '../templates/header/header.template';
 import { initIDA, fetchLoggedUser, getActivists, getAssets, getEntities } from './main.controller';
 import RegisterOrganizationModal from '../modals/register-organization/registerOrganization.modal';
+import OrganizationModal from '../modals/organization/organization.modal';
 
 const modalsInitialState = {
   activist: false,
   seeMore: false,
   registerActivist: false,
   editActivist: false,
-  registerCollective: false,
+  registerOrganization: false,
 };
 
 /**
@@ -75,7 +76,9 @@ const Main = ({
       <EditActivist />
       <ActivistModal />
       <RegisterOrganizationModal />
-    </StoreProvider>);
+      <OrganizationModal />
+    </StoreProvider>
+  );
 }
 
 export default Main;

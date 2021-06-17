@@ -50,7 +50,6 @@ const Header = ({
           </Item>
           <Item
             isSelected={selected === 'oportunities'}
-            onClick={() => openModal('registerCollective')}
             id="oportunities"
           >
             {t('header.opportunities')}

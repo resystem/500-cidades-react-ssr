@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types'
 import {
   FloatIconContainer,
@@ -11,6 +11,7 @@ import {
   buttoonCustomPlaceStyle,
 } from './floatIcon.style';
 import Button from '../../atoms/button/button';
+import Store from '../../../store/Store';
 
 const toggleOptions = (e, setShowList, showList) => {
   e.stopPropagation();
@@ -22,18 +23,29 @@ const toggleOptions = (e, setShowList, showList) => {
  */
 const FloatIcon = ({
 }) => {
+  const { openModal } = useContext(Store);
   const [showList, setShowList] = useState(false);
+  
+  const toggleOrganizationModal = () => {
+    setShowList(false);
+    openModal('registerOrganization');
+  };
+
   return (
     <Wrapper>
       <FloatIconContainer showList={showList} onClick={(e) => toggleOptions(e, setShowList, showList)}>
         <Icon src={showList ? "icons/white_X.svg" : "/icons/add_icon.svg"} />
       </FloatIconContainer>
       <ListWrapper showList={showList} onClick={(e) => e.stopPropagation()}>
-          <Button customStyle={buttoonCustomStyleHightlight} type="secondary">
+          <Button
+            handleClick={toggleOrganizationModal}
+            customStyle={buttoonCustomStyleHightlight}
+            type="secondary"
+          >
             <ItemIcon src="/icons/event.svg" />
-              Eventos
+              Adicionar Organização
           </Button>
-          <Button customStyle={buttoonCustomStyle} type="outline">
+         {/*  <Button customStyle={buttoonCustomStyle} type="outline">
             <ItemIcon src="/icons/people.svg" />
             Pessoas
           </Button>
@@ -44,7 +56,7 @@ const FloatIcon = ({
           <Button customStyle={buttoonCustomPlaceStyle} type="outline">
             <ItemIcon src="/icons/place_icon.svg" />
             Lugares
-          </Button>
+          </Button> */}
       </ListWrapper>
     </Wrapper>
   );

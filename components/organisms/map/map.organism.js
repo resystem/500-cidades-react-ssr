@@ -10,6 +10,7 @@ import Store from '../../../store/Store';
 import { dummyCoordinates } from '../../../dummies/locations';
 import { getRandomNumber } from '../../../utils/random.util';
 import { Activist } from '../../../models/activist.model';
+import FloatIcon from '../../templates/float-icon/floatIcon.template';
 
 const getRandomPin = () => {
   const n = Math.floor((Math.random() * dummyCoordinates.length));
@@ -17,25 +18,36 @@ const getRandomPin = () => {
 }
 
 const getPin = (type, imageUrl) => {
-  if (type === 'activist') return ActivistPin({ imageUrl });
-  if (type === 'organization') return ColectivePin({ imageUrl });
+  if (type === 'activist') return {
+    html: ActivistPin({ imageUrl }),
+    iconSize: [94, 80],
+    iconAnchor: [40, 76],
+  }
+  if (type === 'organization') return {
+    html: ColectivePin({ imageUrl }),
+    iconSize: [94, 94],
+    iconAnchor: [27, 89],
+  }
   if (type === 'space') return  SpacePin({ imageUrl })
   if (type === 'place') return PlacePin({ imageUrl })
   if (type === 'oportunity') return 'pin_activist'
   else return 'pin_activist'
 }
 
-const renderMarkers = (markers, openActivistModal) => markers.map((marker) => (
-  <Marker icon={new DivIcon({
-    html: getPin(marker.type, marker?.profile_image?.single_size?.mimified),
-    iconSize:     [94, 94], // size of the icon
-    iconAnchor:   [25.5, 59.55], // point of the icon which will correspond to marker's location
-    })}
-    onclick={() =>  openActivistModal(marker)}
-    position={[marker.address.lat, marker.address.lng]}
-  >
-  </Marker>
-))
+const renderMarkers = (markers, openModalProxy) => markers.map((marker) => {
+  const pin = getPin(marker.type, marker?.profile_image?.single_size?.mimified);
+  return (
+    <Marker icon={new DivIcon({
+      html: pin.html,
+      iconSize: pin.iconSize,
+      iconAnchor: pin.iconAnchor,
+      })}
+      onclick={() =>  openModalProxy(marker.type, marker)}
+      position={[marker.address.lat, marker.address.lng]}
+    >
+    </Marker>
+  )
+})
 
 const MapComponent = () => {
   const { openModal, activists, user, entities } = useContext(Store);
@@ -45,8 +57,9 @@ const MapComponent = () => {
   const [zoom, setZoom] = useState(5);
   const [markers, setMarkers] = useState([]);
 
-  const openActivistModal = (data) => {
-    openModal('activist', { activist: data });
+  const openModalProxy = (type, data) => {
+    if (type === 'activist') openModal('activist', { activist: data });
+    if (type === 'organization') openModal('organization', { organization: data });
   };
 
   useEffect(() => {
@@ -82,8 +95,9 @@ const MapComponent = () => {
         onViewportChanged={(data) => console.log('🚀 ~ data', data)}
       >
         <TileLayer url="http://mapa.idativista.org:8080/styles/basic-preview/{z}/{x}/{y}.png"/>
-        {renderMarkers(markers.filter((a) => a?.address?.lat), openActivistModal)}
+        {renderMarkers(markers.filter((a) => a?.address?.lat), openModalProxy)}
       </Map>
+      <FloatIcon />
     </>
   )
 }

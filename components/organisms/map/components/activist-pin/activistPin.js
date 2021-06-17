@@ -15,7 +15,7 @@ const ActivistPin = ({ imageUrl }) => ReactDOMServer.renderToString(
       <g opacity="0.5" filter="url(#filter1_f)">
         <ellipse cx="56" cy="136.5" rx="34" ry="3.5" fill="#3B2737"/>
       </g>
-      <circle cx="56" cy="56" r="48" fill={`url(#${imageUrl}1)`}/>
+      <circle cx="56" cy="56" r="48" />
       <defs>
         <filter id="filter0_f" x="6.63721" y="62.8457" width="41.0321" height="13.1556" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
           <feFlood flood-opacity="0" result="BackgroundImageFix"/>
@@ -27,9 +27,6 @@ const ActivistPin = ({ imageUrl }) => ReactDOMServer.renderToString(
           <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
           <feGaussianBlur stdDeviation="2.5" result="effect1_foregroundBlur"/>
         </filter>
-        <pattern id={`${imageUrl}1`} patternContentUnits="objectBoundingBox" width="1" height="1">
-          <use xlinkHref={`#${imageUrl}`} transform="translate(-0.16 -0.40) scale(0.00187729)"/>
-        </pattern>
       </defs>
       </svg>
       <ImageContainer>

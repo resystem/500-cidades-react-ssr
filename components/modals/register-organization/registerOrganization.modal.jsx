@@ -19,10 +19,9 @@ import { useTranslation } from 'react-i18next';
 const RegisterOrganizationModal = ({
 }) => {
   const { closeModal, modals, user, setUser, activists, setActivists } = useContext(Store);
-  console.log('🚀 ~ user', user);
   const [isLoading, setLoading] = useState(false);
   const { t } = useTranslation();
-  if (!modals.registerCollective) return null;
+  if (!modals.registerOrganization) return null;
   return (
     <Wrapper>
       <Container>
