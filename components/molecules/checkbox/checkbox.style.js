@@ -13,7 +13,7 @@ export const CheckboxContainer = styled.div`
 
 export const Icon = styled.svg`
   fill: none;
-  stroke: ${brandSecondaryMedium};
+  stroke: #FFF;
   stroke-width: 2px;
 `;
 
@@ -41,7 +41,7 @@ export const StyledCheckbox = styled.label`
   border-radius: 3px;
   transition: all 150ms;
   border: 2px solid #E9DDE6;
-  margin-right: 2px;
+  margin-right: 6px;
   font-family: 'Roboto', sans-serif;
   :hover {
     background-color: ${neutralColor5};
@@ -58,7 +58,8 @@ export const StyledCheckbox = styled.label`
   ${(props) => {
     if (props.checked) {
       return `
-      background: ${primaryMedium};
+      background: #4ACAC1;
+      border: 2px solid #4ACAC1;
     `;
     }
   }}

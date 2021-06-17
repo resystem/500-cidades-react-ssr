@@ -5,13 +5,15 @@ import ActivistModal from '../modals/activist/activist.modal';
 import RegisterActivistModal from '../modals/register-activist/registerActivist.modal';
 import EditActivist from '../modals/edit-activist/editActivist.modal';
 import Header from '../templates/header/header.template';
-import { initIDA, fetchLoggedUser, getActivists, getAssets } from './main.controller';
+import { initIDA, fetchLoggedUser, getActivists, getAssets, getEntities } from './main.controller';
+import RegisterOrganizationModal from '../modals/register-organization/registerOrganization.modal';
 
 const modalsInitialState = {
   activist: false,
   seeMore: false,
   registerActivist: false,
   editActivist: false,
+  registerCollective: false,
 };
 
 /**
@@ -27,6 +29,7 @@ const Main = ({
   const [modals, setModals] = useState(modalsInitialState);
   const [modalInfo, setModalInfo] = useState(null);
   const [activists, setActivists] = useState([]);
+  const [entities, setEntities] = useState([]);
   const [showLoading, setShowLoading] = useState(false);
   const [assets, setAssets] = useState(false);
 
@@ -49,11 +52,13 @@ const Main = ({
     activists, setActivists,
     user, setUser, showLoading,
     assets, setAssets,
+    entities, setEntities,
   }; 
   
   useEffect(() => {
     initIDA(setShowLoading, setAuth, setIdaSDK, router);
     getActivists(setActivists);
+    getEntities(setEntities);
     getAssets(setAssets)
   }, []);
  
@@ -69,6 +74,7 @@ const Main = ({
       <RegisterActivistModal />
       <EditActivist />
       <ActivistModal />
+      <RegisterOrganizationModal />
     </StoreProvider>);
 }
 

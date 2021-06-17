@@ -5,7 +5,8 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.section`
   height: 100vh;
-  width: 100vw;
+  width: 100%;
+  max-width: 600px;
   position: fixed;
   top: 0;
   left: 0;
@@ -16,8 +17,21 @@ export const Wrapper = styled.section`
 export const Container = styled.div`
   opacity: 1;
   padding: 20px;
-  height: 100%;
+  height: calc(100vh - 50px);
   width: 600px;
+  background-color: #FFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: 56px 1fr;
+`;
+
+export const ContentWrapper = styled.div`
+  opacity: 1;
+  padding: 20px;
+  height: 100%;
   background-color: #FFF;
   display: flex;
   flex-direction: column;
@@ -40,7 +54,6 @@ export const Container = styled.div`
 export const Header = styled.header`
   display: flex;
   height: 30px;
-  width: 100%;
   align-items: center;
   justify-content: space-between;
 `;

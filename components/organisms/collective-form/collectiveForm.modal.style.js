@@ -5,33 +5,46 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.section`
   height: 100vh;
-  width: 100%;
-  max-width: 600px;
+  /* width: 100vw; */
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 500;
-  margin-top: 50px;
+  z-index: 5;
+  font-family: 'Roboto', sans-serif;
 `;
 
 export const Container = styled.div`
   opacity: 1;
-  height: calc(100vh - 50px);
+  padding: 20px;
+  height: 100%;
   width: 100%;
   max-width: 600px;
-  display: grid;
-  grid-template-rows: 56px 1fr;
+  background-color: #FFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 128px;
+    background-color: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #96638C;
+  }
 `;
 
 export const Header = styled.header`
   display: flex;
+  height: 30px;
   width: 100%;
-  height: 56px;
-  padding: 16px;
   align-items: center;
   justify-content: space-between;
   font-family: 'Roboto', sans-serif;
-  background-color: #FFF;
 `;
 
 export const MenuIcon = styled.img`
@@ -42,13 +55,13 @@ export const MenuIcon = styled.img`
 
 export const Label = styled.label`
   font-size: 0.875em;
+
   font-family: 'Roboto', sans-serif;
 `;
 
 export const PageTitle = styled.h2`
   font-weight: 700;
   font-size: 1.375em;
-  font-family: 'Roboto', sans-serif;
 `;
 
 export const AboutWrapper = styled.div`
@@ -60,7 +73,8 @@ export const AboutWrapper = styled.div`
 
 export const Subtitle = styled.h4`
   font-weight: 700;
-  margin-top: 16px;
+  margin-top: 32px;
+  margin-bottom: 6px;
   font-size: 1.125em;
   font-family: 'Roboto', sans-serif;
 `;
@@ -75,6 +89,7 @@ export const Form = styled.section`
   flex-direction: column;
   width: 100%;
   padding:  0 50px;
+  padding-top: 20px;
 `;
 
 export const Line = styled.div`

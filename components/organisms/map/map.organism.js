@@ -18,7 +18,7 @@ const getRandomPin = () => {
 
 const getPin = (type, imageUrl) => {
   if (type === 'activist') return ActivistPin({ imageUrl });
-  if (type === 'colective') return ColectivePin({ imageUrl });
+  if (type === 'organization') return ColectivePin({ imageUrl });
   if (type === 'space') return  SpacePin({ imageUrl })
   if (type === 'place') return PlacePin({ imageUrl })
   if (type === 'oportunity') return 'pin_activist'
@@ -27,7 +27,7 @@ const getPin = (type, imageUrl) => {
 
 const renderMarkers = (markers, openActivistModal) => markers.map((marker) => (
   <Marker icon={new DivIcon({
-    html: getPin('activist', marker?.profile_image?.single_size?.mimified),
+    html: getPin(marker.type, marker?.profile_image?.single_size?.mimified),
     iconSize:     [94, 94], // size of the icon
     iconAnchor:   [25.5, 59.55], // point of the icon which will correspond to marker's location
     })}
@@ -38,10 +38,12 @@ const renderMarkers = (markers, openActivistModal) => markers.map((marker) => (
 ))
 
 const MapComponent = () => {
-  const { openModal, activists, user } = useContext(Store);
+  const { openModal, activists, user, entities } = useContext(Store);
+  console.log('🚀 ~ entities', entities);
   const map = useRef(null);
   const [center, setCenter] = useState([-10.466205555063867, -48.62548828125001]);
   const [zoom, setZoom] = useState(5);
+  const [markers, setMarkers] = useState([]);
 
   const openActivistModal = (data) => {
     openModal('activist', { activist: data });
@@ -53,13 +55,15 @@ const MapComponent = () => {
       setZoom(10)
     }
   }, [user]);
-  // useEffect(() => {
-  //   if (map.current) {
-  //     map.current.onViewportChange(function(e) {
-  //       console.log('🚀 ~ e', e);
-  //   });
-  //   }
-  // }, [map]);
+  
+  useEffect(() => {
+    const myActivists = activists.map(a => ({
+      ...a,
+      type: 'activist',
+    }))
+    const newMarkers = myActivists.concat(entities);
+    setMarkers(newMarkers);
+  }, [activists, entities]);
 
   return (
     <>
@@ -78,7 +82,7 @@ const MapComponent = () => {
         onViewportChanged={(data) => console.log('🚀 ~ data', data)}
       >
         <TileLayer url="http://mapa.idativista.org:8080/styles/basic-preview/{z}/{x}/{y}.png"/>
-        {renderMarkers(activists.filter((a) => a?.address?.lat), openActivistModal)}
+        {renderMarkers(markers.filter((a) => a?.address?.lat), openActivistModal)}
       </Map>
     </>
   )

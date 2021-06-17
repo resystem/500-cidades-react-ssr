@@ -8,9 +8,11 @@ import statesList from './lists/states/states.pt-BR';
 import raceList from './lists/race/race.pt-BR';
 import genderList from './lists/gender/gender.pt-BR';
 import educationList from './lists/education/education.pt-BR';
+import organizationCategoryList from './lists/organization-category/organizationCategory.pt-BR';
 
 import activistForm from './components/activist-form/activistForm.pt-BR';
 import activistModal from './components/activist-modal/activistModal.pt-BR';
+import collectiveForm from './components/collective-form/collectiveForm.pt-BR';
 
 export default {
   translations: {
@@ -39,7 +41,10 @@ export default {
     race_list: raceList,
     gender_list: genderList,
     education_list: educationList,
-    activist_form: activistForm,
+    organization_category_list: organizationCategoryList,
+    
     activist_modal: activistModal,
+    activist_form: activistForm,
+    collective_form: collectiveForm,
   }
 };

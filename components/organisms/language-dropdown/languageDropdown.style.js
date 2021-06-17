@@ -34,7 +34,7 @@ export const DropDownIcon = styled.img`
 export const LanguagesList = styled.ul`
   position: absolute;
   top: 100%;
-  z-index: 2;
+  z-index: 20;
   left: 0;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
   border-radius: 8px;

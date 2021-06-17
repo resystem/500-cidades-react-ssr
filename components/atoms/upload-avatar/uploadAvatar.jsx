@@ -22,7 +22,7 @@ function load(src, callback) {
  * @param {object} props component props
  * @returns contains UploadAvatar Component
  */
-const UploadAvatar = ({ src, alt, title, handleChange, customStyle, id }) => {
+const UploadAvatar = ({ src, alt, title, handleChange, customStyle, id, type }) => {
   const [loaddedSrc, setLoaddedSrc] = useState(null);
   const [mimage, setmimage] = useState(src?.url);
 
@@ -40,17 +40,17 @@ const UploadAvatar = ({ src, alt, title, handleChange, customStyle, id }) => {
     handleChange('profileImage',{
       file: target.files[0],
       url,
-    })
+    });
   };
 
   const emptyImage = <Icon src="/icons/plus_gray.svg" />;
   const image = (
-    <PreLoaderImage src={loaddedSrc} alt={alt} title={title} customStyle={customStyle} />
+    <PreLoaderImage type={type} src={loaddedSrc} alt={alt} title={title} customStyle={customStyle} />
   );
 
   return (
     <Fragment>
-      <Uploader customStyle={customStyle} onChange={onChange} htmlFor={id}>
+      <Uploader type={type} customStyle={customStyle} onChange={onChange} htmlFor={id}>
         {loaddedSrc ? image : emptyImage}
       </Uploader>
       <Input accept="image/png, image/jpeg" id={id} onChange={onChange} type="file" />
@@ -63,6 +63,7 @@ UploadAvatar.propTypes = {
   alt: PropTypes.string,
   title: PropTypes.string,
   src: PropTypes.string,
+  type: PropTypes.string,
   customStyle: PropTypes.string,
   handleChange: PropTypes.func.isRequired
 };
@@ -71,6 +72,7 @@ UploadAvatar.defaultProps = {
   id: 'uploader-avatar-artist-form-input',
   alt: '',
   title: '',
+  type: '',
   src: '',
   customStyle: ''
 };

@@ -1,4 +1,5 @@
 import gql from "graphql-tag";
+import { entitySchema } from "../../utils/entity.util";
 import { userApolloSchema } from "../../utils/user.util";
 
 export const oneUserQuery = gql`
@@ -25,6 +26,18 @@ export const allUsersQuery = gql`
       user: $user
     ) {
       ${userApolloSchema}
+    }
+  }
+`;
+
+export const allEntitiesQuery = gql`
+  query allEntities(
+    $entity: EntityInput
+  ){
+    allEntities( 
+      entity: $entity
+    ) {
+      ${entitySchema}
     }
   }
 `;

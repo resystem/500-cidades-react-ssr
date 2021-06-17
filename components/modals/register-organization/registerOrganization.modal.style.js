@@ -10,7 +10,7 @@ export const Wrapper = styled.section`
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 500;
+  z-index: 10;
   margin-top: 50px;
 `;
 

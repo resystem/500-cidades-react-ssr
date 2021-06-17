@@ -12,6 +12,7 @@ export const PreLoaderImage = styled.img`
   font-family: 'Roboto', sans-serif;
 
   ${(props) => props.customStyle}
+  ${(props) => props.type === 'square' ? 'border-radius: 8px;' : ''}
 `;
 
 export const Uploader = styled.label`
@@ -25,6 +26,7 @@ export const Uploader = styled.label`
   align-self: center;
 
   ${(props) => props.customStyle}
+  ${(props) => props.type === 'square' ? 'border-radius: 8px;' : ''}
 `;
 
 export const Icon = styled.img`

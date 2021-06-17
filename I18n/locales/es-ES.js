@@ -11,6 +11,7 @@ import educationList from './lists/education/education.es-ES';
 
 import activistForm from './components/activist-form/activistForm.es-ES';
 import activistModal from './components/activist-modal/activistModal.es-ES';
+import collectiveForm from './components/collective-form/collectiveForm.es-ES';
 
 export default {
   translations: {
@@ -41,5 +42,6 @@ export default {
     education_list: educationList,
     activist_form: activistForm,
     activist_modal: activistModal,
+    collective_form: collectiveForm,
   }
 }

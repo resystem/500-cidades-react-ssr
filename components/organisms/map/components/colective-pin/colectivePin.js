@@ -3,13 +3,13 @@ import React, { useEffect, useLayoutEffect, useState } from 'react';
 import { MapContainer, Marker, TileLayer,  } from 'react-leaflet';
 import { DivIcon } from 'leaflet';
 import ReactDOMServer from 'react-dom/server'
-import { PinContainer } from './colectivePin.style';
+import { PinContainer, ImageContainer, Image } from './colectivePin.style';
 
 const ColectivePin = ({ imageUrl }) => ReactDOMServer.renderToString(
   <PinContainer>
-    <svg width="60" height="76" viewBox="0 0 60 76" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="78" height="98" viewBox="0 0 60 76" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g /* style="mix-blend-mode:multiply" */ filter="url(#filter0_f)">
-        <ellipse cx="30" cy="69.5" rx="25" ry="1.5" fill="#3B2737"/>
+        <ellipse cx="30" cy="69.5" rx="25" ry="1.5" fill={`url(#${imageUrl}1)`}/>
       </g>
       <path fillRule="evenodd" clipRule="evenodd" d="M11 0C6.58172 0 3 3.58172 3 8V48C3 52.4183 6.58172 56 11 56H23.1001L29.3133 65.6146C29.7073 66.2242 30.5991 66.2242 30.9931 65.6146L37.2063 56H51C55.4183 56 59 52.4183 59 48V8C59 3.58172 55.4183 0 51 0H11Z" fill="#3B2737"/>
       <rect x="7" y="4" width="48" height="48" rx="4" fill="url(#pattern0)"/>
@@ -19,13 +19,14 @@ const ColectivePin = ({ imageUrl }) => ReactDOMServer.renderToString(
           <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
           <feGaussianBlur stdDeviation="2.5" result="effect1_foregroundBlur"/>
         </filter>
-        <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
-          <use xlinkHref="#image0" transform="translate(-0.16 -0.40) scale(0.00187729)"/>
+        <pattern id={`${imageUrl}1`} patternContentUnits="objectBoundingBox" width="1" height="1">
+          <use xlinkHref={`#${imageUrl}`} transform="translate(-0.16 -0.40) scale(0.00187729)"/>
         </pattern>
-        <image id="image0" width="667" height="1000"  xlinkHref={imageUrl}/>
       </defs>
     </svg>
-
+    <ImageContainer>
+      <Image objectFit="cover" id={imageUrl} src={imageUrl}  xlinkHref={imageUrl}/>
+    </ImageContainer>
   </PinContainer>
 );
 

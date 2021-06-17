@@ -12,9 +12,12 @@ export const Wrapper = styled.section`
 `;
 
 export const Container = styled.div`
-  height: calc(100vh - 56px);
+  opacity: 1;
+  height: calc(100vh - 50px);
   width: 100%;
   max-width: 600px;
+  display: grid;
+  grid-template-rows: 56px 1fr;
 `;
 
 export const Header = styled.header`

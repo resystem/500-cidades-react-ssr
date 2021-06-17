@@ -17,9 +17,6 @@ phases:
       - echo Build completed on `date`
 artifacts:
   files:
-    - .next/**/*
-    - public/**/*
-    - .ebextensions/**/*
-    - package.json
+    - '**/*'
 
 

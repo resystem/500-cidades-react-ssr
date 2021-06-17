@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import {
   CheckboxContainer,
@@ -12,19 +12,19 @@ function Checkbox({
   children,
   handleClick,
   value,
-  customStyle,
-  disabled,
-  onFocus,
-  onBlur,
 }) {
   const [checked, setChecked] = useState(value);
 
   function handleCheckboxChange() {
     setChecked(!checked);
   }
-  useEffect(() => {
-    handleClick({ target: { value: checked }})
+  useLayoutEffect(() => {
+    if (value !== checked) handleClick({ target: { value: value }})
   }, [checked]);
+  useLayoutEffect(() => {
+    if (value !== checked) setChecked(value)
+  }, [value]);
+
   return (
     <CheckboxContainer checked={checked} onClick={handleCheckboxChange}>
       <HiddenCheckbox checked={checked} onClick={handleCheckboxChange} />

@@ -9,9 +9,9 @@ const ActivistPin = ({ imageUrl }) => ReactDOMServer.renderToString(
   <PinContainer>
     <svg width="80" height="80" viewBox="0 0 112 145" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g filter="url(#filter0_f)">
-        <ellipse cx="27.1533" cy="69.4235" rx="15.5161" ry="1.57779" fill="#96638C"/>
+        <ellipse cx="27.1533" cy="69.4235" rx="15.5161" ry="1.57779" fill="#3B2737"/>
       </g>
-      <path fill-rule="evenodd" clip-rule="evenodd" d="M56 0C25.0721 0 0 25.0721 0 56C0 81.3261 16.8123 102.726 39.8851 109.647L55.1677 132.58C55.5635 133.174 56.4362 133.174 56.832 132.58L72.1146 109.647C95.1876 102.726 112 81.3262 112 56C112 25.0721 86.9279 0 56 0Z" fill="#96638C"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M56 0C25.0721 0 0 25.0721 0 56C0 81.3261 16.8123 102.726 39.8851 109.647L55.1677 132.58C55.5635 133.174 56.4362 133.174 56.832 132.58L72.1146 109.647C95.1876 102.726 112 81.3262 112 56C112 25.0721 86.9279 0 56 0Z" fill="#3B2737"/>
       <g opacity="0.5" filter="url(#filter1_f)">
         <ellipse cx="56" cy="136.5" rx="34" ry="3.5" fill="#3B2737"/>
       </g>
