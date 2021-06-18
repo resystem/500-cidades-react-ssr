@@ -33,7 +33,7 @@ const About = ({
           <Location>{location}</Location>
           <Type>
             <AgentIcon src="/icons/agent.svg" />
-            <AgentLabel>{t('activist_modal.activist')}</AgentLabel>
+            <AgentLabel>{t('organization_modal.organization')}</AgentLabel>
           </Type>
           <Line />
           <SocialMediaContainer>

@@ -94,7 +94,7 @@ const mapAddress = (address) => ({
   lng: address.lng,
 });
 
-export const handleSubmit = async (organization, userId, setUser, closeModal, activists, setActivists, setLoading) => {
+export const handleSubmit = async (organization, userId, setUser, closeModal, entities, setEntities, setLoading) => {
 console.log('🚀 ~ userId', userId);
 console.log('🚀 ~ organization', organization);
   let createdImage;
@@ -131,22 +131,18 @@ console.log('🚀 ~ organization', organization);
     console.log('🚀 ~ err', [err]);
   }
   try {
-    console.log('🚀 ~ createdAddress', createdAddress);
     const mappedOrganization = mapOrganization(organization, createdAddress.data.createAddress.id, userId)
-    console.log('🚀 ~ mappedOrganization', mappedOrganization);
-    console.log('🚀 ~ createdImage', createdImage);
     if (createdImage) mappedOrganization.profile_image = createdImage.data.createImage.id;
     
-    const createdActivist = await client().mutate({
+    const createdEntity = await client().mutate({
       mutation: createEntityMutation,
       variables: {
         entity: mappedOrganization,
       }
     });
-    console.log('🚀 ~ createdActivist', createdActivist);
+    console.log('🚀 ~ createdEntity', createdEntity);
 
-  //   setUser(createdActivist.data.createUser);
-  //   setActivists([...activists, createdActivist.data.createUser]);
+    setEntities([...entities, createdEntity.data.createUser]);
     closeModal();
     setLoading(false);
   } catch(err) {

@@ -18,7 +18,7 @@ import { useTranslation } from 'react-i18next';
  */
 const RegisterOrganizationModal = ({
 }) => {
-  const { closeModal, modals, user, setUser, activists, setActivists } = useContext(Store);
+  const { closeModal, modals, user, setUser, entities, setEntities } = useContext(Store);
   const [isLoading, setLoading] = useState(false);
   const { t } = useTranslation();
   if (!modals.registerOrganization) return null;
@@ -31,7 +31,7 @@ const RegisterOrganizationModal = ({
           <MenuIcon src="/icons/dots_menu.svg" />
         </Header>
         <HandleCollectiveForm
-          handleSubmit={(organization) => handleSubmit(organization, user.id, setUser, closeModal, activists, setActivists, setLoading)}
+          handleSubmit={(organization) => handleSubmit(organization, user.id, setUser, closeModal, entities, setEntities, setLoading)}
           isLoading={isLoading}
           handleCancel={() => closeModal()}
         />

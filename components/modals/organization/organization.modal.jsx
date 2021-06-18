@@ -43,7 +43,6 @@ const OrganizationModal = ({
           <MenuIcon src="/icons/dots_menu.svg" />
         </Header>
         <ContentWrapper>
-          aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
           <About
             avatarImage={ organization.profile_image?.single_size?.mimified }
             name={ `${organization.social_name || organization.name}` }
