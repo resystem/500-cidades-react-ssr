@@ -75,6 +75,7 @@ const MapComponent = () => {
       type: 'activist',
     }))
     const newMarkers = myActivists.concat(entities);
+    console.log('🚀 ~ newMarkers', newMarkers);
     setMarkers(newMarkers);
   }, [activists, entities]);
 
