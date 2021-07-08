@@ -58,7 +58,7 @@ const createImageMutation = gql`
 `;
 
 const mapOrganization = (organization, addressId, userId) => ({
-  biografy: organization.biography,
+  biography: organization.biography,
   birth_date: strToDateDDMMYYYY(organization.birthDate),
   email: organization.email,
   facebook: organization.facebook,

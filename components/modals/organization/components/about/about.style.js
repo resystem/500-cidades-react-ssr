@@ -15,9 +15,9 @@ export const AboutContainer = styled.div`
 `;
 
 export const ProfileImage = styled.img`
-  width: 150px;
-  height: 150px;
-  border-radius: 100%;
+  width: 180px;
+  height: 180px;
+  border-radius: 8px;
   margin-right: 22px;
   object-fit: cover;
 `;

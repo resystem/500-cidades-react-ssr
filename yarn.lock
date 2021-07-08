@@ -769,10 +769,10 @@
   resolved "https://registry.yarnpkg.com/@opentelemetry/context-base/-/context-base-0.14.0.tgz#c67fc20a4d891447ca1a855d7d70fa79a3533001"
   integrity sha512-sDOAZcYwynHFTbLo6n8kIbLiVF3a3BLkrmehJUyEbT9F+Smbi47kLGS2gG2g0fjBLR/Lr1InPD7kXL7FaTqEkw==
 
-"@resystem/ida-js-sdk@^0.2.6":
-  version "0.2.6"
-  resolved "https://registry.yarnpkg.com/@resystem/ida-js-sdk/-/ida-js-sdk-0.2.6.tgz#e24bd9eeca0afb2741f436345632dcc7196427bb"
-  integrity sha512-sQKHNi/uylawl3VYypOkFUqPtX+kaQVsAp/V1wd/iF40dVCN8wViJEKBicaKf9rmRF8x/Zhqkn/xv8fnXWhlmQ==
+"@resystem/ida-js-sdk@^0.2.13":
+  version "0.2.13"
+  resolved "https://registry.yarnpkg.com/@resystem/ida-js-sdk/-/ida-js-sdk-0.2.13.tgz#0653e52d9d674496b404fed9cf2ebddf7c2a976a"
+  integrity sha512-x/eYKb6CX3ohLQlX4WxX8WFPpnr5OnGZjnN/mhD9IRerJYkjeI4KOR4zV5g/9hMuOuGsiH2S4YiJ/E4gbfLWaQ==
   dependencies:
     "@babel/core" "^7.11.6"
     "@babel/helper-regex" "^7.10.5"

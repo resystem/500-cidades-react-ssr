@@ -1,6 +1,6 @@
 export const entitySchema = `
   id
-  biografy
+  biography
   birth_date
   email
   occupation

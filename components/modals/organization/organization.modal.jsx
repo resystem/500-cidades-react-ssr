@@ -35,6 +35,7 @@ const OrganizationModal = ({
   if (!modals.organization || !modalInfo) return null;
   const organization = modalInfo.organization;
   if (!organization) return null;
+  console.log('🚀 ~ organization', organization);
   return (
     <Wrapper onClick={ () => closeModal() }>
       <Container onClick={ e => e.stopPropagation() }>
@@ -56,6 +57,24 @@ const OrganizationModal = ({
             <SectionTitle>{ t('organization_form.labels.biography') }</SectionTitle>
             <BiographyText>{ organization.biography }</BiographyText>
           </Biography>
+          <Line />
+          <Characteristic
+            label={ t('organization_modal.address') }
+            value={`
+              ${organization.address?.street} ${organization.address?.number}
+              - ${organization.address?.district}, ${organization.address?.city}
+              - ${organization.address?.state} - ${organization.address?.country}
+            `}
+          />
+          <Characteristic
+            value={`
+              ${VMasker.toPattern(organization.address?.zipcode, '99999-999')}
+            `}
+          />
+          <Characteristic
+            label="Pode ser um ponto de HOSPEDAGEM?"
+            value="SIM"
+          />
           <Contact>
             <SectionTitle>{ t('organization_form.subtitles.personalInformation') }</SectionTitle>
             <ContactInfo
@@ -80,29 +99,9 @@ const OrganizationModal = ({
             />
           </Contact>
           <Characteristic
-            label={ t('organization_form.labels.gender') }
-            value={ t(`gender_list.${organization.gender}`) }
-            hide={ !organization.gender }
-          />
-          <Characteristic
-            label={ t('organization_form.labels.sexualOrientation') }
-            value={ t(`sex_orientation_list.${organization.sexual_orientation}`) }
-            hide={ !organization.sexual_orientation }
-          />
-          <Characteristic
-            label={ t('organization_form.labels.colorRace') }
-            value={ t(`race_list.${organization.color_race}`) }
-            hide={ !organization.color_race }
-          />
-          <Characteristic
-            label={ t('organization_form.labels.deficiency') }
-            value={ t(`disability_list.${organization.deficiency}`) }
-            hide={ !organization.deficiency }
-          />
-          <Characteristic
             label={ t('organization_form.labels.birthDate') }
             value={ VMasker.toPattern(dateToStrDDMMYYYY(new Date(+organization.birth_date)), '99/99/9999') }
-            hide={ !organization.birthDate }
+            hide={ !organization.birth_date }
           />
           <Characteristic
             label={ t('organization_form.labels.sign') }
@@ -156,15 +155,7 @@ const OrganizationModal = ({
           >Areas de interesse</SectionTitle>
           <TagList tags={organization.interests} customStyle={maxWidthCustomStyle} />
           */}
-          <Line />
-          <Characteristic
-            label={ t('organization_modal.address') }
-            value={ `${organization.address?.city} - ${organization.address?.state}` }
-          />
-          {/* <Characteristic
-            label="Pode ser um ponto de hospedagem?"
-            value="Sim"
-          /> */}
+          
           <SectionTitle
             customStyle={ sectionTitleCustomStyle }
             hide={ !organization.education }

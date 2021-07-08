@@ -12,6 +12,7 @@ import {
 const Characteristic = ({
   label, value, hide
 }) => {
+  console.log('🚀 ~ value', value);
   if (hide) return null
   return (
     <CharacteristicContainer>
